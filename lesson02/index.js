@@ -1,4 +1,5 @@
 "use strict";
+
 /* one */
 /*const str = "Привет", 
 num = 123, 
@@ -22,10 +23,10 @@ a5 = 12*13*14;
 console.log(a1,a2,a2,a4,a5);*/
 
 /* three */
-/*
-let s = 43 * 27;
-console.log('Площадь прямоугольника: ' + s + ' см');
-*/
+
+/* let s , a = parseInt("43см"), b = parseInt("27см");
+    s = a * b;
+console.log('Площадь прямоугольника: ' + s + ' см\u00B2'); */
 
 /* four */
 /*let k;
@@ -34,7 +35,7 @@ console.log('Гипотенуза треугольника: ' + k + ' см');*/
 
 /* five */
 /* let creditSize = 1000,
-    interestRate = 10,
+    interestRate = parseInt("10%"),
     countYears = 5,
     creditOverPayment,
     payForMonth,
@@ -60,7 +61,7 @@ document.write(a * b * c); */
 
 /* eight */
 /* let age = 25;
-document.write('Мне' + 	' %' + age + 	'% ' + 'лет!'); */
+document.write('Мне' + 	' %' + age + '% ' + 'лет!'); */
 
 /* nine */
 /* let hour = 22, minute = 16, second = 15;
