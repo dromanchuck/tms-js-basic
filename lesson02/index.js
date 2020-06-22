@@ -1,119 +1,92 @@
 "use strict";
+/* one */
+/*const str = "Привет", 
+num = 123, 
+flag = true, 
+txt = "true";
+console.log(typeof(str),typeof(123),typeof(true),typeof("true"))*/
 
-//однострочный комментарий
+/* two */
+/*let a1, 
+a2, 
+a3, 
+a4, 
+a5;
 
+a1 = (5 + 3) * (5 - 3);
+a2 = (10 - 6) * 200;
+a3 = 534 * 132 / 18;
+a4 = 123 * 3 + 10;
+a5 = 12*13*14;
+
+console.log(a1,a2,a2,a4,a5);*/
+
+/* three */
 /*
-Многострочный 
-комментарий
+let s = 43 * 27;
+console.log('Площадь прямоугольника: ' + s + ' см');
 */
 
-//alert(сообщение) - вывод модального окна с сообщением
-//console.log(сообщение) - вывод сообщения в консоли браузера 
+/* four */
+/*let k;
+k = Math.sqrt((3 ** 2) + (4 ** 2));
+console.log('Гипотенуза треугольника: ' + k + ' см');*/
 
-//Переменная – это «именованное хранилище» для данных.
-//Для создания переменных используем var, let, const
+/* five */
+/* let creditSize = 1000,
+    interestRate = 10,
+    countYears = 5,
+    creditOverPayment,
+    payForMonth,
+    i;
+i = interestRate / 100 / 12;
+payForMonth = creditSize * ((i * ((1 + i) ** (countYears * 12))) / (((1 + i) ** (countYears * 12)) - 1));
+creditOverPayment = (((countYears * 12) * payForMonth) - creditSize);
+console.log('Переплата по кредиту: ' + creditOverPayment + ' бел. руб.'); */
 
-var count = 10; //изменяемая переменная (не забываем что это устаревший способ создания переменных, вместо него используем let)
-let count1 = 11; // создание изменяемой переменной
+/* six */
+/* let secondInAWeek,
+    second = 1,
+    data = '22.06.2020';
+secondInAWeek = second * (60 ** 2) * 24 * 7;
+alert('Сегодня ' + data + ' я узнал, что колиство секунд в одной неделе составляет: ' +  secondInAWeek + 'cек');  */
 
-count1 = "Hello world"; // изменили значение переменной count1 было 11 стало Hello world
+/* seven */
+/* let a = 10, b = 2, c = 5;
 
-const count2 = 12; //создание неизменяемой переменной, попытка изменения приведет к ошибке
+console.log(a * b * c);
+alert(a * b * c);
+document.write(a * b * c); */
 
-//Типы данных
+/* eight */
+/* let age = 25;
+document.write('Мне' + 	' %' + age + 	'% ' + 'лет!'); */
 
-let num = 123; //число
-let str = "Hi world"; //строка
-let bool = true; //булевое или логическое значение (может быть true или false)
-bool = false;
+/* nine */
+/* let hour = 22, minute = 16, second = 15;
+document.write("Время: " + hour + ":" + minute + ":" + second); */
 
-let empty = null; //cпециальное значение, означает "значение неизвестно"
-let unDevined = undefined //специальное значение, означает "значение не было присвоено"
-let obj = { str: 'String', num: 10 }; //объект, сложный тип данных, который представляет собой коллекцию данных
+/* ten */
+/* let num = 10;
+  num = ++num;
+  num = ++num;
+  num = --num;
+alert(num); */
 
-//typeof
-//используется для определения типа данных
+/* eleven */
+/* let a6, a7, a8, a9, a10;
+ a6 = 5 % 3;
+ a7 = 3 % 5;
+ a8 = 5 + "3";
+ a9 = '5' - 3;
+ a10 = 75 + 'кг';
+console.log(a6, a7, a8, a9, a10); */
 
-const type1 = typeof 'Its string'; //string
-const type2 = typeof 123;//number
-const type3 = typeof true;//boolean
 
 
-//Строка
 
-//создание строки при помощи одинарных и двойных ковычек
-let str = 'Hello';
-let str1 = "Hello";
 
-//создание строки при помощи обратных ковычек
 
-let str2 = `Hello`;
 
-//отличие обратных ковычек состоит в том, что с их помощью можно создавать шаблоны строк используя ${}
 
-let amount = 1000000;
 
-let str3 = `I have ${amount} dollars`;
-
-//Преобразование типов
-//String(переменная) - преобразует переменную в строку
-let str = String(123); // получим '123'
-let str1 = String(true); //получим 'true'
-
-//Number(переменная) - преобразует переменную в число
-
-let num = Number('123') // получим число 123
-let num1 = Number(true) // 1
-let num2 = Number(false) //0
-let num3 = Number('Test') // NaN (not a number) значит преобразование не удалось
-
-//Boolean(переменная) - преобразует переменную в булевое значение
-
-let bool = Boolean(123); //true
-let bool1 = Boolean(0); //false
-let bool3 = Boolean('0'); //true
-let bool2 = Boolean(''); //false
-let bool3 = Boolean('Test'); //true
-
-//Еще пару слов о преобразовании
-
-//преобразование к числу происходит при использовании математических операций
-
-let result = '6' / 2; //3
-let result1 = 10 / '2' //5
-
-//при использовании +, если одно из двух значений будет строкой то оба значения переведутся к строке и произойдет сложение строк
-
-let str = '6' + 2; //62
-
-//Основные операторы
-
-//+ - сложение чисел и сложение строк
-
-let result = 12 + 12; //24
-let str = 'Hello' + 'World'; //HelloWorld
-
-// -, *, / 
-//соответственно отнимание, умножение, деление
-
-let sub = 12 - 24; // -12
-let del = 12 / 12; //1
-let umn = 12 * 12; //144
-
-//% - остаток от деления
-
-let ostatok = 10 % 3; //1 - 3*3 + 1
-
-//** - возведение в степень
-
-let result = 2 ** 5; //2 в степени 5 = 32
-
-//инкремент и декремент
-
-let i = 1;
-
-let newI = i++; // в newI 1, а в i 2
-
-let i = 1;
-
-let newI = ++i; // в newI 2 и в i 2
