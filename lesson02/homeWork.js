@@ -13,13 +13,13 @@
  * При помощи оператора определения типа убедитесь, что переменных принадлежат типам: string, number, boolean.
  */
 let str = 'Привет';
-console.log(typeof 'Привет');
+console.log(typeof str);
 let txt = 'true';
-console.log(typeof 'true');
+console.log(typeof txt);
 let num = 123;
-console.log(typeof 123);
+console.log(typeof num);
 let flag = true;
-console.log(typeof true);
+console.log(typeof flag);
 
 /**Задание №1
 * Создайте переменные a1, a2, a3, a4, a5. При помощи математических операторов найдите значения выражений:
@@ -89,7 +89,6 @@ let b = 2;
 let c = 5;
 let summ = a + b + c;
 console.log(summ);
-//document.write(summ);
 document.getElementById('task6').innerHTML = summ;
 
 
@@ -99,7 +98,6 @@ document.getElementById('task6').innerHTML = summ;
  * Выведите на экран 'Мне %Возраст% лет!'.
  */
 let age = 20;
-// document.write('Мне ' + age + ' лет');
 document.getElementById('task7').innerHTML = 'Мне ' + age + ' лет';
 
 /**
@@ -110,7 +108,6 @@ document.getElementById('task7').innerHTML = 'Мне ' + age + ' лет';
 let hr = ' 00';
 let min = '55';
 let sec = '00';
-// document.write(hr + ':' +  min + ':' + sec );
 document.getElementById('task8').innerHTML = hr + ':' + min + ':' + sec;
 
 /**
