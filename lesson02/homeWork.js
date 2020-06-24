@@ -130,7 +130,7 @@ console.log(`Площадь прямоугольника равна: ${c}`);
 //Задание №3.
 let n = 3;
 let m = 4;
-let k = (n ** 2) + (m ** 2); // альтернатива(n * n) + (m * m)
+let k = Math.sqrt((n ** 2) + (m ** 2)); // альтернатива(n * n) + (m * m)
 console.log(`Гипотенуза равна: ${k}`);
 
 //Задание №4.
@@ -141,10 +141,20 @@ let overpayment = (duty / percent * duration);
 console.log(`Переплата составляет: ${overpayment} тыс.бел.руб`);
 
 //Задание №5.
-let status = 604800; // Секунд в одной неделе
-let week = 1; // Количество недель
-let total = status * week; // Секунд в неделях
-alert(`Сегодня 22 июня... я узнал, что колиство секунд * одной неделе составляет ${total}`);
+let mins = 60;
+let hours = mins * mins;
+let days = hours * 24;
+let statuss = days * 7; // Секунд в одной неделе
+let weeks = 1; // Количество недель
+let totals = statuss * weeks; // Секунд в неделях
+
+/*Либо
+let day = 7;
+let hour = 24;
+let minut = 60;
+let second = 60;
+let result = day * hour * minut * second;*/
+alert(`Сегодня 22 июня... я узнал, что колиство секунд * одной неделе составляет ${totals}`);
 
 //Задание №6.
 let a = 10;
@@ -156,8 +166,8 @@ console.log(`Сумма чисел равна: ${d}`);
 
 //Задание №7.
 let age = 20;
-alert(`'Мне %${age}% лет!'.`);
-console.log(`'Мне %${age}% лет!'.`);
+alert(`Мне %${age}% лет!.`);
+console.log(`Мне %${age}% лет!.`);
 
 //Задание №8.
 let ho = '19:';
