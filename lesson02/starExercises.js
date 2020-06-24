@@ -1,3 +1,4 @@
+'use strict'
 /**
  * Дополнительное домашнее задание к занятию 2
  *
@@ -15,6 +16,15 @@
  * Созданный объект вывести в консоли.
  */
 
+let storeUser = {
+    name: 'Mike',
+    email: 'mike@yandex.ru',
+    likesFruits: true,
+    IQ: 120,
+};
+
+console.log(storeUser);
+
 /**
  * Задание 1
  * Создать объекты трех солдат,
@@ -22,6 +32,36 @@
  * Сравнить их по росту и весу. Результаты сохранить в переменные и вывести в консоль.
  */
 
+let soldier1 = {
+    name: 'Pasha',
+    surname: 'Antonov',
+    rank: 'soldier',
+    growth: 180,
+    weight: 78,
+};
+
+let soldier2 = {
+    name: 'Vasia',
+    surname: 'Popov',
+    rank: 'soldier',
+    growth: 180,
+    weight: 85,
+};
+
+let soldier3 = {
+    name: 'Toxa',
+    surname: 'Jackson',
+    rank: 'soldier',
+    growth: 180,
+    weight: 92,
+};
+
+let comparison = {
+    compareGrowth: soldier1.growth === soldier2.growth || soldier1.growth === soldier3.growth || soldier2.growth === soldier3.growth,
+    compareWeigth: soldier1.weight === soldier2.weight || soldier1.weight === soldier3.weight || soldier2.weight === soldier3.weight,
+};
+
+console.log(comparison);
 /**
  * Задание 2
  * Подсчитайте следующие выражения:
@@ -30,6 +70,13 @@
  *
  * Сравните результаты и выведите результаты сравнения в консоль
  */
+
+let a = (10 + 20 * 3) / (4 * 134),
+    b = (1000 / 3 + 130 / (12 * 36)),
+    c = a === b;
+
+//console.log('Результаты: ${a}, ${b}. Результат сравнения - ${c}'); не заработала. Выводит просто текстом результат , а не переменными!!!
+console.log(a, b, c);
 
 /**
  * Задание 3
@@ -43,6 +90,20 @@
  * Подсказка: посмотреть операторы += -=
  */
 
+let tree = {
+    name: 'Klen',
+    height: 15,
+    listCount: 1500,
+    type: 'tralala'
+};
+
+console.log(tree.height, tree.listCount);
+
+tree.height -=3;
+tree.listCount -=500;
+
+console.log(tree.height, tree.listCount);
+
 /**
  * Задание 4
  * Создать объект родитель у которого есть следующие поля:
@@ -50,3 +111,16 @@
  *
  *Вывести данный объект в консоль
  */
+
+let parent = {
+    name: 'John',
+    surname: 'Smith',
+    years: 35,
+    children: {
+        firstChild: 'Antony',
+        secondChild: 'Mike',
+        thirdChild: 'Nike',
+    }
+};
+
+console.log(parent);
