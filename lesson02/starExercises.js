@@ -14,6 +14,14 @@
  * объект должен содержать следущие поля: имя, email, нравятся ли ему фрукты, показатель IQ.
  * Созданный объект вывести в консоли.
  */
+let user = {
+    name: 'Vasya',
+    email: 'vasya@gmail.com',
+    fruts: true,
+    IQ: 100
+};
+
+console.log(user);
 
 /**
  * Задание 1
@@ -21,6 +29,46 @@
  * объект должен содержать следущие поля: имя, фамилия, звание, рост, вес.
  * Сравнить их по росту и весу. Результаты сохранить в переменные и вывести в консоль.
  */
+let soldier1 = {
+    name: 'Ivan',
+    surname: 'Ivanov',
+    rank: 'Sergeant',
+    growth: 178,
+    weight: 70
+},
+    soldier2 = {
+    name: 'Petr',
+    surname: 'Petrov',
+    rank: 'Sergeant',
+    growth: 178,
+    weight: 70
+},
+    soldier3 = {
+    name: 'Semen',
+    surname: 'Semenov',
+    rank: 'Lieutinant',
+    growth: 185,
+    weight: 90
+};
+
+let comparison = {
+   s1s2: {
+       growth1: soldier1.growth == soldier2.growth,
+       height1: soldier1.weight == soldier2.weight
+    },
+
+    s2s3: {
+        growth2: soldier2.growth == soldier3.growth,
+        height2: soldier2.weight == soldier3.weight
+    },
+
+    s3s1: {
+        growth3: soldier3.growth == soldier1.growth,
+        height3: soldier3.weight == soldier1.weight
+    }
+};
+
+console.log(comparison);
 
 /**
  * Задание 2
@@ -30,6 +78,11 @@
  *
  * Сравните результаты и выведите результаты сравнения в консоль
  */
+let a = (10 + 20*3)/(4*134),
+    b = (1000/3 + 130/(12*36)),
+    c = a == b;
+
+console.log(c);
 
 /**
  * Задание 3
@@ -42,6 +95,19 @@
  * Необходимо вывести в консоль объект, а затем "укоротить" дерево, и вывести в консоль.
  * Подсказка: посмотреть операторы += -=
  */
+let wood = {
+    name: 'Birch',
+    height: 10,
+    leaves: 13376,
+    family: 'Plant'
+};
+
+console.log(wood);
+
+wood.height -= 3;
+wood.leaves -= 1238;
+
+console.log(wood);
 
 /**
  * Задание 4
@@ -50,3 +116,15 @@
  *
  *Вывести данный объект в консоль
  */
+let parent = {
+    name: 'Ivan',
+    surname: 'Ivanov',
+    age: 33,
+    children: {
+        child1: 'Petr',
+        child2: 'Vasya',
+        child3: 'Tom'
+    }
+};
+
+console.log(parent);
