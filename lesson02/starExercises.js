@@ -55,18 +55,18 @@ let soldier1 = {
 
 let comparison = {
    s1s2: {
-       growth1: soldier1.growth == soldier2.growth,
-       height1: soldier1.weight == soldier2.weight
+       growth1: soldier1.growth === soldier2.growth,
+       height1: soldier1.weight === soldier2.weight
     },
 
     s2s3: {
-        growth2: soldier2.growth == soldier3.growth,
-        height2: soldier2.weight == soldier3.weight
+        growth2: soldier2.growth === soldier3.growth,
+        height2: soldier2.weight === soldier3.weight
     },
 
     s3s1: {
-        growth3: soldier3.growth == soldier1.growth,
-        height3: soldier3.weight == soldier1.weight
+        growth3: soldier3.growth === soldier1.growth,
+        height3: soldier3.weight === soldier1.weight
     }
 };
 
@@ -83,7 +83,7 @@ console.log(comparison);
 
 let a = (10 + 20*3)/(4*134),
     b = (1000/3 + 130/(12*36)),
-    c = a == b;
+    c = a === b;
 
 console.log(c);
 
