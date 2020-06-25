@@ -15,13 +15,13 @@
  * Определите переменные str, num, flag и txt со значениями «Привет», 123, true, «true».
  * При помощи оператора определения типа убедитесь, что переменных принадлежат типам: string, number, boolean.
  */
-let str = '"Привет"'; //определяем переменную
-let number = '123';
-let flag = 'true';
-let txt = '"true"'
-alert (str); // показывает содержимое переменной
-alert (number);
-alert (flag);
+let str = 'Привет';//определяем переменную
+number = 123,
+flag = true,
+txt = true;
+console.log(typeof 123); // показывает содержимое переменной
+console.log(typeof true)
+console.log(typeof привет)
 alert (txt);
 
 /**Задание №1
