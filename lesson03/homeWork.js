@@ -13,16 +13,6 @@
  */
 
 
-let num1 = prompt('number1'),
-    num2 = prompt('number2');
-
-if (num1 > num2) {
-    alert('number1 больше')
-} else if (num1 < num2) {
-    alert('number2 больше')
-} else {
-    alert('False')
-}
 
 /**
  * Задание 1
