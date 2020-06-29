@@ -64,7 +64,21 @@ let a = +prompt("Число 1"," "),
         } else {
         i++;
     }
+} 
+// более красивое решение 
+const numbers = [5, 6, 2, 3, 7];
+
+max = -Infinity, min = +Infinity;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > max) {
+    max = numbers[i];
+  }
+  if (numbers[i] < min) {
+    min = numbers[i];
+  }
 }
+console.log(max, min);
 /**
  * Задание 3
  * Напишите цикл от 0 до 15. И в каждой итерации цикла нужно проверить четное число или нечетное.
