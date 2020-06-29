@@ -16,11 +16,11 @@ let num1 = prompt('number1'),
     num2 = prompt('number2');
 
 if (num1 > num2) {
-    alert('number1 больше')
+    alert(num1 + ' больше')
 } else if (num1 < num2) {
-    alert('number2 больше')
+    alert(num2 + ' больше')
 } else {
-    alert('False')
+    alert('Нет наибольшего')
 }
 
 /**
@@ -79,14 +79,14 @@ for (let i = 0; i < 16; i++) {
  */
 
 
-let student = ['Вася','Зина','Катя','Петя','Вова'],
+let student = ['Вася', 'Зина', 'Катя', 'Петя', 'Вова'],
     ball = [80, 77, 88, 95, 57],
     name,
     a;
-for (let i = 0; i < 5; i++){
+for (let i = 0; i < 5; i++) {
     a = ball[i];
     name = student[i];
-    switch (true){
+    switch (true) {
         case a > 90:
             alert(`${name}, оценка: 5`);
             break;
@@ -101,7 +101,7 @@ for (let i = 0; i < 5; i++){
             break;
         default:
             alert('not');
-    }    
+    }
 };
 
 
