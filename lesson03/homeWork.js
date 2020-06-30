@@ -119,13 +119,13 @@ let name = students[key];
 
 if (name >= 90) {
     alert(key + ' - 5')
-}else if (name >= 80) {
+} else if (name >= 80) {
     alert(key + ' - 4')
-}else if (name >= 70) {
+} else if (name >= 70) {
     alert(key + ' - 3')
-}else if (name >= 60) {
+} else if (name >= 60) {
     alert(key + ' - 2')
-}else if (name < 60) {
+} else if (name < 60) {
     alert(key + ' - 1')
 }
 
@@ -177,7 +177,7 @@ let sum3 = 0,
 for (let i = 1; i <= 100; i++) { 
     if (i % 3 == 0) {
         sum3 += i; 
-    }else if (i % 4 == 0){
+    } else if (i % 4 == 0){
         sum4 += i;
     }
 }
@@ -215,12 +215,12 @@ if (b1 >= b2 && b2 >= b3) {
     console.log(b3, b2, b1);
 } else if (b1 <= b2 && b2 <= b3) {
     console.log(b1, b2, b3);
-}else if (b1 >= b2 && b2 <= b3 && b1 >= b3) {
+} else if (b1 >= b2 && b2 <= b3 && b1 >= b3) {
     console.log(b2, b3, b1);
-}else if (b1 >= b2 && b2 <= b3 && b3 >= b1) {
+} else if (b1 >= b2 && b2 <= b3 && b3 >= b1) {
     console.log(b2, b1, b3);
-}else if (b1 <= b2 && b2 >= b3 && b1 >= b3) {
+} else if (b1 <= b2 && b2 >= b3 && b1 >= b3) {
     console.log(b3, b1, b2);
-}else if (b1 <= b2 && b2 >= b3 && b3 >= b1) {
+} else if (b1 <= b2 && b2 >= b3 && b3 >= b1) {
     console.log(b1, b3, b2);
 }
