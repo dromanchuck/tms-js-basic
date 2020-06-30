@@ -12,21 +12,17 @@
  * Напишите программу, которая сравнит 2 числа и выведет в алерт наибольшее.
  */
 
-for (i = 0; i < 2; i++){
-  let numberOne = +prompt('Число 1: '),
-      numberTwo = +prompt('Число 2: ');
-  if(numberOne != null, numberOne != '', numberTwo != null, numberTwo != '', numberOne > numberTwo){
-   alert(`Больше Число 1: ${numberOne}`)
-  }
-  else if (numberTwo > numberOne){
-   alert(`Больше Число 2: ${numberTwo}`);
-  } 
-  else{
-   console.log('error');
-   i--;
-  }
- }
-
+let numberOne = +prompt('Число 1: '),
+    numberTwo = +prompt('Число 2: ');
+if(numberOne != null, numberOne != '', numberTwo != null, numberTwo != '', numberOne > numberTwo){
+ alert(`Больше Число 1: ${numberOne}`)
+}
+else if (numberTwo > numberOne){
+ alert(`Больше Число 2: ${numberTwo}`);
+} 
+else{
+ console.log('error');
+}
 /**
  * Задание 1
  * Создайте три переменные a1, a2, a3 и положите в них числа (желательно использовать
@@ -38,9 +34,9 @@ for (i = 0; i < 2; i++){
 let a1 = -14,
     a2 = 10,
     a3 = -12;
-(a1 < 0 && a1 != 0) ? a1 = '-' : a1 = " ";
-(a2 < 0 && a2 != 0) ? a2 = '-' : a2 = " ";
-(a3 < 0 && a3 != 0) ? a3 = '-' : a3 = " ";
+(a1 < 0) ? a1 = '-' : a1 = " ";
+(a2 < 0) ? a2 = '-' : a2 = " ";
+(a3 < 0) ? a3 = '-' : a3 = " ";
 
 alert(`Знаки чисел: ${a1} , ${a2}, ${a3}`);
 
@@ -48,37 +44,39 @@ alert(`Знаки чисел: ${a1} , ${a2}, ${a3}`);
  * Задание 2
  * Создайте 5 чисел и найдите наибольшее при помощи условий и цикла
  */
-
-
 let a = +prompt("Число 1"," "),
     b = +prompt("Число 2"," "),
     c = +prompt("Число 3"," "),
     d = +prompt("Число 4"," "),
     e = +prompt("Число 5"," "),
     numbers = [a,b,c,d,e],
+    max = 0,
     i = 0;
     while(i < 5){
-        if (numbers[i] >= numbers[1] && numbers[i] >= numbers[2] && numbers[i] >= numbers[3] && numbers[i] >= numbers[4]){
-            alert(numbers[i]);
-            break;
-        } else {
-        i++;
-    }
-} 
-// более красивое решение 
-const numbers = [5, 6, 2, 3, 7];
+       if (numbers[i] > max){
+           max = numbers[i];
+       }
+       i++;
+    };
+    console.log(max);
 
-max = -Infinity, min = +Infinity;
-
-for (let i = 0; i < numbers.length; i++) {
-  if (numbers[i] > max) {
-    max = numbers[i];
-  }
-  if (numbers[i] < min) {
-    min = numbers[i];
-  }
+let a = +prompt("Число 1"," "),
+    b = +prompt("Число 2"," "),
+    c = +prompt("Число 3"," "),
+    d = +prompt("Число 4"," "),
+    e = +prompt("Число 5"," ");
+if (a >= b && a >= c && a >= d && d >= e){
+    console.log(a);
+} else if (b >= c && b >= d && b >= e){
+    console.log(b);
+} else if (c >= d && c >= e){
+    console.log(b);
+} else if (d >= e) {
+    console.log(d);
+} else {
+    console.log(e);
 }
-console.log(max, min);
+
 /**
  * Задание 3
  * Напишите цикл от 0 до 15. И в каждой итерации цикла нужно проверить четное число или нечетное.
@@ -181,7 +179,7 @@ while (i < max) {
  */
 let sum4 = 0,
     sum3 = 0;
-for (i = 0; i <= 10; i++){
+for (i = 0; i <= 1000; i++){
     if (i % 4 === 0){
      sum4 += i;
     }
@@ -198,7 +196,11 @@ console.log(sum4,sum3);
 let a = +prompt('Число 1: ',''),
     b = +prompt('Число 2: ','');
 while (a!=0 && b!=0){
-    (a > b) ? a = a % b : b = b % a;
+    if (a > b) {
+        (a = a % b)}
+    else {
+        b = b % a;
+    }
 }
 alert(a + b);
 /**
