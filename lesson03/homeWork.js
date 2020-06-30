@@ -14,7 +14,7 @@
 
 let numberOne = +prompt('Число 1: '),
     numberTwo = +prompt('Число 2: ');
-if(numberOne != null, numberOne != '', numberTwo != null, numberTwo != '', numberOne > numberTwo){
+if(numberOne != null && numberOne != '' && numberTwo != null && numberTwo != '' && numberOne > numberTwo){
  alert(`Больше Число 1: ${numberOne}`)
 }
 else if (numberTwo > numberOne){
@@ -34,11 +34,11 @@ else{
 let a1 = -14,
     a2 = 10,
     a3 = -12;
-(a1 < 0) ? a1 = '-' : a1 = " ";
-(a2 < 0) ? a2 = '-' : a2 = " ";
-(a3 < 0) ? a3 = '-' : a3 = " ";
+if (a1 < 0){a1 = '-'} else {a1 = " ";};
+if (a2 < 0){a2 = '-'} else {a2 = " ";};
+if (a3 < 0){a3 = '-'} else {a3 = " ";};
 
-alert(`Знаки чисел: ${a1} , ${a2}, ${a3}`);
+console.log(`Знаки чисел: ${a1} , ${a2}, ${a3}`);
 
 /**
  * Задание 2
