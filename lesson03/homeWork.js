@@ -181,6 +181,19 @@ console.log(`Задание 7\nсумма = ${sum}`);
  *
  */
 
+let a = +prompt('Введите число 1:');
+let b = +prompt('Введите число 2:'); 
+
+while(a != b) {
+    if ( a > b) {
+        a = a - b;
+    }
+    if (b > a) {
+        b =  b - a;
+    }
+}
+
+console.log(a);
 
 /**
  * Задание 9
