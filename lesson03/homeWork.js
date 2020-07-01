@@ -114,19 +114,19 @@ let students = {
     Петя: 95,
     Вова: 57,
 };
-let key = prompt("Введите имя студента: ", "Вася");
-let name = students[key];
 
-if (name >= 90) {
-    alert(key + ' - 5')
-} else if (name >= 80) {
-    alert(key + ' - 4')
-} else if (name >= 70) {
-    alert(key + ' - 3')
-} else if (name >= 60) {
-    alert(key + ' - 2')
-} else if (name < 60) {
-    alert(key + ' - 1')
+for (let key in students) {
+    if (students[key] >= 90) {
+        alert(key + ' - 5')
+    } else if (students[key] >= 80) {
+        alert(key + ' - 4')
+    } else if (students[key] >= 70) {
+        alert(key + ' - 3')
+    } else if (students[key] >= 60) {
+        alert(key + ' - 2')
+    } else if (students[key] < 60) {
+        alert(key + ' - 1')
+    }
 }
 
 /**
@@ -160,7 +160,7 @@ while (i <= 100) {
 let i = 1,
     str = '* ';
 
-while (r <= 5) {
+while (i <= 5) {
     let s = str.repeat(i);
     console.log(s);
     i++;
