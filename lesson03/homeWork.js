@@ -12,6 +12,7 @@
  * Напишите программу, которая сравнит 2 числа и выведет в алерт наибольшее.
  */
 
+<<<<<<< HEAD
 let numberOne = +prompt('Число 1: '),
     numberTwo = +prompt('Число 2: ');
 if(numberOne != null && numberOne != '' && numberTwo != null && numberTwo != '' && numberOne > numberTwo){
@@ -23,6 +24,19 @@ else if (numberTwo > numberOne){
 else{
  console.log('error');
 }
+=======
+let a1 = 12;
+let a2 = 24;
+
+if (a1 > a2) {
+  alert(a1);
+} else if (a1 < a2) {
+  alert(a2);
+} else {
+  alert("Equal");
+}
+
+>>>>>>> 4259c836ece3269968d793af3cda3333f66d3b1b
 /**
  * Задание 1
  * Создайте три переменные a1, a2, a3 и положите в них числа (желательно использовать
@@ -40,9 +54,36 @@ if (a3 < 0){a3 = '-'} else {a3 = " ";};
 
 console.log(`Знаки чисел: ${a1} , ${a2}, ${a3}`);
 
+let a1 = -100;
+let a2 = 12;
+let a3 = 14;
+
+let result;
+
+if (a1 < 0) {
+  result = result + "-,";
+} else {
+  result = result + ",";
+}
+
+if (a2 < 0) {
+  result = result + "-,";
+} else {
+  result = result + ",";
+}
+
+if (a3 < 0) {
+  result = result + "-";
+} else {
+  result = result + "";
+}
+
+alert(result);
+
 /**
  * Задание 2
- * Создайте 5 чисел и найдите наибольшее при помощи условий и цикла
+ * Создайте 5 чисел и найдите наибольшее при помощи условий
+ * Создайте 5 чисел и найдите наибольшее при помощи условий.
  */
 let a = +prompt("Число 1"," "),
     b = +prompt("Число 2"," "),
@@ -77,6 +118,42 @@ if (a >= b && a >= c && a >= d && d >= e){
     console.log(e);
 }
 
+let a1 = 10;
+let a2 = -19;
+let a3 = 45;
+let a4 = 45.57;
+let a5 = 23;
+
+if (a1 >= a2) {
+  if (a1 >= a3) {
+    if (a1 >= a4) {
+      if (a1 >= a5) {
+        alert(a1);
+      }
+    }
+  }
+}
+
+//&&
+
+if (a1 >= a2 && a1 >= a3 && a1 >= a4 && a1 >= a5) {
+  alert(a1);
+}
+
+if (a2 >= a3) {
+  if (a2 >= a4) {
+    if (a2 >= a5) {
+      alert(a2);
+    }
+  }
+}
+
+//&&
+
+if (a2 >= a3 && a2 >= a4 && a2 >= a5) {
+  alert(a1);
+}
+
 /**
  * Задание 3
  * Напишите цикл от 0 до 15. И в каждой итерации цикла нужно проверить четное число или нечетное.
@@ -94,6 +171,26 @@ do {
     }
     i++;
 } while(i <= 15);
+
+for (let i = 0; i <= 15; i++) {
+  if (i % 2 === 0) {
+    console.log(`${i} это число четное`);
+  } else {
+    console.log(`${i} это число нечетное`);
+  }
+}
+
+let i = 0;
+
+while (i <= 15) {
+  if (i % 2 === 0) {
+    console.log(`${i} это число четное`);
+  } else {
+    console.log(`${i} это число нечетное`);
+  }
+
+  i++;
+}
 
 /**
  * Задание 4
@@ -136,14 +233,47 @@ for (i = 0; i < 5; i++){
     }    
 };
 
+const students = {
+  Вася: 80,
+  Зина: 77,
+  Катя: 88,
+  Петя: 95,
+  Вова: 57,
+};
+
+for (let key in students) {
+  let percent = students[key];
+
+  if (percent > 90) {
+    console.log(`${key} - 5`);
+    continue;
+  }
+
+  if (percent > 80) {
+    console.log(`${key} - 4`);
+    continue;
+  }
+
+  if (percent > 70) {
+    console.log(`${key} - 3`);
+    continue;
+  }
+
+  if (percent > 60) {
+    console.log(`${key} - 2`);
+    continue;
+  }
+}
+
 /**
  * Задание 5
- * Написать цикл который будет итерироватся от 1 до 100.
+ * Написать цикл, который будет итерироватся от 1 до 100.
  * На каждой итерации цикла нужно проверить:
  * если число кратное 3 - то вывести в консоль строку Fizz,
  * если число кратное 5 - то вывести в консоль строку Buzz,
  * если число кратное и 3 и 5 - то вывести FizzBuzz
  */
+<<<<<<< HEAD
 for (i = 1; i <= 100; i++){
     if (i % 3 == 0 && i % 5 == 0){
         console.log('FizzBuzz')
@@ -155,6 +285,21 @@ for (i = 1; i <= 100; i++){
         console.log(i);
     }
 };
+=======
+let i = 1;
+
+while (i <= 15) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log("FizzBuzz");
+  } else if (i % 3 === 0) {
+    console.log(`Fizz`);
+  } else if (i % 5 === 0) {
+    console.log(`Buzz`);
+  }
+
+  i++;
+}
+>>>>>>> 4259c836ece3269968d793af3cda3333f66d3b1b
 
 /**
  * Задание 6
@@ -163,6 +308,7 @@ for (i = 1; i <= 100; i++){
  * Для рисования использовать символ *(звездочка) или %(знак процента) и консоль.
  *
  */
+<<<<<<< HEAD
 let i = 0, 
     j = 0,
     max = 5;
@@ -172,6 +318,29 @@ while (i < max) {
     console.log(star);
     i++;
 }
+=======
+
+//*
+//**
+//***
+//****
+
+let i = 0;
+let length = 15;
+
+while (i <= length) {
+  let str = "";
+
+  for (let j = 0; j <= i; j++) {
+    str += "*";
+  }
+
+  console.log(str);
+
+  i++;
+}
+
+>>>>>>> 4259c836ece3269968d793af3cda3333f66d3b1b
 /**
  * Задание 7
  * Написать цикл от 0 до 1000. Высчитать сумму всех чисел кратных 4 и сумму всех чисел кратных 3.
@@ -193,6 +362,7 @@ console.log(sum4,sum3);
  * Написать программу, которая найдет наибольший общий делитель двух целых чисел и вывести это число в alert.
  *
  */
+<<<<<<< HEAD
 let a = +prompt('Число 1: ',''),
     b = +prompt('Число 2: ','');
 while (a!=0 && b!=0){
@@ -203,12 +373,31 @@ while (a!=0 && b!=0){
     }
 }
 alert(a + b);
+=======
+
+let a = 1234;
+let b = 43221;
+
+while (a !== b) {
+  if (a > b) {
+    a = a - b;
+  }
+
+  if (b > a) {
+    b = b - a;
+  }
+}
+
+console.log(a);
+
+>>>>>>> 4259c836ece3269968d793af3cda3333f66d3b1b
 /**
  * Задание 9
  * Напишите программу сортировки трех чисел. Результат сортировки вывести в консоль.
  * При сортировке не использовать циклы, можно использовать только if else.
  *
  */
+<<<<<<< HEAD
 let numberOne = +prompt('Число 1: ',''),
     numberTwo = +prompt('Число 2: ',''),
     numberThree = +prompt('Число 3: ','');
@@ -226,3 +415,13 @@ if (numberOne <= numberTwo && numberTwo <= numberThree){
     console.log(numberTwo,numberThree,numberOne);
 };
 
+=======
+
+let a1 = 10;
+let a2 = 45;
+let a3 = 90;
+
+if (a1 >= a2 && a2 >= a3) {
+  console.log(a1, a2, s3);
+}
+>>>>>>> 4259c836ece3269968d793af3cda3333f66d3b1b
