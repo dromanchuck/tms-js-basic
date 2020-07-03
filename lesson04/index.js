@@ -1,119 +1,66 @@
-//Arrays
 
-let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-let array1 = ["1", "123", "hello", "world"];
-let array2 = [1, 2, "123"];
-let array3 = [{ a: "Test", b: "test" }, [1, 2, 3, 4, 5, 6, 7], "123", 123];
 
-//${array_name}.length - узнать длинну массива
+    /** задание 0 */
+    let arr=[23,17,69,46,92];
+    let secondArr = arr.slice(); 
+    console.log(secondArr);
 
-//${array_name}[index] - обратиться к элементу массива
+    /** задание 1*/
 
-let array = [19, 87, 765, 459, 12, -123];
+    let arr = [17, 23, 33, 44, 55];
+    let str = arr.join();
+    console.log(str); 
 
-for (let i = 0; i <= array.length - 1; i++) {
-  if (array[i] < 0) {
-    console.log(`${array[i]} - < 0`);
-  } else {
-    console.log(`${array[i]} - > 0`);
-  }
-}
+/** задание 2 */
 
-//сортировка пузырьком
-let array = [19, 87, 765, 459, 12, -123];
+let arr=[10,6,7,8,10,23,46,23,69,87,65,69,23,10,1];
+    for (var i = 0; i < arr.length; i++)
+	for (var j = i + 1; j < arr.length;)
+	if (arr[i] == arr[j]) arr.splice(j, 1)
+	else j++;
+    alert(arr);
 
-//1: [19, 87, 459, 12, -123, 765];
-//2: [19, 87, 12,-123,459, 765]
+/** задание 3 */
+  
+    let arr=[1,3,4,7,9,8],
+        arr1=[1,4,23];
+        arr2=[];
 
-for (let i = 0; i <= array.length - 1; i++) {
-  for (let j = 0; j <= array.length - 1; j++) {
-    if (array[j] > array[j + 1]) {
-      // j === 0 array[0] - 19 vs array[1] - 87
-
-      let temp = array[j + 1];
-      array[j + 1] = array[j];
-      array[j] = temp;
+for (i = 0; i < arr.length; i++) {
+    if (arr.length==arr1.length) {
+    arr2[i]=arr[i]+arr1[i];
     }
-
-    console.log(array);
-  }
+    else if(arr.length>arr1.length){
+      arr1.push(0);  
+    arr2[i]=arr[i]+arr1[i];
+    }
+    else{
+        arr.push(0);  
+    arr2[i]=arr[i]+arr1[i];
+    }
+    }
+    console.log(arr2);
+/** задание 4 
+вывел повторяющиеся элементы в новый массив и счетчик . Но наверное надо было по-другому сделать */
+let arr = [23, 4, 7, 3, 7, 5, 23, 60, 1, 23];
+    arr1 =[];
+count = 0;
+arr.sort();
+for(i=0;i<arr.length;i++){
+    if ( arr[i]===arr[i+1]){
+        arr1.push(arr[i])
+        count=count+1;
+    }
 }
+alert(arr1);
+alert(count) ;
 
-//array.push(element) - добавляет элемент в конец массива
-let arr = [1, 2, 3];
-console.log(arr); //[1,2,3]
+/** задание 5 */
 
-arr.push(4);
+   let  arr=[1, 2, 3];
+        arr1=arr.reverse();
 
-console.log(arr); //[1,2,3,4]
+    alert(arr1);
 
-//array.unshift(element) - добавляет элемент в начало массива
-let arr = [1, 2, 3];
-console.log(arr); //[1,2,3]
 
-arr.unshift(4);
 
-console.log(arr); //[4,1,2,3]
-
-//array.pop() - убирает последний элемент массива
-
-let arr = [1, 2, 3];
-console.log(arr); //[1,2,3]
-
-arr.pop();
-
-console.log(arr); //[1,2]
-
-//array.shift() - убирает нулевой элемент массива
-
-let arr = [1, 2, 3];
-console.log(arr); //[1,2,3]
-
-arr.shift();
-
-console.log(arr); //[2,3]
-
-//array.splice(${индекс}, ${количество элементов}) - используется для удаления части массива
-
-let arr = [1, 2, 3];
-
-let newArr = arr.splice(0, 2); // вызов splice "вырежет" из исходного массива arr [1,2] и вернет эту часть, что в свою очередь сохранится в newArr
-
-console.log(arr); //[3]
-console.log(newArr); //[1,2]
-
-//array.slice(${начальный индекс}, ${конечный индекс}) - скопирует часть массива, при этом не модифицируя исходный массив,
-//начиная от начального индекса
-//не включая конечный индекс
-let arr = [1, 2, 3, 4, 5];
-
-let secondArr = arr.slice(); //скопирует массив полностью
-let thirdArr = arr.slice(1); // скопирует массив начинания с первого элемента
-console.log(thirdArr); // [2,3]
-
-let fourthArr = arr.slice(1, 4); // скопирует массив начинания с первого элемента заканчивая 3м
-
-console.log(fourthArr); //[2, 3, 4]
-
-//string.split(разделитель) - разделяет строку и возвращает массив и символов
-
-let str = "Hello World";
-
-let arr = str.split("");
-console.log(arr); // ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d"]
-
-let arr1 = str.split(" ");
-console.log(arr1); //["Hello", "World"]
-
-//arr.join(разделитель) - объединит массив в строку
-
-let arr = [1, 2, 3, 4, 5];
-
-let str = arr.join();
-console.log(str); // '1,2,3,4,5'
-
-let str1 = arr.join("");
-console.log(str1); // '12345'
-
-let str2 = arr.join(" ");
-console.log(str2); // '1 2 3 4 5'

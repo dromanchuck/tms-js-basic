@@ -119,7 +119,18 @@ while (i < max) {
     console.log(space + star);
     i++;
 }
+/**прямоугольный треугольник
+let i = 0,
+    j = 0;
+    max = 15;
   
+while (i < max) {
+    star = "";
+    for (j = 0; j < 2 * i + 1; j++) star += "*";
+    console.log(star);
+    i++;
+}
+  **/
 
 /**
  Задание 7
@@ -139,26 +150,43 @@ let sum1=0,
   /**
 Задание 8
 **/
- let a = prompt('Введите число a',' '),
-     b = prompt('Введите число b',' ');
-     while (a!=0 && b!=0)
-      if(a>b){
-      a = a%b;
-      
-      }
-      else  {
-      b= b%a;
-      alert(a + b);
-   }
+let a = +prompt('Введите число a:');
+let b = +prompt('Введите число b:'); 
+
+while(a != b) {
+    if ( a > b) {
+        a = a - b;
+    }
+    if (b > a) {
+        b =  b - a;
+    }
+}
+
+console.log(a);
+
    /**
    Задание 9  . не понял по какому принципу или признаку сортировать
     **/
-  let w = prompt('Число w: ',''),
-      y = prompt('Число y: ',''),
-      z = prompt('Число z: ','');
-  
+   let w = +prompt('Число w: ',''),
+   y = +prompt('Число y: ',''),
+   z = +prompt('Число z: ','');
 
- 
+
+  
+if (w <=y  && y <= z){
+   console.log(w,y,z);
+} else if (y <= w && w <= z){
+   console.log(y,w,z);
+} else if (z <= w && w <= y){
+   console.log(z,w,y);
+} else if (z <= y && y <= w){
+   console.log(z,y,w);
+} else if (w <= z && z <= y){
+   console.log(w,z,y);
+} else {
+   console.log(y,z,w);
+};
+
       
 
    
