@@ -117,3 +117,13 @@ console.log(str1); // '12345'
 
 let str2 = arr.join(" ");
 console.log(str2); // '1 2 3 4 5'
+
+//indexOf
+
+let array = [1, 2, 3, 4, 5, 6];
+
+let indexOfThree = array.indexOf(3);
+
+console.log(indexOfThree);
+
+//includes
