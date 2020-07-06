@@ -16,74 +16,32 @@
  */
 
 //first
-let arr = [true, 65, 'Mission', 0.44],
-    arrNew;
-arrNew = [...arr];
-console.log(arr); 
+
+let arr = [true, 65, 'Mission', 0.44];
+
+let newArr = arr.map(person => person);
+console.log(newArr);
 
 //second
-let oldArray = ['a', 'b', 'c'],
-    secondArray = oldArray.slice();
+let arr = [true, 65, 'Mission', 0.44];
 
-secondArray[0] = "e";
-console.log(oldArray);
-
-//third
-let arr1 = [true, 65, 'Mission', 0.44],
-    arr1New;
-arr1New = Object.assign([],arr1);
-arr1New[0] = false;
-console.log(arr1,arr1New);
-
-//fouth
-let arrOne = [true, 65, 'Mission', 0.44],
-    arrTwo = [];
-for (i=0 ; i < arrOne.length; i++){
-  arrTwo.push(arrOne[i]);
-}
-console.log(arrTwo);
-
+let newArr = arr.filter(person => true);
+arr[1] = 40;
+console.log(newArr, arr);
 /**
  * Задание 1
  * Напишите код, который преобразовывает и объединяет все элементы массива в одно строковое значение.
  * Элементы массива будут разделены запятой. Получите результат двумя разными способами.
  */
 let arrTaskOne = ['high', 'parameter', 35, false],
-    firstResult,
-    nextMethod,
-    secondMethod;
-
-//first
-firstResult = arrTaskOne.join(", ");
-
-//second
-nextMethod = String(arrTaskOne);
-//third
-let thirdMethod = '';
-
-for (let key of arrTaskOne){
- thirdMethod = thirdMethod + key;
-}
-
-thirdMethod = thirdMethod.substring(0,4) + "," + thirdMethod.substring(4,13) + ',' + thirdMethod.substring(13,15) + ',' + thirdMethod.substring(15,20);
-//fouthMethod
-let fourthMethods = '';
-for (i = 0; i <= arrTaskOne.length - 1;i++){
-  if (i === arrTaskOne.length-1){
-    fourthMethods += arrTaskOne[i];
-  } else {
-    fourthMethods += arrTaskOne[i] + ' ,';
-  }
-}
-
-console.log(firstResult," ",thirdMethod," ",nextMethod," ",fourthMethods);
+    firstResult;
+firstResult = arrTaskOne.reduce((total,element,index) => (index === arrTaskOne.length-1) ? total += element : (total += element + ', '),'');
+console.log(firstResult);
 /**
  * Задание 2
  * Необходимо создать массив из 15 элементов. В массиве обязательно должны быть одинаковые значения.
  * Напишите код, который уберет эти дубликаты из созданного массива.
  */
-
-//firstDecision
 /* let wideArr = [1,1,242,"Mam",424,1,true,4,"Mam",423,44,24,44,true,4242],
 arrNew = [];
 for (i = 0; i < wideArr.length;i++){ 
@@ -166,6 +124,7 @@ for (i = 0; i <= arrDifMean.length-1;i++){
  }
  objDifMean[arrDifMean[i]] = count;
 }
+console.log(objDifMean);
 
 for (key in objDifMean){
   if (objDifMean[key] > 0){
