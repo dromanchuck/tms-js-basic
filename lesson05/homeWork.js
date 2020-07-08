@@ -28,10 +28,11 @@ console.log(arrWithoutDup);
  * соответствующих элементов заданных массивов.
  */
 let arrOne = [31, "string", true, 767, 20],
-    arrTwo = ["string", 242, 42, 20];
-let arr3 = arrOne.reduce((acum, value, index) => {
-    return acum = [...acum,(value + arrTwo[index] || value)]
-},[]);
+    arrTwo = ["string", 242, 42, 20],
+    mostArr;
+if (arrOne.length > arrTwo.length) { mostArr = [...arrOne] } else {mostArr = [...arrTwo]}; 
+let arr3 = mostArr.reduce((acum, value, index) => acum = [...acum,(value + arrTwo[index] || value)]
+,[]);
 console.log(arr3);
 /**
  * Задание 2
@@ -47,15 +48,10 @@ let arrFirst = [1,1,242,"Mam",1,1,true,4,"Mam",424,44,24,44,true,242],
     total[element] = 1;
   } else {
     total[element] = total[element] + 1;
-  }
+    if (total[element] === 2) copy++;
+  } 
   return total;
-  },{})
-
-  for (key in arrWithoutDup){
-    if (arrWithoutDup[key] > 1){
-      copy++;
-    }
-  }
+  },{});
   console.log(copy);
 /**
  * Задание 3
@@ -132,7 +128,9 @@ console.log(newArrStr.join(''));
  */
 let arrOne = [31, 41, 1344, 767, 20,4234],
     arrTwo = [5235, 242, 5242, 24, 144];
-let arr3 = arrOne.reduce((acum, value, index) => {
+    mostArr;
+if (arrOne.length > arrTwo.length) { mostArr = [...arrOne] } else {mostArr = [...arrTwo]}; 
+let arr3 = mostArr.reduce((acum, value, index) => {
     return acum = [...acum,(value - arrTwo[index] || value)]
 },[]);
 console.log(arr3);
