@@ -31,6 +31,17 @@ console.log(newArr);
  * Необходимо написать код,который создаёт массив элементов представляющих собой сумму
  * соответствующих элементов заданных массивов.
  */
+let arr = [1, 2, 3],
+    arr2 = [1, 2, 3, 4, 5];
+
+let currentArr = arr.length > arr2.length ? arr : arr2;
+
+let sum = arr.map(function (num, idx) {
+    const a = arr[idx] === undefined ? 0 : arr[idx];
+    const b = arr2[idx] === undefined ? 0 : arr2[idx];
+    return a + b;
+  });
+console.log(sum);
 
 /**
  * Задание 2
@@ -67,3 +78,14 @@ console.log(newArr);
  * Необходимо написать код,который создаёт массив элементов представляющих собой разность
  * соответствующих элементов заданных массивов.
  */
+let arr = [10, 23, 38],
+    arr2 = [1, 2, 3, 4, 5];
+
+let currentArr = arr.length > arr2.length ? arr : arr2;
+
+let difference = currentArr.map(function (num, idx) {
+    const a = arr[idx] === undefined ? 0 : arr[idx];
+    const b = arr2[idx] === undefined ? 0 : arr2[idx];
+    return a - b;
+  });
+console.log(difference);
