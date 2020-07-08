@@ -78,3 +78,47 @@ let d = Object.assign(a, b);
 let obj = { obj1: { name: "Test", secondName: "Test" } };
 
 let obj1 = { ...obj.obj1 };
+
+function func(a) {
+  console.log(a);
+  return a + 1;
+}
+
+func(a);
+
+let res = func(2);
+
+let func1 = function (a) {
+  console.log(a);
+  return a + 1;
+};
+
+func1(2);
+
+let func2 = (a) => a + 1;
+
+let func3 = (a) => {
+  return a + 1;
+};
+
+func(2);
+
+let a;
+
+{
+  a = 100;
+}
+
+console.log(a);
+
+let text = "Hello";
+
+let func = () => {
+  console.log(text);
+};
+
+func();
+
+function func(a, b, c) {
+  console.log(arguments); //  выведет объект с аргументами функции
+}
