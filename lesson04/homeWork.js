@@ -104,7 +104,7 @@ let arrFirst = [1,1,242,"Mam",1,1,true,4,"Mam",424,44,24,44,true,242],
  */
 
 let arrayNum = [1, 2, 3];
-let newArrayNum = arrayNum.reverse().map((element) =>{
+let newArrayNum = arrayNum.slice().reverse().map((element) =>{
   return element;
 })
 console.log(newArrayNum);
@@ -124,9 +124,8 @@ console.log(res);
 let str = "Шалаш",
     createArr = str.split(''); // разделить на символы и создаст массив
 let reversedArr = createArr.reduceRight((total,element) => {
-  return total = (total = total.concat(element));
+  return total = total.concat(element);
 },'');
-console.log(reversedArr);
 if (str.toLowerCase() === reversedArr.toLowerCase()){
   console.log('Полиндром detected');
 } else {
