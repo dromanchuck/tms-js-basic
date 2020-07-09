@@ -24,9 +24,9 @@
 let ex0Arr = [1,2,3,4,5,6,2,8,9,5,11,2,13,3,5];
 let uniq = [];
 ex0Arr.forEach(function(outerItem, outerIndex) {
-    ex0Arr.forEach(function(innerItem, innerIndex) {
+    ex0Arr.forEach(function(innerItem, innerIndex,array) {
         if(outerIndex !== innerIndex && outerItem === innerItem) {
-            innerItem = 'dublicate';
+            array[innerIndex] = 'dublicate';
         }
     });
     if (outerItem !== "dublicate") {
@@ -37,7 +37,7 @@ console.log(uniq);
 
 //second solution
 let ex0Arr = [1,2,3,4,5,6,2,8,9,5,11,2,13,3,5];
-let uniq = ex0Arr.filter((element,index) => index === ex0Arr.includes(element));
+let uniq = ex0Arr.filter((element,index) => index === ex0Arr.indexOf(element));
 console.log(uniq);
 
 //third solution
@@ -58,10 +58,19 @@ console.log(uniq);
  */
 
 //first solution
-let ex1ArrOne = [1,2,3],
+/* let ex1ArrOne = [1,2,3],
     ex1ArrTwo = [32,42,12,53,342,2];
 let result1Arr = ex1ArrTwo.map((item, index) => {
     if(!isNaN(ex1ArrTwo[index])) return item;
+    return item + ex1ArrOne[index];    
+});
+console.log(result1Arr); */
+
+
+let ex1ArrOne = [1,2,3],
+    ex1ArrTwo = [32,42,12,53,342,2];
+let result1Arr = ex1ArrTwo.map((item, index) => {
+    if(isNaN(ex1ArrTwo[index])) return item;
     return item + ex1ArrOne[index];    
 });
 console.log(result1Arr);
@@ -69,7 +78,7 @@ console.log(result1Arr);
 //second solution
 let ex1ArrOne = [1,2,3],
     ex1ArrTwo = [32,42,12,53,342,2];
-let result1Arr = ex1ArrTwo.reduce((acc, curr, i) => acc.concat(ex1ArrOne[i] + curr || curr), []);
+let result1Arr = ex1ArrTwo.reduce((acc, curr, i) => {return acc.concat(ex1ArrOne[i] + curr || curr)}, []);
 console.log(result1Arr);
 
 /**
@@ -77,28 +86,39 @@ console.log(result1Arr);
  * Напишите код, который подсчитает количество повторяющихся элементов в массиве.
  * И вывести это количество в консоль.
  */
-/*
-let ex2Arr = [1,2,3,4,5,6,2,8,9,5,11,2,13,33,15];
 
-let sumOfElements = ex2Arr.reduce(function(){
-
-});
-
+let ex2Arr = /* [1,2,3,4,5,6,2,8,9,5,11,2,13,33,15]; */ [1,1,242,"Mam",424,1,true,4,"Mam",242,44,24,44,true,242];
+let uniq = ex2Arr.filter((element,index) => index !== ex2Arr.indexOf(element));
+console.log(uniq);
+let sumOfElements = uniq.length;
 console.log(sumOfElements);
-*/
+
 /**
  * Задание 3
  * Напишите код, который добавит символ двоеточие(':') между нечетными числами.
  * Например, число 556 результат должен быть '5:56', 566 -> 566, 655 -> 65:5
  */
+// не верно 
+let ex3Arr = [556, 566, 655, 422, 333, 65645];
 
+let result3Arr;
+
+ex3Arr.forEach(function(el,index){
+    if ((str[index-1] % 2 !== 0)&&(str[index] % 2 !== 0)) {
+        result3Arr.push(':', str[el]);     
+    } 
+    else {
+        result3Arr.push(str[el]);
+    }
+} 
+,0);
+
+console.log(result3Arr);
 /**
  * Задание 4
  * Создайте массив из 5 чисел и найдите наибольшее число и выведите его в консоль.
  */
-/*let ex4Arr = [1,2,3,4,5];
-
-*/
+let ex4Arr = [1,2,3,4,5];
 /**
  * Задание 5
  * Переписать сортировку позырьком, используюя методы итерирования по массиву.
@@ -111,6 +131,29 @@ console.log(sumOfElements);
  * Например 'Hello world' -> 'hELLO WORLD'
  */
 
+//рабочий вариант
+let stringEx6 = prompt('Введите текст'),
+    ex6Arr = stringEx6.split("");
+let  result = [];
+ex6Arr.forEach(function(el,i,arr) {
+    let upper = 'АБВГДЕЁЖЗКИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+    let lower = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+        if(upper.includes(arr[i])) {
+        result.push(arr[i].toLowerCase());
+        }
+        else if(lower.includes(arr[i])) {
+        result.push(arr[i].toUpperCase());
+        }
+        else {
+            result.push(arr[i]);
+        }
+    return result.join('');
+});
+
+let getResult = result.toString('');
+console.log(getResult);
+
+
 /**
  * Задание 7
  * Создайте 2 массива с разной длинной.
@@ -118,8 +161,112 @@ console.log(sumOfElements);
  * соответствующих элементов заданных массивов.
  */
 
-let ex7ArrOne = [1,2,3],
-    ex7ArrTwo = [32,42,12,53,342,2],
-    lengthArr = ex1ArrOne.length > ex1ArrTwo.length ? ex1ArrOne.length : ex1ArrTwo.length;
+let ex1ArrOne = [1,2,3],
+    ex1ArrTwo = [32,42,12,53,342,2];
+let result1Arr = ex1ArrTwo.reduce((acc, curr, i) => acc = [...acc,(curr - ex1ArrOne[i] || curr)], []); /*or --- acc.concat(curr - ex1ArrOne[i] || curr) */
+console.log(result1Arr);
 
-let resultArr = ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// Задание 3 
+let arrayNumb = [1,1,2,2,3,3,4,4,5];
+let arrayNumbNew = arrayNumb.reduce((acum,elem,index,array) => {
+ if (array[index] % 2 === 0 && array[index+1] % 2 === 0){
+   acum += array[index] + "->";
+ } else if (array[index] % 2 > 0 && array[index+1] % 2 > 0){
+   acum += array[index] + ":"; 
+ } else {acum += array[index] + ' '}
+ return acum;
+},'');
+console.log(arrayNumbNew);
+
+
+
+
+
+
+
+
+
+
+
+
+
+///менять буквы
+let arrStr = "Hello world";
+arrStr = [...arrStr];
+let newArrStr = [];
+ arrStr.forEach((elem, index, array) => {
+ if (array[index] === array[index].toLowerCase()){
+  array[index] = array[index].toUpperCase();
+ }
+ else if (array[index] === array[index].toUpperCase()){
+  array[index] = array[index].toLowerCase();
+ }
+ newArrStr.push(array[index]);
+})
+console.log(newArrStr.join(''));
+
+///соритровка пузырьком
+let arr = [41,42,2424,12,2];
+let arrDup = arr
+.map((element,index,arrayElem) => arrayElem)
+.reduce((acum, element, index, arrayElem) => {
+  element.forEach((item, i) => {
+    if (item > element[i + 1]) {
+      let temp = item;
+      element[i] = element[i + 1];
+      element[i + 1] = temp;
+    }
+  });
+  acum += element + ' ';
+  return acum;
+},[]);
+console.log(arrDup);
+
+///
+const myArray = ["a", "b", "c", "d", "e"];
+const res = myArray.reduceRight((arr, element, index) => {
+    console.log(element, index); // cчетчик элементов c обратной стороны
+    return arr = [...arr, element]; //or (arr = arr.concat(element))
+}, []);
+console.log(res);
+
+
+///
+let str = "Шалаш",
+    createArr = str.split(''); // разделить на символы и создаст массив
+let reversedArr = createArr.reduceRight((total,element) => {
+  return total = (total = total.concat(element));
+},'');
+console.log(reversedArr);
+if (str.toLowerCase() === reversedArr.toLowerCase()){
+  console.log('Полиндром detected');
+} else {
+  console.log('Полиндром is not detected');
+}
