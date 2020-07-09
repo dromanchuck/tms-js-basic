@@ -57,21 +57,12 @@ console.log(uniq);
  * соответствующих элементов заданных массивов.
  */
 
-//first solution
-/* let ex1ArrOne = [1,2,3],
-    ex1ArrTwo = [32,42,12,53,342,2];
-let result1Arr = ex1ArrTwo.map((item, index) => {
-    if(!isNaN(ex1ArrTwo[index])) return item;
-    return item + ex1ArrOne[index];    
-});
-console.log(result1Arr); */
-
-
+///first solution
 let ex1ArrOne = [1,2,3],
     ex1ArrTwo = [32,42,12,53,342,2];
 let result1Arr = ex1ArrTwo.map((item, index) => {
-    if(isNaN(ex1ArrTwo[index])) return item;
-    return item + ex1ArrOne[index];    
+    if(ex1ArrTwo[index] === undefined) return item;
+    return item + ex1ArrOne[index]; 
 });
 console.log(result1Arr);
 
@@ -87,6 +78,7 @@ console.log(result1Arr);
  * И вывести это количество в консоль.
  */
 
+///first solution
 let ex2Arr = /* [1,2,3,4,5,6,2,8,9,5,11,2,13,33,15]; */ [1,1,242,"Mam",424,1,true,4,"Mam",242,44,24,44,true,242];
 let uniq = ex2Arr.filter((element,index) => index !== ex2Arr.indexOf(element));
 console.log(uniq);
@@ -98,32 +90,79 @@ console.log(sumOfElements);
  * Напишите код, который добавит символ двоеточие(':') между нечетными числами.
  * Например, число 556 результат должен быть '5:56', 566 -> 566, 655 -> 65:5
  */
-// не верно 
+
+///fisrt solution
 let ex3Arr = [556, 566, 655, 422, 333, 65645];
-
-let result3Arr;
-
-ex3Arr.forEach(function(el,index){
-    if ((str[index-1] % 2 !== 0)&&(str[index] % 2 !== 0)) {
-        result3Arr.push(':', str[el]);     
-    } 
-    else {
-        result3Arr.push(str[el]);
-    }
-} 
-,0);
-
+let result3Arr = ex3Arr.reduce((acum,elem,index,array) => {
+ if (array[index] % 2 === 0 && array[index+1] % 2 === 0){
+   acum += array[index] + "->";
+ } else if (array[index] % 2 > 0 && array[index+1] % 2 > 0){
+   acum += array[index] + ":"; 
+ } else {acum += array[index] + ' '}
+ return acum;   
+},'');
 console.log(result3Arr);
+
 /**
  * Задание 4
  * Создайте массив из 5 чисел и найдите наибольшее число и выведите его в консоль.
  */
+///first solution
 let ex4Arr = [1,2,3,4,5];
+
+let result = ex4Arr.filter((element,index,arr) => arr[index] > arr);
+console.log(result); /* возможно ли решить так ?  */
+
+///second solution
+let ex4Arr = [2000,20,1123,150,0];
+let  result = ex4Arr
+.reduce((total,element) => {
+ if (element > total){
+ total = 0;
+ total += element;
+ }
+return total;
+},0);
+console.log(result);
+
+
 /**
  * Задание 5
  * Переписать сортировку позырьком, используюя методы итерирования по массиву.
  * код сортировки находится по пути lesson04/index.js
  */
+
+///fisrt solution 
+let array = [19, 87, 765, 459, 12, -123];
+
+array.forEach (function(outerElement,outerIndex,outerArr) {
+  array.forEach (function(innerElement,innerIndex,innerArr) {
+    if (innerArr[innerIndex] > innerArr[innerIndex + 1]) {
+    
+      let temp = innerArr[innerIndex + 1];
+      innerArr[innerIndex + 1] = innerArr[innerIndex];
+      innerArr[innerIndex] = temp;
+    }
+    console.log(innerArr);
+  });
+});
+
+///second solution
+let arr = [41,42,2424,12,2];
+let arrDup = arr
+.map((element,index,arrayElem) => arrayElem)
+.reduce((acum, element, index, arrayElem) => {
+  element.forEach((item, i) => {
+    if (item > element[i + 1]) {
+      let temp = item;
+      element[i] = element[i + 1];
+      element[i + 1] = temp;
+    }
+  });
+  acum += element + ' ';
+  return acum;
+},[]);
+console.log(arrDup);
 
 /**
  * Задание 6
@@ -131,7 +170,7 @@ let ex4Arr = [1,2,3,4,5];
  * Например 'Hello world' -> 'hELLO WORLD'
  */
 
-//рабочий вариант
+///first solution
 let stringEx6 = prompt('Введите текст'),
     ex6Arr = stringEx6.split("");
 let  result = [];
@@ -154,70 +193,7 @@ let getResult = result.toString('');
 console.log(getResult);
 
 
-/**
- * Задание 7
- * Создайте 2 массива с разной длинной.
- * Необходимо написать код,который создаёт массив элементов представляющих собой разность
- * соответствующих элементов заданных массивов.
- */
-
-let ex1ArrOne = [1,2,3],
-    ex1ArrTwo = [32,42,12,53,342,2];
-let result1Arr = ex1ArrTwo.reduce((acc, curr, i) => acc = [...acc,(curr - ex1ArrOne[i] || curr)], []); /*or --- acc.concat(curr - ex1ArrOne[i] || curr) */
-console.log(result1Arr);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// Задание 3 
-let arrayNumb = [1,1,2,2,3,3,4,4,5];
-let arrayNumbNew = arrayNumb.reduce((acum,elem,index,array) => {
- if (array[index] % 2 === 0 && array[index+1] % 2 === 0){
-   acum += array[index] + "->";
- } else if (array[index] % 2 > 0 && array[index+1] % 2 > 0){
-   acum += array[index] + ":"; 
- } else {acum += array[index] + ' '}
- return acum;
-},'');
-console.log(arrayNumbNew);
-
-
-
-
-
-
-
-
-
-
-
-
-
-///менять буквы
+///second solution
 let arrStr = "Hello world";
 arrStr = [...arrStr];
 let newArrStr = [];
@@ -232,41 +208,14 @@ let newArrStr = [];
 })
 console.log(newArrStr.join(''));
 
-///соритровка пузырьком
-let arr = [41,42,2424,12,2];
-let arrDup = arr
-.map((element,index,arrayElem) => arrayElem)
-.reduce((acum, element, index, arrayElem) => {
-  element.forEach((item, i) => {
-    if (item > element[i + 1]) {
-      let temp = item;
-      element[i] = element[i + 1];
-      element[i + 1] = temp;
-    }
-  });
-  acum += element + ' ';
-  return acum;
-},[]);
-console.log(arrDup);
+/**
+ * Задание 7
+ * Создайте 2 массива с разной длинной.
+ * Необходимо написать код,который создаёт массив элементов представляющих собой разность
+ * соответствующих элементов заданных массивов.
+ */
 
-///
-const myArray = ["a", "b", "c", "d", "e"];
-const res = myArray.reduceRight((arr, element, index) => {
-    console.log(element, index); // cчетчик элементов c обратной стороны
-    return arr = [...arr, element]; //or (arr = arr.concat(element))
-}, []);
-console.log(res);
-
-
-///
-let str = "Шалаш",
-    createArr = str.split(''); // разделить на символы и создаст массив
-let reversedArr = createArr.reduceRight((total,element) => {
-  return total = (total = total.concat(element));
-},'');
-console.log(reversedArr);
-if (str.toLowerCase() === reversedArr.toLowerCase()){
-  console.log('Полиндром detected');
-} else {
-  console.log('Полиндром is not detected');
-}
+let ex1ArrOne = [1,2,3],
+    ex1ArrTwo = [32,42,12,53,342,2];
+let result1Arr = ex1ArrTwo.reduce((acc, curr, i) => acc = [...acc,(curr - ex1ArrOne[i] || curr)], []); /*or --- acc.concat(curr - ex1ArrOne[i] || curr) */
+console.log(result1Arr);
