@@ -60,11 +60,9 @@ let arrFirst = [1,1,242,"Mam",1,1,true,4,"Mam",424,44,24,44,true,242],
  */
 let arrayNumb = [1,1,2,2,3,3,4,4,5];
 let arrayNumbNew = arrayNumb.reduce((acum,elem,index,array) => {
- if (array[index]%2 === 0 && array[index+1]%2 === 0){
-   acum += array[index] + "->";
- } else if (array[index]%2 > 0 && array[index+1]%2 > 0){
+  if (array[index]%2 > 0 && array[index+1]%2 > 0){
    acum += array[index] + ":"; 
- } else {acum += array[index] + ' '}
+ } else {acum += array[index]}
  return acum;
 },'');
 console.log(arrayNumbNew);
@@ -76,8 +74,7 @@ let arrFirst = [2000,20,1123,150,0];
 let  arrWithoutDup = arrFirst
 .reduce((total,element) => {
  if (element > total){
- total = 0;
- total += element;
+ total = element;
  }
 return total;
 },0);
@@ -87,6 +84,9 @@ console.log(arrWithoutDup);
  * Переписать сортировку позырьком, используюя методы итерирования по массиву.
  * код сортировки находится по пути lesson04/index.js
  */
+
+//first
+
 let arr = [41,42,2424,12,2];
 let arrDup = arr
 .map((element,index,arrayElem) => arrayElem)
@@ -98,10 +98,23 @@ let arrDup = arr
       element[i + 1] = temp;
     }
   });
-  acum += element + ' ';
-  return acum;
+  return element;
 },[]);
 console.log(arrDup);
+
+//second
+
+let arr = [41,31331,2424,12,1];
+arr.forEach((element,index,arrayElem) => {
+  arrayElem.forEach((item, i, array) => {
+    if (array[i] > array[i+1]){
+      let temp = array[i];
+      array[i] = array[i+1];
+      array[i+1] = temp;
+    }
+  });
+});
+console.log(arr);
 /**
  * Задание 6
  * Написать код, который заменит регистр каждого символа на противоположны.
