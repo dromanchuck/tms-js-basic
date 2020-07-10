@@ -18,13 +18,40 @@
  * Необходимо создать массив из 15 элементов. В массиве обязательно должны быть одинаковые значения.
  * Напишите код, который уберет эти дубликаты из созданного массива.
  */
-
+// const arr = [1, 2, 3, 'word', true, 4, 5, 6, false, true, 'name', 7, 'word', 2, 15];
+// let filteredArr = arr.filter((elem, index) => index === arr.indexOf(elem));
+// console.log(filteredArr);
 /**
  * Задание 1
  * Создайте 2 массива с разной длинной.
  * Необходимо написать код,который создаёт массив элементов представляющих собой сумму
  * соответствующих элементов заданных массивов.
  */
+// let arrOne = [31, "string", true, 767, 20],
+//     arrTwo = ["string", 242, 42, 20],
+//     mostArr;
+// if (arrOne.length > arrTwo.length) { mostArr = [...arrOne] } else {mostArr = [...arrTwo]}; 
+// let arr3 = mostArr.reduce((acum, value, index) => acum = [...acum,(value + arrTwo[index] || value)]
+// ,[]);
+// console.log(arr3);
+
+let firstArr = [1, 2, true, 'string', true, 5, 6, 7],
+    secondArr = [true, 3, 'string', 'string', true,],
+    resultArr = [];
+
+resultArr.lenght = (firstArr.length > secondArr.length) ? firstArr.length : secondArr.length;
+let result = resultArr.reduce ((sum, value) => []);
+// let resultArr3 = resultArr.reduce((acum, value, index) => acum = [...acum,(value + secondArr[index] || value)]
+// ,[]);
+// console.log(resultArr3);
+
+// if (firstArr.length > secondArr.length) { resultArr = [...firstArr] } else {resultArr = [...secondArr]}; 
+// let arr3 = resultArr.reduce((acum, value, index) => acum = [...acum,(value + secondArr[index] || value)]
+// ,[]);
+// console.log(arr3);
+
+
+
 
 /**
  * Задание 2
