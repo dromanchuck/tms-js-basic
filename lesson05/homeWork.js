@@ -36,11 +36,11 @@ let arr = [1, 2, 3],
 
 let currentArr = arr.length > arr2.length ? arr : arr2;
 
-let sum = arr.map(function (num, idx) {
+let sum = arr.map(function (num, idx){
     const a = arr[idx] === undefined ? 0 : arr[idx];
     const b = arr2[idx] === undefined ? 0 : arr2[idx];
     return a + b;
-  });
+});
 console.log(sum);
 
 /**
@@ -59,18 +59,50 @@ console.log(sum);
  * Задание 4
  * Создайте массив из 5 чисел и найдите наибольшее число и выведите его в консоль.
  */
+let arr = [1, 2, 3, 4, 5];
+let  newarr = arr.reduce((total,element) => {
+    if (element > total){
+      total = element;
+    }
+    return total;
+},0);
+console.log(newarr);
 
 /**
  * Задание 5
  * Переписать сортировку позырьком, используюя методы итерирования по массиву.
  * код сортировки находится по пути lesson04/index.js
  */
+let arr = [10, 38, 48, 22];
+arr.forEach(function(element, i){
+  arr.forEach(function(item, j){
+    if (arr[j] > arr[j + 1]){
+
+      let temp = arr[j + 1];
+      arr[j + 1] = arr[j];
+      arr[j] = temp;
+    }
+  });
+});
+console.log(arr);
 
 /**
  * Задание 6
  * Написать код, который заменит регистр каждого символа на противоположны.
  * Например 'Hello world' -> 'hELLO WORLD'
  */
+let arr = "Hello world";
+let arrStr = [...arr];
+let newArr = [];
+arrStr.forEach((elem, i, array) => {
+    if (array[i] === array[i].toLowerCase()){
+      array[i] = array[i].toUpperCase();
+    }else if (array[i] === array[i].toUpperCase()){
+      array[i] = array[i].toLowerCase();
+    }
+    newArr.push(array[i]);
+})
+console.log(newArr.join(''));
 
 /**
  * Задание 7
