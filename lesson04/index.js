@@ -1,5 +1,6 @@
 
 
+
     /** задание 0 */
     let arr=[23,17,69,46,92];
     let secondArr = arr.slice(); 
@@ -61,6 +62,15 @@ alert(count) ;
         arr1=arr.reverse();
 
     alert(arr1);
+    
+/** задание 6 */
 
+    let str = prompt('Введите слово'),
+    strReverse = str.split('').reverse().join('');
+  if (strReverse === str) {
+      console.log(`Введённое слово является полиндромом`);
+      } else {
+      console.log(`Введённое слов не является полиндромом`);
+  }
 
 
