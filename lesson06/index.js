@@ -35,7 +35,7 @@ result = array.reduce(function(sum, current) {
   /* функции задание 1 */
 
 function sum(a, b){
-    console.log(a + b);
+    return console.log(a+b);
 };
 sum(0, 23);
 
@@ -44,7 +44,8 @@ sum(0, 23);
 let array = [23, 4, 0, 3, 7, 5, -23, 60, 1, 23,17,23,7,4];
 function result(array)  {
     newArray=array.sort((a, b) => a - b );
-    console.log(newArray);
+    return console.log(newArray);
+    
 }
 result(array);
 
@@ -55,7 +56,7 @@ result(array);
   function task(arr, number){
       for(let i=0 ; i<array.length; i++){
           if (array[i] === number){
-              return alert(i);
+              return i;
           }
           else return alert(-1);
       }    
