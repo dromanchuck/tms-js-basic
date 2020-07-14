@@ -72,11 +72,11 @@ function func1() {
   obj1.phone = 80242242445;
   obj1.contact = "Pete";
   obj1.phoneAvail = "Доступен";
-  return console.log(obj1);
+  return obj1;
 }
 
 function func2() {
-  return console.log(obj1);
+  return obj1;
 }
 
 function trueFunction(cond, func1, func2) {
@@ -87,7 +87,7 @@ function trueFunction(cond, func1, func2) {
   }
 }
 
-trueFunction(obj1.phoneAvail === "Недоступен", func1, func2);
+console.log(trueFunction(obj1.phoneAvail === "Недоступен", func1, func2));
 /**
  * Задание 5
  * Сделать функцию, которая вычисляет разность между двумя числами и вернет разность.
