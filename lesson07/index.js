@@ -1,45 +1,95 @@
-// ... в аргументах функции
+/*задание 0*/
+function findMin(...args) {
+  let min;
+  for(let i=0;i<args.length;i++) {/*args.forEach((elem, i) =>  */
+    min = args[i];
+    if (args[i] < args[i + 1]) {
+    min=args[i+1];
+   } 
+  }
+  return console.log(min);
+ }
+ findMin(0, -17, 33, 23, 999, -17,56,23,-999);
 
-let arr = [1, 2, 3, 4, 5];
-let clonedArr = [...arr];
+ /*задание 1*/
+ function summarize(...args) {
+  let result = args.reduce((sum, current) => {
+   sum =sum + current;
+   return sum;
+  }, 0);
+  return result;
+ }
+ console.log(summarize(0, 10, 20,10,-30));
+ 
+/*задание 2*/
 
-clonedArr[0] = "Hello";
-arr[0] = "World";
+ function counter() {
+  let count = 1;
 
-function findMax(...args) {
-  //first
-  console.log(arguments.length);
-  let args1 = [...arguments];
-  console.log(args1);
-  //second
-
-  console.log(args);
-
-  let max = Math.max(...args); // Math.max(1, 2, 3, 6, 7, 8, 9, 19);
-
-  return max;
+  return function() {
+      return Math.pow(count++, 2);
+  }
 }
 
-let max = findMax(1, 2, 3, 6, 7, 8, 9, 19);
+let newCounter = counter();
 
-("use strict");
+console.log(newCounter());
+console.log(newCounter());
+console.log(newCounter());
 
-function sayHelloToWithMessage(message, ...names) {
-  let msg = `Привет, ${message} `;
 
-  names.forEach((name) => {
-    console.log(msg + name);
-  });
+
+
+ /*задание 3* почему -то сравнивает только первые элементы массива , не понял почему*/
+
+ function equalArr(arr1,arr2){
+
+  for(let i=0;i<arr1.length;i++){
+  for(let j=0;j<arr2.length;j++){
+     
+    if (arr1.length===arr2.length && arr1[i]===arr2[j]) {
+    return true;
+    }
+    else {
+    return false
+    }  
+}
+}
+}
+console.log(equalArr([23, 5, 0], [23, 5, 4]));
+
+/*задание 4* что-то я тут запутался */
+
+let result=0;
+let result1=0;
+function sqr(c) {
+  return result=Math.pow(c, 2);
+}
+console.log(sqr(3));
+
+function multiply(a,b) {
+  return result1=a * b;
+
+}
+console.log(multiply(3,5));
+
+function equal(compare,sqr,multiply){
+  if (result>result1) {
+        return sqr();
+    }
+    return multiply ();
 }
 
-sayHelloToWithMessage("Доброе утро", "Петя", "Зина", "Нина");
+console.log(equal(compare,sqr,multiply));
 
-//Замыкания
 
-function showName(name, sureName) {
-  let getFullName = (firstName, secondName) => firstName + " " + secondName;
 
-  console.log(getFullName(name, sureName));
-}
 
-showName("John", "Doe");
+/*задание 5*/
+
+function difference(a1) {
+  return function (a2) {
+   return console.log(a1 - a2);
+  };
+ }
+ difference(0)(2);
