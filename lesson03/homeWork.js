@@ -12,17 +12,6 @@
  * Напишите программу, которая сравнит 2 числа и выведет в алерт наибольшее.
  */
 
-let a1 = 12;
-let a2 = 24;
-
-if (a1 > a2) {
-  alert(a1);
-} else if (a1 < a2) {
-  alert(a2);
-} else {
-  alert("Equal");
-}
-
 /**
  * Задание 1
  * Создайте три переменные a1, a2, a3 и положите в них числа (желательно использовать
@@ -32,73 +21,11 @@ if (a1 > a2) {
  * следующего вида: Знаки чисел a1, a2, a3: -, ,- (например a1 = -14, a2 = 10, a3 = -12);
  */
 
-let a1 = -100;
-let a2 = 12;
-let a3 = 14;
-
-let result;
-
-if (a1 < 0) {
-  result = result + "-,";
-} else {
-  result = result + ",";
-}
-
-if (a2 < 0) {
-  result = result + "-,";
-} else {
-  result = result + ",";
-}
-
-if (a3 < 0) {
-  result = result + "-";
-} else {
-  result = result + "";
-}
-
-alert(result);
-
 /**
  * Задание 2
  * Создайте 5 чисел и найдите наибольшее при помощи условий
  * Создайте 5 чисел и найдите наибольшее при помощи условий.
  */
-
-let a1 = 10;
-let a2 = -19;
-let a3 = 45;
-let a4 = 45.57;
-let a5 = 23;
-
-if (a1 >= a2) {
-  if (a1 >= a3) {
-    if (a1 >= a4) {
-      if (a1 >= a5) {
-        alert(a1);
-      }
-    }
-  }
-}
-
-//&&
-
-if (a1 >= a2 && a1 >= a3 && a1 >= a4 && a1 >= a5) {
-  alert(a1);
-}
-
-if (a2 >= a3) {
-  if (a2 >= a4) {
-    if (a2 >= a5) {
-      alert(a2);
-    }
-  }
-}
-
-//&&
-
-if (a2 >= a3 && a2 >= a4 && a2 >= a5) {
-  alert(a1);
-}
 
 /**
  * Задание 3
@@ -108,26 +35,6 @@ if (a2 >= a3 && a2 >= a4 && a2 >= a5) {
  * 1 это нечетное
  * ...
  */
-
-for (let i = 0; i <= 15; i++) {
-  if (i % 2 === 0) {
-    console.log(`${i} это число четное`);
-  } else {
-    console.log(`${i} это число нечетное`);
-  }
-}
-
-let i = 0;
-
-while (i <= 15) {
-  if (i % 2 === 0) {
-    console.log(`${i} это число четное`);
-  } else {
-    console.log(`${i} это число нечетное`);
-  }
-
-  i++;
-}
 
 /**
  * Задание 4
@@ -146,38 +53,6 @@ while (i <= 15) {
  * ...
  */
 
-const students = {
-  Вася: 80,
-  Зина: 77,
-  Катя: 88,
-  Петя: 95,
-  Вова: 57,
-};
-
-for (let key in students) {
-  let percent = students[key];
-
-  if (percent > 90) {
-    console.log(`${key} - 5`);
-    continue;
-  }
-
-  if (percent > 80) {
-    console.log(`${key} - 4`);
-    continue;
-  }
-
-  if (percent > 70) {
-    console.log(`${key} - 3`);
-    continue;
-  }
-
-  if (percent > 60) {
-    console.log(`${key} - 2`);
-    continue;
-  }
-}
-
 /**
  * Задание 5
  * Написать цикл, который будет итерироватся от 1 до 100.
@@ -186,19 +61,6 @@ for (let key in students) {
  * если число кратное 5 - то вывести в консоль строку Buzz,
  * если число кратное и 3 и 5 - то вывести FizzBuzz
  */
-let i = 1;
-
-while (i <= 15) {
-  if (i % 3 === 0 && i % 5 === 0) {
-    console.log("FizzBuzz");
-  } else if (i % 3 === 0) {
-    console.log(`Fizz`);
-  } else if (i % 5 === 0) {
-    console.log(`Buzz`);
-  }
-
-  i++;
-}
 
 /**
  * Задание 6
@@ -213,21 +75,6 @@ while (i <= 15) {
 //***
 //****
 
-let i = 0;
-let length = 15;
-
-while (i <= length) {
-  let str = "";
-
-  for (let j = 0; j <= i; j++) {
-    str += "*";
-  }
-
-  console.log(str);
-
-  i++;
-}
-
 /**
  * Задание 7
  * Написать цикл от 0 до 1000. Высчитать сумму всех чисел кратных 4 и сумму всех чисел кратных 3.
@@ -240,32 +87,9 @@ while (i <= length) {
  *
  */
 
-let a = 1234;
-let b = 43221;
-
-while (a !== b) {
-  if (a > b) {
-    a = a - b;
-  }
-
-  if (b > a) {
-    b = b - a;
-  }
-}
-
-console.log(a);
-
 /**
  * Задание 9
  * Напишите программу сортировки трех чисел. Результат сортировки вывести в консоль.
  * При сортировке не использовать циклы, можно использовать только if else.
  *
  */
-
-let a1 = 10;
-let a2 = 45;
-let a3 = 90;
-
-if (a1 >= a2 && a2 >= a3) {
-  console.log(a1, a2, s3);
-}
