@@ -57,24 +57,11 @@ inputContaner.after(ol);
 document.body.append(container);
 
 todos.forEach((elem) => {
-  let li = document.createElement("li");
-  let p = document.createElement("p");
-  let liContainer = document.createElement("div");
-
-  liContainer.classList.add("wrapper");
-
-  p.append(elem.text);
-  p.className = "todo-text";
-  liContainer.append(p);
-  li.append(liContainer);
-
-  ol.append(li);
+  renderListItem(elem);
 });
 
 function renderListItem(listItemObj) {
-  let id = listItemObj.id;
-  let text = listItemObj.text;
-  let done = listItemObj.done;
+  let { id, text, done } = listItemObj;
 
   let li = document.createElement("li");
 
@@ -100,9 +87,17 @@ function renderListItem(listItemObj) {
   };
 
   let doneButton = document.createElement("button");
-  doneButton.append("Done");
 
-  doneButton.onclick = () => {
+  if (done) {
+    doneButton.append("To Do");
+    p.classList.add("text-done");
+  } else {
+    doneButton.append("Done");
+  }
+
+  doneButton.onclick = (event) => {
+    event.stopPropagation();
+
     if (p.matches(".text-done")) {
       p.classList.remove("text-done");
       doneButton.innerHTML = "Done";
@@ -135,3 +130,65 @@ function renderListItem(listItemObj) {
   li.id = id;
   ol.append(li);
 }
+
+ol.addEventListener("click", (event) => {
+  let path = event.path;
+
+  let li = [...path].find((item) => item.localName === "li");
+
+  if (li) {
+    li.classList.toggle("li-active");
+  }
+});
+
+let doneAllButton = document.createElement("button");
+doneAllButton.append("Done All");
+
+doneAllButton.addEventListener("click", () => {
+  let allSelectedItems = document.querySelectorAll(".li-active");
+  let selectedItemsArr = [...allSelectedItems];
+
+  selectedItemsArr.forEach((item) => {
+    let currentIndex = todos.findIndex((todo) => todo.id === item.id);
+    todos[currentIndex].done = !todos[currentIndex].done;
+
+    item.classList.remove("li-active");
+
+    let p = item.querySelector("p");
+    p.classList.toggle("text-done");
+
+    let buttons = item.querySelectorAll("button");
+    let buttonsArr = [...buttons];
+
+    let doneButton = buttonsArr.find(
+      (item) => item.innerText === "Done" || item.innerText === "To Do"
+    );
+
+    if (doneButton.innerHTML === "Done") {
+      doneButton.innerHTML = "To Do";
+    } else {
+      doneButton.innerHTML = "Done";
+    }
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+});
+
+let removeAllButton = document.createElement("button");
+removeAllButton.append("Remove All");
+
+removeAllButton.addEventListener("click", () => {
+  let allSelectedItems = document.querySelectorAll(".li-active");
+  let selectedItemsArr = [...allSelectedItems];
+
+  selectedItemsArr.forEach((item) => {
+    let filteredTodos = todos.filter((todo) => todo.id !== item.id);
+    todos = filteredTodos;
+    item.remove();
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
+});
+
+container.append(doneAllButton);
+container.append(removeAllButton);

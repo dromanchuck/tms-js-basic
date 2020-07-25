@@ -1,3 +1,8 @@
+li,
+button {
+  cursor: pointer;
+}
+
 .container {
   background: white;
 }
@@ -21,4 +26,8 @@
 
 .text-done {
   text-decoration: line-through;
+}
+
+.li-active {
+  background: yellow;
 }
