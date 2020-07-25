@@ -43,67 +43,12 @@ let ol = document.createElement("ol");
 
 function addToList(text) {
   let id = "_" + Math.random().toString(36).substr(2, 9);
-  let li = document.createElement("li");
-  let p = document.createElement("p");
   let obj = { text, id, done: false };
   todos.push(obj);
 
   localStorage.setItem("todos", JSON.stringify(todos));
 
-  let removeButton = document.createElement("button");
-  removeButton.append("Remove");
-
-  let doneButton = document.createElement("button");
-  doneButton.append("Done");
-  //дописать взаимодествие с localStorage
-  doneButton.onclick = () => {
-    if (p.matches(".text-done")) {
-      p.classList.remove("text-done");
-      doneButton.innerHTML = "Done";
-
-      todos.forEach((elem, index, arr) => {
-        if (elem.id === id) {
-          arr[index].done = false;
-        }
-      });
-    } else {
-      p.classList.add("text-done");
-      doneButton.innerHTML = "To Do";
-
-      todos.forEach((elem, index, arr) => {
-        if (elem.id === id) {
-          arr[index].done = true;
-        }
-      });
-    }
-
-    console.log(todos);
-  };
-  //дописать взаимодествие с localStorage
-  removeButton.onclick = function () {
-    let filteredTodos = todos.filter((elem) => {
-      if (elem.id === id) {
-        return false;
-      }
-
-      return true;
-    });
-
-    todos = [...filteredTodos];
-    li.remove();
-  };
-
-  p.append(text);
-  p.className = "todo-text";
-
-  let liContainer = document.createElement("div");
-
-  liContainer.classList.add("wrapper");
-
-  liContainer.append(doneButton, p, removeButton);
-  li.append(liContainer);
-  li.id = id;
-  ol.append(li);
+  renderListItem(obj);
 }
 
 inputContaner.append(input, inputButton);
@@ -125,3 +70,68 @@ todos.forEach((elem) => {
 
   ol.append(li);
 });
+
+function renderListItem(listItemObj) {
+  let id = listItemObj.id;
+  let text = listItemObj.text;
+  let done = listItemObj.done;
+
+  let li = document.createElement("li");
+
+  let p = document.createElement("p");
+  p.append(text);
+  p.className = "todo-text";
+
+  let removeButton = document.createElement("button");
+  removeButton.append("Remove");
+
+  removeButton.onclick = function () {
+    let filteredTodos = todos.filter((elem) => {
+      if (elem.id === id) {
+        return false;
+      }
+
+      return true;
+    });
+
+    todos = [...filteredTodos];
+    li.remove();
+    localStorage.setItem("todos", JSON.stringify(todos));
+  };
+
+  let doneButton = document.createElement("button");
+  doneButton.append("Done");
+
+  doneButton.onclick = () => {
+    if (p.matches(".text-done")) {
+      p.classList.remove("text-done");
+      doneButton.innerHTML = "Done";
+
+      todos.forEach((elem, index, arr) => {
+        if (elem.id === id) {
+          arr[index].done = false;
+        }
+      });
+    } else {
+      p.classList.add("text-done");
+      doneButton.innerHTML = "To Do";
+
+      todos.forEach((elem, index, arr) => {
+        if (elem.id === id) {
+          arr[index].done = true;
+        }
+      });
+    }
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log(todos);
+  };
+
+  let liContainer = document.createElement("div");
+  liContainer.classList.add("wrapper");
+
+  liContainer.append(doneButton, p, removeButton);
+  li.append(liContainer);
+  li.id = id;
+  ol.append(li);
+}
