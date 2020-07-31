@@ -1,18 +1,30 @@
 let container = document.createElement("div");
 let header = document.createElement("h1");
-document.body.classList.add("container");
-let localTodos = localStorage.getItem("todos");
-let todos = JSON.parse(localTodos) || [];
+let todo = JSON.parse(localStorage.getItem("todos")) || [];
 
+document.body.classList.add = ("body");
+
+/* первый способ
 setInterval(() => {
-  if (document.body.classList.contains("second-container")) {
-    document.body.classList.remove("second-container");
-    return;
-  }
+  document.body.classList.toggle('body-active');
+ }, 5000); 
+*/
 
-  document.body.classList.add("second-container");
+document.body.id = "body";
+setInterval(function() {
+  document.getElementById("body").style.backgroundColor = '#'+((1<<24)*Math.random()|0).toString(16)
 }, 5000);
 
+/* третий способ
+setInterval(() => {
+ setTimeout(() => {
+  document.body.classList.add("body-active");
+ }, 5000); 
+ setTimeout(() => {
+   document.body.classList.remove("body-active");
+ }, 10000); 
+}, 10000);
+*/
 header.append("TODO LIST/tms edition");
 container.append(header);
 
@@ -29,81 +41,28 @@ inputButton.onclick = function () {
   if (input.value.trim().length > 2) {
     addToList(input.value);
     input.value = "";
-    inputButton.setAttribute("class", "button-active");
+    inputButton.setAttribute('class','btn-active');
 
     setTimeout(() => {
-      inputButton.classList.remove("button-active");
+      inputButton.classList.remove('btn-active');
     }, 1000);
   } else {
-    alert("Введите больше чем 2 символа");
+    alert('Ошибка');
   }
 };
 
 let ol = document.createElement("ol");
 
 function addToList(text) {
-  let id = "_" + Math.random().toString(36).substr(2, 9);
-  let li = document.createElement("li");
-  let p = document.createElement("p");
-  let obj = { text, id, done: false };
-  todos.push(obj);
+  
+  let id = '_' + Math.random().toString(36).substr(2, 9);
+  let obj = {text, id, done: false};
+  
+  todo.push(obj);
 
-  localStorage.setItem("todos", JSON.stringify(todos));
-
-  let removeButton = document.createElement("button");
-  removeButton.append("Remove");
-
-  let doneButton = document.createElement("button");
-  doneButton.append("Done");
-  //дописать взаимодествие с localStorage
-  doneButton.onclick = () => {
-    if (p.matches(".text-done")) {
-      p.classList.remove("text-done");
-      doneButton.innerHTML = "Done";
-
-      todos.forEach((elem, index, arr) => {
-        if (elem.id === id) {
-          arr[index].done = false;
-        }
-      });
-    } else {
-      p.classList.add("text-done");
-      doneButton.innerHTML = "To Do";
-
-      todos.forEach((elem, index, arr) => {
-        if (elem.id === id) {
-          arr[index].done = true;
-        }
-      });
-    }
-
-    console.log(todos);
-  };
-  //дописать взаимодествие с localStorage
-  removeButton.onclick = function () {
-    let filteredTodos = todos.filter((elem) => {
-      if (elem.id === id) {
-        return false;
-      }
-
-      return true;
-    });
-
-    todos = [...filteredTodos];
-    li.remove();
-  };
-
-  p.append(text);
-  p.className = "todo-text";
-
-  let liContainer = document.createElement("div");
-
-  liContainer.classList.add("wrapper");
-
-  liContainer.append(doneButton, p, removeButton);
-  li.append(liContainer);
-  li.id = id;
-  ol.append(li);
+  localStorage.setItem('todos', JSON.stringify(todo)); 
+  
+  renderListItem(obj);
 }
 
 inputContaner.append(input, inputButton);
@@ -111,17 +70,143 @@ header.after(inputContaner);
 inputContaner.after(ol);
 document.body.append(container);
 
-todos.forEach((elem) => {
-  let li = document.createElement("li");
-  let p = document.createElement("p");
-  let liContainer = document.createElement("div");
-
-  liContainer.classList.add("wrapper");
-
-  p.append(elem.text);
-  p.className = "todo-text";
-  liContainer.append(p);
-  li.append(liContainer);
-
-  ol.append(li);
+todo.forEach((el,i,arr) => {
+  renderListItem(el);
 });
+
+function renderListItem(listItemObj) {
+  let {id, text ,done } =listItemObj;
+
+  let li = document.createElement("li"); 
+
+  let p = document.createElement("p");
+  p.append(text);
+
+  
+  let removeButton = document.createElement("button");
+  removeButton.append("Remove");
+  removeButton.classList.add("btns");
+  removeButton.classList.add("remove");
+                 /*Кнопка Remove*/
+  removeButton.onclick = () => {
+    let filteredTodo = todo.filter((el,i,arr) => {
+      if (el.id === id){
+        return false;
+      }
+      return true;
+    });
+    todo = [...filteredTodo];
+    li.remove();
+    localStorage.setItem('todos', JSON.stringify(todo));
+  };
+  
+  let doneButton = document.createElement("button");
+  
+  if(done) {
+    doneButton.append("To do");
+    p.classList.add("text-done");
+  } else {
+    doneButton.append("Done");
+  };
+
+  doneButton.classList.add("btns");
+  doneButton.classList.add("done");
+                  /*Кнопка Done*/
+  doneButton.onclick = (event) => {
+    event.stopPropagation();
+
+
+    if(p.classList.contains("text-done")){                       /* p.matches(".text-done") */
+      p.classList.remove("text-done");
+      doneButton.innerHTML = "Done";
+
+      todo.forEach((el,i,arr) => {
+        if(el.id === id){
+          arr[i] = {...el, done: false};                          /*  arr[i].done = true; */
+        }
+      }); 
+    }
+    else  {
+      p.classList.add("text-done");
+      doneButton.innerHTML = "To Do";
+      todo.forEach((el,i,arr) => {
+        if(el.id === id){
+          arr[i] = {...el, done: true};                          /*  arr[i].done = true; */
+        }
+      }); 
+    }
+
+    localStorage.setItem('todos', JSON.stringify(todo));
+    console.log(todo);
+  };
+  let liContainer = document.createElement("div");
+  liContainer.classList.add('div-into-li');
+
+  liContainer.append(doneButton,p,removeButton);
+  li.append(liContainer);
+  li.id = id;
+  ol.append(li);
+
+  localStorage.setItem("todos", JSON.stringify(todo));
+};
+
+ol.addEventListener("click", (event) => {
+  let path = event.path;
+  let li = [...path].find((item) => item.localName === "li");
+
+  if (li) {
+    li.classList.toggle('li-active');
+  }
+});
+
+let doneButtonAll = document.createElement('button');
+doneButtonAll.append("Done All");
+
+doneButtonAll.addEventListener('click',() => {
+  let allSelectedItems = document.querySelectorAll(".li-active");
+  let selectedItemsArr = [...allSelectedItems];
+
+  selectedItemsArr.forEach((item) => {
+    let currentIndex = todo.findIndex((oneTodo) => oneTodo.id === item.id);
+    todo[currentIndex].done = !todo[currentIndex].done;
+
+    item.classList.remove("li-active");
+
+    let p = item.querySelector("p");
+    p.classList.toggle("text-done");
+
+    let buttons = item.querySelectorAll("button");
+    let buttonsArr = [...buttons];
+
+    let doneButton = buttonsArr.find(
+      (item) => item.innerText === "Done" || item.innerText === "To Do"
+    );
+
+    if (doneButton.innerHTML === "Done") {
+      doneButton.innerHTML = "To Do";
+    } else {
+      doneButton.innerHTML = "Done";
+    }
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todo));
+});
+
+let removeAllButton = document.createElement("button");
+removeAllButton.append("Remove All");
+
+removeAllButton.addEventListener("click",() => {
+  let allSelectedItems = document.querySelectorAll(".li-active");
+  let selectedItemsArr = [...allSelectedItems];
+
+  selectedItemsArr.forEach((item) => {
+    let filteredTodo = todo.filter((oneTodo) => oneTodo.id !== item.id);
+    todo = filteredTodo;
+    item.remove();
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todo));
+});
+
+container.append(doneButtonAll);
+container.append(removeAllButton);

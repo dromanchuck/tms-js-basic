@@ -1,24 +1,69 @@
-.container {
-  background: white;
+ol {
+  display: block;
+  max-width: 300px;
+  padding: 30px;
+  margin: 0;
 }
 
-.second-container {
-  background: gray;
-}
-
-.todo-text {
-  font-size: 20px;
+.active {
   margin: 0 10px;
+  color: rgb(231, 121, 31);
+  font-size: 20px;
 }
 
-.wrapper {
+li {
+  width: 100%;
+  background-color: rgb(228, 228, 247);
+}
+
+.div-into-li {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.button-active {
-  background: yellowgreen;
+.btn-active {
+  background-color: rgb(231, 121, 31);
+  border-color: rgb(236, 14, 88);
+}
+
+.done {
+  background-color: #008000;
+}
+
+.remove {
+  background-color: #ff0000;
+}
+
+.btns {
+  color: #fff;
+  border: none;
+}
+
+.btns:active {
+  background-color: #ff6631;
+}
+
+.btns:hover {
+  cursor: pointer;
+}
+
+.body {
+  background-color: rgb(145, 22, 63);
+}
+
+.body-active {
+  background-color: rgb(252, 172, 198);
+}
+
+#body {
+  transition: all 250ms;
 }
 
 .text-done {
   text-decoration: line-through;
+}
+
+.li-active {
+  background-color: #4bbbbe;
 }
