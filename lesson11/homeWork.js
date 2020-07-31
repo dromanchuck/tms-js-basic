@@ -4,14 +4,59 @@
  * вывести список пользователей, отобразить имя, username, email, телефон каждого пользователя.
  * Вывести в html внутри div с id = 0
  */
-
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => response.json())
+  .then((json) => {
+    const object = json;
+    return object
+  })
+  .then((object) => {
+    let ol = document.createElement("ol");
+    let h2 =document.createElement("h2");
+    h2.append("Задание 0");   
+    let firstContainer = document.getElementById("0");
+    firstContainer.append(h2);
+    firstContainer.append(ol);
+    object.forEach((elem) => {
+      let li = document.createElement("li");
+      ol.append(li);
+      let p = document.createElement("p");
+      li.append(p);
+      let info = ` ${elem.name}, username - ${elem.username}, email: ${elem.email}, phone - ${elem.phone}`;
+      p.append(info);
+    });
+  });
 /**
  * Задание 1
  * Сделать запрос при помощи fetch на адрес https://jsonplaceholder.typicode.com/users/1/todos,
  * вывести todo list пользователя, отобразить текст тудушки и индикатор выполнена она или нет.
  * Вывести в html внутри div с id = 1
  */
-
+fetch("https://jsonplaceholder.typicode.com/users/1/todos")
+  .then((response) => response.json())
+  .then((json) => {
+    const object = json;
+    return object
+  })
+  .then((object) => {
+    let ol = document.createElement("ol");    
+    ol.setAttribute("class","second-ol");
+    let h2 =document.createElement("h2");
+    h2.append("Задание 1"); 
+    let secondContainer = document.getElementById("1");
+    secondContainer.append(h2);
+    secondContainer.append(ol);
+    object.forEach((elem) => {
+      let li = document.createElement("li");
+      ol.append(li);
+      let p = document.createElement("p");
+      li.append(p);
+      let decision = "";
+      elem.completed === true ? (decision = "Выполнено") : (decision = "Не выполнено");
+      let result = `ToDoЛист пользователя № ${elem.userId}: ${elem.title} ---  ${decision}`;
+      p.append(result);
+    });
+  });
 /**
  * Задание 2 
  * Сделать запрос при помощи fetch на адрес https://jsonplaceholder.typicode.com/albums/1/photos,
@@ -25,3 +70,26 @@
   },
  * Вывести в html внутри div с id = 2
  */
+fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
+  .then((response) => response.json())
+  .then((json) => {
+    const object = json;
+    return object
+  })
+  .then((object) => {
+    let ol = document.createElement("ol");    
+    ol.setAttribute("class","third-list");
+    let h2 =document.createElement("h2");
+    h2.append("Задание 2"); 
+    let thirdContainer = document.getElementById("2");
+    thirdContainer.append(h2);
+    thirdContainer.append(ol);
+    object.forEach((elem) => {
+      let li = document.createElement("li");
+      ol.append(li);
+      let img = document.createElement("img");
+      img.setAttribute("class","photo");
+      img.setAttribute("src",elem.url);
+      li.append(img);
+    });
+  });
