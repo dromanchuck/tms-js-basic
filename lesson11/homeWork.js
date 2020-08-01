@@ -4,7 +4,8 @@
  * вывести список пользователей, отобразить имя, username, email, телефон каждого пользователя.
  * Вывести в html внутри div с id = 0
  */
-fetch("https://jsonplaceholder.typicode.com/users")
+//first
+/* fetch("https://jsonplaceholder.typicode.com/users")
   .then((response) => response.json())
   .then((json) => {
     const obj = json;
@@ -25,14 +26,56 @@ fetch("https://jsonplaceholder.typicode.com/users")
       const string = `name = ${elem.name}, username = ${elem.username}, email = ${elem.email}, phone = ${elem.phone}`;
       p.append(string);
     });
+  }); */
+//second
+async function getResponse1() {
+  let response = await fetch("https://jsonplaceholder.typicode.com/users");
+  let obj = await response.json();
+  const div = document.createElement("div");
+  const ul = document.createElement("ul");
+  document.body.append(div);
+  div.append(ul);
+  div.setAttribute("id", "0");
+  console.log(obj);
+  obj.forEach((elem) => {
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    ul.append(li);
+    li.append(p);
+    const string = `name = ${elem.name}, username = ${elem.username}, email = ${elem.email}, phone = ${elem.phone}`;
+    p.append(string);
   });
+}
+getResponse1();
 /**
  * Задание 1
  * Сделать запрос при помощи fetch на адрес https://jsonplaceholder.typicode.com/users/1/todos,
  * вывести todo list пользователя, отобразить текст тудушки и индикатор выполнена она или нет.
  * Вывести в html внутри div с id = 1
  */
-fetch("https://jsonplaceholder.typicode.com/users/1/todos")
+//first
+async function getResponse2() {
+  let response = await fetch("https://jsonplaceholder.typicode.com/users/1/todos");
+  let obj = await response.json();
+  const div = document.createElement("div");
+  const ul = document.createElement("ul");
+  document.body.append(div);
+  div.append(ul);
+  div.setAttribute("id", "1");
+  obj.forEach((elem) => {
+    const li = document.createElement("li");
+    const p = document.createElement("p");
+    ul.append(li);
+    li.append(p);
+    let decision = "";
+    elem.completed === true ? (decision = "Верно") : (decision = "Неверно");
+    const newString = `ToDoItem = ${elem.title},  ${decision}`;
+    p.append(newString);
+  });
+}
+getResponse2();
+//second
+/* fetch("https://jsonplaceholder.typicode.com/users/1/todos")
   .then((response) => response.json())
   .then((json) => {
     let obj = json;
@@ -54,7 +97,7 @@ fetch("https://jsonplaceholder.typicode.com/users/1/todos")
       const newString = `ToDoItem = ${elem.title},  ${decision}`;
       p.append(newString);
     });
-  });
+  }); */
 /**
  * Задание 2 
  * Сделать запрос при помощи fetch на адрес https://jsonplaceholder.typicode.com/albums/1/photos,
@@ -68,7 +111,28 @@ fetch("https://jsonplaceholder.typicode.com/users/1/todos")
   },
  * Вывести в html внутри div с id = 2
  */
-fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
+
+//first decision
+async function getResponse3() {
+  let response = await fetch("https://jsonplaceholder.typicode.com/albums/1/photos");
+  let obj = await response.json();
+  const div = document.createElement("div");
+  const ul = document.createElement("ul");
+  document.body.append(div);
+  div.append(ul);
+  div.setAttribute("id", "2");
+  obj.forEach((elem) => {
+    const li = document.createElement("li");
+    const img = document.createElement("img");
+    ul.append(li);
+    li.append(img);
+    img.setAttribute("src", elem.url);
+  });
+}
+getResponse3();
+
+//second decision
+/* fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
   .then((response) => response.json())
   .then((json) => {
     let obj = json;
@@ -88,4 +152,4 @@ fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
       li.append(img);
       img.setAttribute("src", elem.url);
     });
-  });
+  }); */
