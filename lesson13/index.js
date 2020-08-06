@@ -1,3 +1,5 @@
+import { string } from "./homeWork";
+
 let user = {
   name: "Petr",
   secondName: "Pupkin",
