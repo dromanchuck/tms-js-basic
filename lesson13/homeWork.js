@@ -11,15 +11,15 @@ function Worker(name, secondName, rate, days) {
     this.secondName = secondName;
     this.rate = rate;
     this.days = days;
-
-    this.getSalary = function() {
-        console.log(this.rate * this.days);
-    };
 }
+
+Worker.prototype.getSalary = function() {
+    return this.rate * this.days;
+};
 
 let vasya = new Worker('Vasya', 'Vasechkin', 35, 20);
 
-vasya.getSalary();
+console.log(vasya);
 
 /**
  * Задание 1
@@ -33,52 +33,48 @@ function Worker(name, secondName, rate, days) {
     this.secondName = secondName;
     this.rate = rate;
     this.days = days;
-
-    this.getName = function() {
-        return this.name;
-    };
-
-    this.getSecondName = function() {
-        return this.secondName;
-    };
-
-    this.getRate = function() {
-        return this.rate;
-    };
-
-    this.getDays = function() {
-        return this.days;
-    };
-
-    this.getSalary = function() {
-        return this.rate * this.days;
-    };
-
-    this.setRate = function(newRate) {
-        this.rate = newRate
-        console.log(this.rate);
-    };
-
-    this.setDays = function(newDays) {
-        this.days = newDays;
-        console.log(this.days);
-    };
 }
 
-let vasya = new Worker('Vasya', 'Vasechkin', 35, 20);
+Worker.prototype.getSalary = function() {
+    return this.rate * this.days;
+};
 
-console.log(vasya.getName());
-console.log(vasya.getSecondName());
-console.log(vasya.getRate());
-console.log(vasya.getDays());
+Worker.prototype.getName = function() {
+    return this.name;
+};
+
+Worker.prototype.getSecondName = function() {
+    return this.secondName;
+};
+
+Worker.prototype.getRate = function() {
+    return this.rate;
+};
+
+Worker.prototype.getDays = function() {
+    return this.days;
+};
+
+Worker.prototype.setRate = function(rate) {
+    if(isNaN(Number(rate))) {
+        alert('Error');
+    } else {
+        this.rate = rate;
+    }
+};
+
+Worker.prototype.setDays = function(days) {
+    if(isNaN(Number(days))) {
+        alert('Error');
+    } else {
+        this.days = days;
+    }
+};
+
+vasya.setRate(1000);
+vasya.setDays(3);
+
 console.log(vasya.getSalary());
-
-vasya.setRate(30);
-console.log(vasya.getSalary());
-
-vasya.setDays(40);
-console.log(vasya.getSalary());
-
 /**
  * Задание 1
  * Реализуйте функцию конструктор MyString, объект которого будет иметь следующие методы: метод reverse(),
@@ -88,24 +84,27 @@ console.log(vasya.getSalary());
  * и метод ucWords,
  * который принимает строку и делает заглавной первую букву каждого слова этой строки.
  */
-function MyString(string) {
-    this.string = string;
+function MyString() {}
 
-    this.rvs = function() {
-        return this.string.split('').reverse().join('');
-    };
+MyString.prototype.reverse = function(str) {
+    let arr = [...str].reverse();
 
-    this.ucFirst = function() {
-        return this.string[0].toUpperCase() + this.string.slice(1);
-    };
-
-    this.ucWords = function() {
-        return this.string.toUpperCase();
-    };
+    return arr.join('');
 }
 
-let str = new MyString('vasya');
+MyString.prototype.upperCaseFirst = function(str) {
+    let arr = [...str];
+    arr[0] = arr[0].toUpperCase();
 
-console.log(str.rvs());
-console.log(str.ucFirst());
-console.log(str.ucWords());
+    return arr.join('');
+}
+
+MyString.prototype.upperCaseWords = function(str) {
+    let arr = str.split(' ');
+
+    arr.forEach((element, index, array) => {
+        arr[index] = this.upperCaseFirst(element)
+    });
+    
+    return arr.join(' ');
+}
