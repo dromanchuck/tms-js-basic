@@ -9,6 +9,26 @@
  * getFullName, getEmail.
  */
 
+class User {
+    constructor(name,surname,email) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
+
+    getFullName() {
+        return this.name + " " + this.surname;
+    }
+
+    getEmail() {
+        return this.email;
+    }
+
+}
+
+let user1 = new User('Peter', 'Robertson', 'bood@gmail.com');
+
+
 /**
  * Задание 2
  * Реализуйте класс Student, который будет наследовать класс User.
@@ -18,3 +38,30 @@
  * который будет выводить текущий курс студента (от 1 до 5). Курс вычисляется так: нужно от текущего года отнять год
  * поступления в вуз. Текущий год получить программно, используя объект Date (https://learn.javascript.ru/datetime).
  */
+
+class Student extends User {
+    constructor(name,surname, year) {
+        super();
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+    }
+    
+    getCourse() {
+        let date = new Date();
+        let course = (date.getFullYear() - this.year);
+
+        if(course >= 1 || course <= 5) {
+            return course;
+        } else {
+            alert('Уже выпустился!!!');
+        };
+        
+    };
+}
+
+let antony = new Student ('Antony','Vakovskiy',2017);
+
+let mike = new Student ('Mike','Zavalo', 2012);
+
+mike.getCourse();
