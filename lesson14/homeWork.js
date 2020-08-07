@@ -51,7 +51,7 @@ class Student extends User {
         let date = new Date();
         let course = (date.getFullYear() - this.year);
 
-        if(course >= 1 || course <= 5) {
+        if(course >= 1 && course <= 5) {
             return course;
         } else {
             alert('Уже выпустился!!!');
