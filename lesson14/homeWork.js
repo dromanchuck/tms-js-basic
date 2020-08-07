@@ -3,6 +3,81 @@
  * Переписать задания к уроку 13 используя классы.
  */
 
+/* ex #1 */
+class Worker {
+    constructor(name, secondName, rate, days) {
+        this.name = name;
+        this.secondName = secondName;
+        this.rate = rate;
+        this.days = days;
+    }
+
+    getSalary() {
+        return this.rate * this.days
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    getSecondName() {
+        return this.secondName;
+    }
+
+    getRate() {
+        return this.rate;
+    }
+
+    getDays() {
+        return this.days;
+    }
+
+    setRate(rate) {
+        if (isNaN(Number(rate))) {
+            return true;
+        } else {
+            this.rate = rate;
+        }
+    }
+
+    setDays(days) {
+        if (isNaN(Number(days))) {
+            return true;
+        } else {
+            this.days = days;
+        }
+    }
+}
+
+/* ex #2 */
+class MyString {
+    constructor(str) {
+        this.str = str;
+    }
+    getStrReverse() {
+        let arr = [...this.str].reverse();
+        return arr.join('');
+    }
+
+    getStrUpperCaseFirst() {
+        let arr = [...this.str];
+        arr[0] = arr[0].toUpperCase();
+        return arr.join('');
+    }
+
+    getStrUcWords() {
+        let arr = this.str.split(' ');
+        arr.forEach((el, i, arr) => {
+            let upperCaseFirst = bind.getStrUpperCaseFirst;
+            arr[i] = arr[0].toUpperCase(el);
+        });
+        return arr.join(' ');
+        /* ???????????????????????????????????? */
+    }
+}
+
+let string = new MyString("don't forget me");
+
 /**
  * Задание 1
  * Реализуйте класс User, который будет иметь следующие свойства: имя, фамилия, email; следующие методы:
@@ -10,7 +85,7 @@
  */
 
 class User {
-    constructor(name,surname,email) {
+    constructor(name, surname, email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -40,28 +115,28 @@ let user1 = new User('Peter', 'Robertson', 'bood@gmail.com');
  */
 
 class Student extends User {
-    constructor(name,surname, year) {
+    constructor(name, surname, year) {
         super();
         this.name = name;
         this.surname = surname;
         this.year = year;
     }
-    
+
     getCourse() {
         let date = new Date();
         let course = (date.getFullYear() - this.year);
 
-        if(course >= 1 && course <= 5) {
+        if (course >= 1 && course <= 5) {
             return course;
         } else {
             alert('Уже выпустился!!!');
         };
-        
+
     };
 }
 
-let antony = new Student ('Antony','Vakovskiy',2017);
+let antony = new Student('Antony', 'Vakovskiy', 2017);
 
-let mike = new Student ('Mike','Zavalo', 2012);
+let mike = new Student('Mike', 'Zavalo', 2012);
 
 mike.getCourse();
