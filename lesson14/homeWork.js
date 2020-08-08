@@ -51,32 +51,25 @@ class Worker {
 
 /* ex #2 */
 class MyString {
-    constructor(str) {
-        this.str = str;
-    }
-    getStrReverse() {
-        let arr = [...this.str].reverse();
+    getStrReverse(str) {
+        let arr = [...str].reverse();
         return arr.join('');
     }
 
-    getStrUpperCaseFirst() {
-        let arr = [...this.str];
+    getStrUpperCaseFirst(str) {
+        let arr = [...str];
         arr[0] = arr[0].toUpperCase();
         return arr.join('');
     }
 
-    getStrUcWords() {
-        let arr = this.str.split(' ');
-        arr.forEach((el, i, arr) => {
-            let upperCaseFirst = bind.getStrUpperCaseFirst;
-            arr[i] = arr[0].toUpperCase(el);
-        });
-        return arr.join(' ');
-        /* ???????????????????????????????????? */
+    getStrUcWords(str) {
+        let arr = str.split(' ');
+    arr.forEach((element,ind,arr) => {
+        arr[ind] = this.getStrUpperCaseFirst(element);
+    });
+    return arr.join(' ');
     }
 }
-
-let string = new MyString("don't forget me");
 
 /**
  * Задание 1
