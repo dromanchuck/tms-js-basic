@@ -108,10 +108,8 @@ let user1 = new User('Peter', 'Robertson', 'bood@gmail.com');
  */
 
 class Student extends User {
-    constructor(name, surname, year) {
-        super();
-        this.name = name;
-        this.surname = surname;
+    constructor(name, surname, email, year) {
+        super(name,surname,email);
         this.year = year;
     }
 
@@ -119,17 +117,20 @@ class Student extends User {
         let date = new Date();
         let course = (date.getFullYear() - this.year);
 
+        if (course === 0) {
+            return 1;
+        };
+
         if (course >= 1 && course <= 5) {
             return course;
         } else {
             alert('Уже выпустился!!!');
         };
-
+        
     };
 }
 
-let antony = new Student('Antony', 'Vakovskiy', 2017);
-
-let mike = new Student('Mike', 'Zavalo', 2012);
+let antony = new Student('Antony', 'Vakovskiy','anti@gmail.com', 2017);
+let mike = new Student('Mike', 'Zavalo',"ansufati@mail.com", 2012);
 
 mike.getCourse();
