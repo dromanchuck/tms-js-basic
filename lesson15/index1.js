@@ -76,6 +76,7 @@ function renderListItem(listItemObj) {
  } = listItemObj;
  //
  let li = document.createElement("li");
+ li.classList.add('list-item');
  //
  //создать класс Paragraph
  let p = new Paragraph(text);
@@ -99,20 +100,21 @@ function renderListItem(listItemObj) {
 
  let doneButtonOnClick = function (event) {
   event.stopPropagation();
-  if (p.containsClass('text-done') === false) {
+  if (!p.containsClass('text-done')) {
    p.addClass("text-done");
    doneButton.setName('To Do');
    cellStorage.forEach((elem, index, arr) => {
     if (elem.id === id) {
-     arr[index].done = false;
+     arr[index].done = true;
     }
    });
   } else {
    p.removeClass("text-done");
    doneButton.setName('Done');
+   li.classList.remove('li-active');
    cellStorage.forEach((elem, index, arr) => {
     if (elem.id === id) {
-     arr[index].done = true;
+     arr[index].done = false;
     }
    });
   }
@@ -127,6 +129,7 @@ function renderListItem(listItemObj) {
  li.append(liContainer);
  li.id = id;
  ol.append(li);
+
  if (done) {
   doneButton.setName("To Do");
   p.addClass("text-done");
@@ -147,3 +150,44 @@ ol.addEventListener("click", (event) => {
   li.classList.toggle("li-active");
  }
 });
+
+let doneAllButton = new Button("Done All");
+
+let doneAllButtonOnClick = () => {
+ let allSelectedItems = document.querySelectorAll('.list-item'); //обращается ко всем li c классом active
+ let selectedItemsArr = [...allSelectedItems]; //создает массив
+ selectedItemsArr.forEach(item => {
+  let paragraph = item.querySelector('p');
+  let buttons = item.querySelectorAll('button');
+  let buttonsArr = [...buttons];
+  let filteredCell;
+  let doneButton = buttonsArr.find(item => item.innerText === "Done" || item.innerText === "To Do");
+  if (!item.classList.contains('li-active') || !paragraph.classList.contains('text-done')) {
+   item.classList.add('li-active');
+   paragraph.classList.add('text-done');
+   doneButton.innerHTML = 'To Do';
+   filteredCell = cellStorage.map((it) => {
+    it.done = true;
+   });
+  }
+ });
+ Local.todos = cellStorage;
+};
+
+doneAllButton.onEventListener('click', doneAllButtonOnClick);
+let removeAllButton = new Button('Remove All Button');
+let removeAllButtonOnClick = () => {
+ let allSelectedItems = document.querySelectorAll('.list-item');
+ let selectedItemsArr = [...allSelectedItems];
+
+ selectedItemsArr.forEach((item) => {
+  let filteredTodos = cellStorage.filter((todo) => todo.id !== item.id);
+  cellStorage = filteredTodos;
+  item.remove();
+ });
+
+ Local.todos = cellStorage;
+};
+removeAllButton.onEventListener('click', removeAllButtonOnClick);
+
+container.append(doneAllButton.getElement(), removeAllButton.getElement());

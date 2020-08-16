@@ -33,7 +33,7 @@ export class Button {
   toggleClass(className) {
     this.button.classList.toggle(className);
   }
-  addEventListener(func) {
-    this.button.addEventListener('click', func);
+  onEventListener(event, func) {
+    this.button.addEventListener(event, func);
   }
 }

@@ -18,7 +18,7 @@ export class Paragraph {
   removeClass(className) {
     this.p.classList.remove(className);
   }
-  сontainsClass(className) {
+  containsClass(className) {
     return this.p.classList.contains(className);
   }
 }
