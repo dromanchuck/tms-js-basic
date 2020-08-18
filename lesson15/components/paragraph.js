@@ -5,7 +5,7 @@ export class Paragraph {
     let p = document.createElement("p");
     this.p = p;
 
-    this.p.appendChild(this.text);
+    this.p.append(this.text);
   }
 
   setText(text) {
