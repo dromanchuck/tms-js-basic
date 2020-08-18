@@ -7,4 +7,34 @@ export class Paragraph {
 
     this.p.appendChild(this.text);
   }
+
+  setText(text) {
+    this.text = text;
+
+    this.p.innerHTML =  text;
+  }
+
+  onClick(func) {
+    this.p.onclick = func;
+  }
+
+  getElement() {
+    return this.p;
+  }
+
+  addClass(className) {
+    this.p.classList.add(className);
+  }
+
+  removeClass(className) {
+    this.p.classList.remove(className);
+  }
+
+  toggleClass(className) {
+    this.p.classList.toggle(className);
+  }
+
+  containsClass(className) {
+    return this.p.classList.contains(className);
+  }
 }
