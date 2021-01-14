@@ -1,7 +1,7 @@
 import { Element } from "./element.js";
 
-export class Paragraph extends Element {
+export class Header extends Element {
   constructor(text) {
-    super("p", text);
+    super("h1", text);
   }
 }

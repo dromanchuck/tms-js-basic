@@ -1,35 +1,11 @@
-export class Button {
-  constructor(name) {
-    this.name = name;
-    let button = document.createElement("button");
+import { Element } from "./element.js";
 
-    button.append(this.name);
-    this.button = button;
+export class Button extends Element {
+  constructor(name) {
+    super("button", name);
   }
 
   setName(name) {
-    this.name = name;
-
-    this.button.innerHTML = name;
-  }
-
-  onClick(func) {
-    this.button.onclick = func;
-  }
-
-  getElement() {
-    return this.button;
-  }
-
-  addClass(className) {
-    this.button.classList.add(className);
-  }
-
-  removeClass(className) {
-    this.button.classList.remove(className);
-  }
-
-  toggleClass(className) {
-    this.button.classList.toggle(className);
+    this.elem.innerHTML = name;
   }
 }

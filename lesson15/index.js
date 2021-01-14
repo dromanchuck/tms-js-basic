@@ -1,25 +1,37 @@
 import { Local } from "./localStorage.js";
-import { input } from "./components/input.js";
+
+import { Input } from "./components/input.js";
 import { Button } from "./components/buttons.js";
 import { Paragraph } from "./components/paragraph.js";
+import { Container } from "./components/container.js";
+import { Header } from "./components/header.js";
+import { quoteContainer } from "./components/quote.js";
 
-let container = document.createElement("div");
-let header = document.createElement("h1");
+import { QuoteService } from "./services/QuoteService.js";
+
+let header = new Header("TODO LIST/tms edition");
 document.body.classList.add("container");
+
+console.log(QuoteService.getQuote());
+
+const DONE = "Done";
+const TODO = "To Do";
+const REMOVE = "Remove";
+const REMOVE_ALL = "Remove all";
+const DONE_ALL = "Done all";
 
 let todos = Local.todos || [];
 
-header.append("TODO LIST/tms edition");
-container.append(header);
-
-const inputContainer = document.createElement("div");
-
+// //////////////////////////////////////
 let inputButton = new Button("Add");
+let input = new Input("Just do it!");
 
 let inputButtonOnClick = function () {
-  if (input.value.trim().length > 2) {
-    addToList(input.value);
-    input.value = "";
+  let value = input.getValue();
+
+  if (value.trim().length > 2) {
+    addToList(value);
+    input.setValue("");
     inputButton.addClass("button-active");
 
     setTimeout(() => {
@@ -31,8 +43,10 @@ let inputButtonOnClick = function () {
 };
 
 inputButton.onClick(inputButtonOnClick);
+let inputContainer = new Container(input, inputButton);
+///////////////////////////////////////////
 
-let ol = document.createElement("ol");
+let ol = new Container();
 
 function addToList(text) {
   let id = "_" + Math.random().toString(36).substr(2, 9);
@@ -44,11 +58,6 @@ function addToList(text) {
   renderListItem(obj);
 }
 
-inputContainer.append(input, inputButton.getElement());
-header.after(inputContainer);
-inputContainer.after(ol);
-document.body.append(container);
-
 todos.forEach((elem) => {
   renderListItem(elem);
 });
@@ -57,15 +66,13 @@ function renderListItem(listItemObj) {
   let { id, text, done } = listItemObj;
 
   let li = document.createElement("li");
-  //создать класс Paragraph
-  let p = document.createElement("p");
-  p.append(text);
-  p.className = "todo-text";
-  //использовать класс Button
-  let removeButton = document.createElement("button");
-  removeButton.append("Remove");
 
-  removeButton.onclick = function () {
+  let p = new Paragraph(text);
+  p.addClass("todo-text");
+
+  let removeButton = new Button(REMOVE);
+
+  removeButton.onClick(() => {
     let filteredTodos = todos.filter((elem) => {
       if (elem.id === id) {
         return false;
@@ -77,23 +84,23 @@ function renderListItem(listItemObj) {
     todos = [...filteredTodos];
     li.remove();
     Local.todos = todos;
-  };
-  //использовать класс Button
-  let doneButton = document.createElement("button");
+  });
+
+  let doneButton = new Button(TODO);
 
   if (done) {
-    doneButton.append("To Do");
-    p.classList.add("text-done");
+    doneButton.setName(TODO);
+    p.addClass("text-done");
   } else {
-    doneButton.append("Done");
+    doneButton.setName(DONE);
   }
 
-  doneButton.onclick = (event) => {
+  doneButton.onClick((event) => {
     event.stopPropagation();
 
-    if (p.matches(".text-done")) {
-      p.classList.remove("text-done");
-      doneButton.innerHTML = "Done";
+    if (p.containsClass("text-done")) {
+      p.removeClass("text-done");
+      doneButton.setName(DONE);
 
       todos.forEach((elem, index, arr) => {
         if (elem.id === id) {
@@ -101,8 +108,8 @@ function renderListItem(listItemObj) {
         }
       });
     } else {
-      p.classList.add("text-done");
-      doneButton.innerHTML = "To Do";
+      p.addClass("text-done");
+      doneButton.setName(TODO);
 
       todos.forEach((elem, index, arr) => {
         if (elem.id === id) {
@@ -113,31 +120,31 @@ function renderListItem(listItemObj) {
 
     Local.todos = todos;
     console.log(todos);
-  };
+  });
 
-  let liContainer = document.createElement("div");
-  liContainer.classList.add("wrapper");
+  // let liContainer = new Container();
+  // liContainer.addClass("wrapper");
 
-  liContainer.append(doneButton, p, removeButton);
-  li.append(liContainer);
-  li.id = id;
-  ol.append(li);
+  // liContainer.addChild(doneButton, p, removeButton);
+
+  // li.append(liContainer);
+  // li.id = id;
+  // ol.addChild(li);
 }
 
-ol.addEventListener("click", (event) => {
-  let path = event.path;
+// ol.addEventListener("click", (event) => {
+//   let path = event.path;
 
-  let li = [...path].find((item) => item.localName === "li");
+//   let li = [...path].find((item) => item.localName === "li");
 
-  if (li) {
-    li.classList.toggle("li-active");
-  }
-});
-//переписать используя класс Button
-let doneAllButton = document.createElement("button");
-doneAllButton.append("Done All");
+//   if (li) {
+//     li.classList.toggle("li-active");
+//   }
+// });
 
-doneAllButton.addEventListener("click", () => {
+let doneAllButton = new Button(DONE_ALL);
+
+doneAllButton.onClick(() => {
   let allSelectedItems = document.querySelectorAll(".li-active");
   let selectedItemsArr = [...allSelectedItems];
 
@@ -154,23 +161,22 @@ doneAllButton.addEventListener("click", () => {
     let buttonsArr = [...buttons];
 
     let doneButton = buttonsArr.find(
-      (item) => item.innerText === "Done" || item.innerText === "To Do"
+      (item) => item.innerText === DONE || item.innerText === TODO
     );
 
-    if (doneButton.innerHTML === "Done") {
-      doneButton.innerHTML = "To Do";
+    if (doneButton.innerHTML === DONE) {
+      doneButton.innerHTML = TODO;
     } else {
-      doneButton.innerHTML = "Done";
+      doneButton.innerHTML = DONE;
     }
   });
 
   Local.todos = todos;
 });
-//переписать используя класс Button
-let removeAllButton = document.createElement("button");
-removeAllButton.append("Remove All");
 
-removeAllButton.addEventListener("click", () => {
+let removeAllButton = new Button(REMOVE_ALL);
+
+removeAllButton.onClick(() => {
   let allSelectedItems = document.querySelectorAll(".li-active");
   let selectedItemsArr = [...allSelectedItems];
 
@@ -183,5 +189,13 @@ removeAllButton.addEventListener("click", () => {
   Local.todos = todos;
 });
 
-container.append(doneAllButton);
-container.append(removeAllButton);
+let mainContainer = new Container(
+  header,
+  quoteContainer,
+  inputContainer,
+  ol,
+  doneAllButton,
+  removeAllButton
+);
+
+document.body.append(mainContainer.getElement());
