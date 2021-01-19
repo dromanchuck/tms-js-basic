@@ -14,6 +14,15 @@
  * Созданный объект вывести в консоли.
  */
 
+const user = {
+  name: 'Ivan',
+  email: 'ivan@mail.com',
+  likesFruits: true,
+  iq: 97,
+};
+
+console.log(user);
+
 /**
  * Задание 1
  * Создайте объект дерево у которого есть следующие свойства:
@@ -26,6 +35,19 @@
  * Подсказка: посмотреть операторы += -=
  */
 
+const tree = {
+  name: 'Maple',
+  height: 10,
+  leavesAmount: 1429,
+  family: 'Sapindaceae',
+};
+
+console.log(tree);
+
+tree.height -= 2;
+
+console.log(tree);
+
 /**
  * Задание 2
  * Напишите цикл от 0 до 15. И в каждой итерации цикла нужно проверить четное число или нечетное.
@@ -34,6 +56,14 @@
  * 1 это нечетное
  * ...
  */
+
+for (let i = 0; i <= 15; i++) {
+  if (i % 2 === 0) {
+    console.log(`${i} это четное`);
+  } else {
+    console.log(`${i} это нечетное`);
+  }
+}
 
 /**
  * Задание 3
@@ -52,6 +82,23 @@
  * ...
  */
 
+const students = ['Вася', 'Зина', 'Катя', 'Петя', 'Вова'];
+const stutendsResults = [80, 77, 88, 95, 57];
+
+for (let i = 0; i < students.length; i++) {
+  if (stutendsResults[i] > 90) {
+    console.log(`${students[i]} - 5`);
+  } else if (stutendsResults[i] > 80) {
+    console.log(`${students[i]} - 4`);
+  } else if (stutendsResults[i] > 70) {
+    console.log(`${students[i]} - 3`);
+  } else if (stutendsResults[i] > 60) {
+    console.log(`${students[i]} - 2`);
+  } else {
+    console.log(`${students[i]} - 1`);
+  }
+}
+
 /**
  * Задание 4
  * Написать цикл, который будет итерироватся от 1 до 100.
@@ -60,6 +107,19 @@
  * если число кратное 5 - то вывести в консоль строку Buzz,
  * если число кратное и 3 и 5 - то вывести FizzBuzz
  */
+
+for (let i = 1; i <= 100; i++) {
+  if (i % 3 === 0 && i % 5 === 0) {
+    console.log(`FizzBuzz`);
+    continue;
+  }
+  if (i % 3 === 0) {
+    console.log(`Fizz`);
+  }
+  if (i % 5 === 0) {
+    console.log(`Buzz`);
+  }
+}
 
 /**
  * Задание 5
@@ -74,17 +134,49 @@
 //***
 //****
 
+for (let i = 1; i <= 4; i++) {
+  console.log('*'.repeat(i));
+}
+
 /**
  * Задание 6
  * Написать цикл от 0 до 1000. Высчитать сумму всех чисел кратных 4 и сумму всех чисел кратных 3.
  *
  */
 
+let sumMod4 = 0,
+  sumMod3 = 0;
+
+for (let i = 0; i <= 1000; i++) {
+  if (i % 4 === 0) {
+    sumMod4 += i;
+  }
+  if (i % 3 === 0) {
+    sumMod3 += i;
+  }
+}
+
+console.log(
+  `Сумма чисел кратных 4 = ${sumMod4}, сумма чисел кратных 3 = ${sumMod3}`
+);
+
 /**
  * Задание 7
  * Написать программу, которая найдет наибольший общий делитель двух целых чисел и вывести это число в alert.
  *
  */
+
+let a = 15,
+  b = 25;
+
+let min = Math.min(a, b);
+
+for (let i = min; i >= 1; i--) {
+  if (a % i === 0 && b % i === 0) {
+    alert(i);
+    break;
+  }
+}
 
 /**
  * Задание 8
@@ -93,3 +185,8 @@
  * Склонированный массив вывести в консоль
  *
  */
+
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [...arr1];
+
+console.log(arr2);
