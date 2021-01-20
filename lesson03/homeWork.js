@@ -13,6 +13,14 @@
  * объект должен содержать следущие поля: имя, email, нравятся ли ему фрукты, показатель IQ.
  * Созданный объект вывести в консоли.
  */
+let user = {
+    name: "Darya",
+    email: "darya@gmail.com",
+    fruitLover: true,
+    iqLevel: 130
+}
+
+console.log(user);
 
 /**
  * Задание 1
@@ -25,6 +33,17 @@
  * Необходимо вывести в консоль объект, а затем "укоротить" дерево, и вывести в консоль.
  * Подсказка: посмотреть операторы += -=
  */
+let tree = {
+    name: 'Клен',
+    height: 25,
+    leavesNumber: 1000000,
+    family: 'Сапиндовые'
+}
+
+console.log(tree);
+
+tree.height -= 3;
+console.log(tree);
 
 /**
  * Задание 2
@@ -34,6 +53,14 @@
  * 1 это нечетное
  * ...
  */
+
+for (let i = 0; i <= 15; i++) {
+    if (i % 2 === 0) {
+        console.log(`${i} это четное`);
+    } else {
+        console.log(`${i} это нечетное`);
+    }
+}
 
 /**
  * Задание 3
@@ -52,6 +79,25 @@
  * ...
  */
 
+let students = ['Вася', 'Зина', 'Катя', 'Петя', 'Вова'];
+let studentsResult = [80, 77, 88, 95, 57];
+let grade;
+
+for (let i = 0; i < studentsResult.length; i++) {
+    if (studentsResult[i] > 90) {
+        grade = 5;
+    } else if (studentsResult[i] > 80 && studentsResult[i] <= 90) {
+        grade = 4;
+    } else if (studentsResult[i] > 70 && studentsResult[i] <= 80) {
+        grade = 3;
+    } else if (studentsResult[i] > 60 && studentResult[i] <= 70) {
+        grade = 2;
+    } else {
+        grade = 1;
+    }
+    console.log(`${students[i]} - ${grade}`);
+}
+
 /**
  * Задание 4
  * Написать цикл, который будет итерироватся от 1 до 100.
@@ -60,7 +106,15 @@
  * если число кратное 5 - то вывести в консоль строку Buzz,
  * если число кратное и 3 и 5 - то вывести FizzBuzz
  */
-
+for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 !== 0) {
+        console.log('Fizz');
+    } else if (i % 5 === 0 && i % 3 !== 0) {
+        console.log('Buzz');
+    } else if (i % 3 === 0 && i % 5 === 0) {
+        console.log('FizzBuzz');
+    }
+}
 /**
  * Задание 5
  *
@@ -74,17 +128,50 @@
 //***
 //****
 
+let figureHeight = +prompt(`Задайте длину катета`, 1);
+let lineElement = '*';
+let line = '';
+
+for (let i = 0; i < figureHeight; i++) {
+    line += lineElement;
+    console.log(line)
+};
+
 /**
  * Задание 6
  * Написать цикл от 0 до 1000. Высчитать сумму всех чисел кратных 4 и сумму всех чисел кратных 3.
  *
  */
+let sum4 = 0;
+let sum3 = 0;
+for (let i = 0; i <= 1000; i++) {
+    if (i % 4 === 0) {
+        sum4 += i;
+    } else if (i % 3 === 0) {
+        sum3 += i;
+    }
+}
+console.log(`Сумма всех чисел от 0 до 1000, кратных 4 равна ${sum4}, а кратных 3 - ${sum3}`)
 
 /**
  * Задание 7
  * Написать программу, которая найдет наибольший общий делитель двух целых чисел и вывести это число в alert.
  *
  */
+let a = 54;
+let b = 24;
+let d;
+while (a !== 0 && b !== 0) {
+    if (a > b) {
+        a = a % b
+    } else {
+        b = b % a
+    }
+}
+d = a + b;
+
+alert(`Наибольший общий делитель - число ${d}`);
+
 
 /**
  * Задание 8
@@ -93,3 +180,12 @@
  * Склонированный массив вывести в консоль
  *
  */
+
+let array = [1, 1, 2, 3, 5];
+let cloneArray = [];
+
+for (let key in array) {
+    cloneArray[key] = array[key];
+};
+
+console.log(cloneArray);
