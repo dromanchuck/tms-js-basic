@@ -14,6 +14,15 @@
  * Созданный объект вывести в консоли.
  */
 
+const user = {
+    name: 'Mike',
+    email: 'Mike@mail.ru',
+    likeFruits: true,
+    IQ: 100,
+}
+
+console.log(user)
+
 /**
  * Задание 1
  * Создайте объект дерево у которого есть следующие свойства:
@@ -26,6 +35,24 @@
  * Подсказка: посмотреть операторы += -=
  */
 
+let tree = {
+    name: 'spruce',
+    height: 50,
+    leaves: 5000,
+    family: 'conifers',
+}
+
+console.log(tree)
+
+function makeItShorter() {
+    for (let i = 0; i < 10; i++) {
+        tree.height -= 1
+    }
+    console.log(tree)
+}
+makeItShorter()
+
+
 /**
  * Задание 2
  * Напишите цикл от 0 до 15. И в каждой итерации цикла нужно проверить четное число или нечетное.
@@ -34,6 +61,15 @@
  * 1 это нечетное
  * ...
  */
+
+for (let i = 0; i < 16; i++) {
+    if (i % 2 === 0) {
+        console.log(`${i} это чётное`)
+    }
+    if (i % 2 !== 0) {
+        console.log(`${i} это нечётное`)
+    }
+}
 
 /**
  * Задание 3
@@ -52,6 +88,34 @@
  * ...
  */
 
+let studentsMarks = {
+    'Вася': 80,
+    'Зина': 77,
+    'Катя': 88,
+    'Петя': 95,
+    'Вова': 57,
+}
+
+console.log(studentsMarks)
+
+for (let key in studentsMarks) {
+    if (studentsMarks[key] > 90) {
+        console.log(`${key} - 5`)
+    }
+    else if (studentsMarks[key] > 80) {
+        console.log(`${key} - 4`)
+    }
+    else if (studentsMarks[key] > 70) {
+        console.log(`${key} - 3`)
+    }
+    else if (studentsMarks[key] > 60) {
+        console.log(`${key} - 2`)
+    }
+    else {
+        console.log(`${key} - пересдача`)
+    }
+}
+
 /**
  * Задание 4
  * Написать цикл, который будет итерироватся от 1 до 100.
@@ -60,6 +124,22 @@
  * если число кратное 5 - то вывести в консоль строку Buzz,
  * если число кратное и 3 и 5 - то вывести FizzBuzz
  */
+
+for (let i = 1; i < 101; i++) {
+    if (i % 3 === 0 && i % 5 !== 0) {
+        console.log(`${i} Fizz`)
+
+    }
+    else if (i % 5 === 0 && i % 3 !== 0) {
+        console.log(`${i} Buzz`)
+    }
+    else if (i % 3 === 0 && i % 5 === 0) {
+        console.log(`${i} FizzBuzz`)
+    }
+    else {
+        console.log(i)
+    }
+}
 
 /**
  * Задание 5
@@ -74,17 +154,54 @@
 //***
 //****
 
+let str = ''
+
+for (let i = 0; i < 5; i++) {
+    str += '*'
+    console.log(str)
+}
+
 /**
  * Задание 6
  * Написать цикл от 0 до 1000. Высчитать сумму всех чисел кратных 4 и сумму всех чисел кратных 3.
  *
  */
 
+let counterFour = 0
+let counterThree = 0
+
+for (let i = 0; i < 1001; i++) {
+    if (i % 4 === 0) {
+        counterFour += i
+    }
+    if (i % 3 === 0) {
+        counterThree += i
+    }
+}
+console.log(`Сумма всех чисел кратных 4 = ${counterFour}`)
+console.log(`Сумма всех чисел кратных 3 = ${counterThree}`)
+
 /**
  * Задание 7
  * Написать программу, которая найдет наибольший общий делитель двух целых чисел и вывести это число в alert.
  *
  */
+
+function greatestCommonFactor(a, b) {
+    if (a === 0)
+        return b;
+
+    while (b !== 0) {
+        if (a > b)
+            a = a - b;
+        else
+            b = b - a;
+    }
+
+    return a;
+}
+
+alert(greatestCommonFactor(50, 100))
 
 /**
  * Задание 8
@@ -93,3 +210,14 @@
  * Склонированный массив вывести в консоль
  *
  */
+
+let shoppingCart = ['bread', 'milk', 'butter', 'crisps', 'onion']
+
+function cloneMass(mass) {
+    let newOne = [...mass]
+    let newMass = Object.assign([], mass)
+    console.log(newOne)
+    console.log(newMass)
+}
+
+cloneMass(shoppingCart)
