@@ -14,6 +14,15 @@
  * Созданный объект вывести в консоли.
  */
 
+//  let shop = {
+//      name: 'Rick',
+//      email: 'RickAndMorty@gmail.com',
+//      'like fruits': true,
+//      IQ: 1/0
+//  };
+
+//  console.log(shop);
+
 /**
  * Задание 1
  * Создайте объект дерево у которого есть следующие свойства:
@@ -26,6 +35,21 @@
  * Подсказка: посмотреть операторы += -=
  */
 
+//  Переделать как надо!
+
+//  let tree = {
+//      name: 'Oak',
+//      height: 25,
+//      'number of leafs': 132124,
+//      family: 'Fagaceae'
+//  };
+
+//  console.log(tree);
+
+// tree.height -= 4;
+
+//  console.log(tree);
+
 /**
  * Задание 2
  * Напишите цикл от 0 до 15. И в каждой итерации цикла нужно проверить четное число или нечетное.
@@ -35,6 +59,13 @@
  * ...
  */
 
+//  for (let i = 1; i <= 15; i++) {
+//      if(i % 2 === 0) {
+//          console.log(i + ' Это четное!');
+//      } else if (i % 2 === 1) {
+//         console.log(i + ' Это нечетное!');
+//      }
+//  }
 /**
  * Задание 3
  * У нас есть студентов: Вася, Зина, Катя, Петя, Вова. Они решали финальный тест
@@ -52,6 +83,39 @@
  * ...
  */
 
+//  let students = ['Вася', 'Зина', 'Катя', 'Петя', 'Вова'];
+//  let testResults = [80, 77, 88, 95, 57];
+
+//  for(let i = 0; i < testResults.length; i++) {
+//      if (testResults[i] > 90) {
+//         console.log(students[i] + ' - 5');
+//      } else if (testResults[i] > 80 && testResults[i] <= 90) {
+//         console.log(students[i] + ' - 4');
+//      } else if (testResults[i] > 70 && testResults[i] <= 80) {
+//         console.log(students[i] + ' - 3');
+//      } else if (testResults[i] > 60 && testResults[i] <= 70) {
+//         console.log(students[i] + ' - 2');
+//      }
+//  }
+
+
+// let grade = prompt('Введите свой процент выполнения теста', '');
+// let studentName = prompt('Введите свое имя', '');
+
+
+// if (grade >= 90) {
+//     alert(studentName + '- 5');
+// } else if (grade >= 80) {
+//     alert(studentName + '- 4');
+// } else if (grade >= 70) {
+//     alert(studentName + '- 3');
+// } else if (grade >= 60) {
+//     alert(studentName + '- 2');
+// } else {
+//     alert('Сдайте тест еще раз!');
+// };
+
+
 /**
  * Задание 4
  * Написать цикл, который будет итерироватся от 1 до 100.
@@ -60,6 +124,16 @@
  * если число кратное 5 - то вывести в консоль строку Buzz,
  * если число кратное и 3 и 5 - то вывести FizzBuzz
  */
+
+//  for (let i = 1; i < 100; i++) {
+//      if (i % 3 === 0) {
+//          console.log('Fizz');
+//      } else if (i % 5 === 0) {
+//          console.log('Buzz');
+//      } else if (i % 3 === 0 && i % 5 === 0) {
+//          console.log('FizzBuzz');
+//      }
+//  }
 
 /**
  * Задание 5
@@ -74,17 +148,56 @@
 //***
 //****
 
+// let lines = 6;
+// let str = " ";
+// let star = "*";
+// for(let i = 2; i < lines; i++){
+//     str += star;
+//     console.log(str);
+// }
+
+
 /**
  * Задание 6
  * Написать цикл от 0 до 1000. Высчитать сумму всех чисел кратных 4 и сумму всех чисел кратных 3.
  *
  */
 
+//  let sum3 = 0;
+//  let sum4 = 0;
+
+//  for(let i = 0; i < 1000; i++) {
+//      if (i % 3 === 0) {
+//          sum3 += i;
+//      } else if (i % 4 === 0) {
+//          sum4 += i;
+//      }
+//  }
+
+//  console.log('Сумма чисел от 0 до 1000 кратных 3 = ' + sum3 + ', а сумма всех чисел кратных 4 = ' + sum4);
+
+
 /**
  * Задание 7
  * Написать программу, которая найдет наибольший общий делитель двух целых чисел и вывести это число в alert.
  *
  */
+
+// let a = 10;
+// let b = 12;
+
+// while(a != 0 && b != 0) {
+//     if(a > b){
+//         a = a % b;
+//     } 
+//     else{
+//         b = b % a;
+//     }
+// }
+
+// console.log(a + b);
+
+
 
 /**
  * Задание 8
@@ -93,3 +206,10 @@
  * Склонированный массив вывести в консоль
  *
  */
+
+
+//  let elements = [1, 2, 3, 4, 5];
+//  let cloneElements = [];
+
+//  Object.assign(cloneElements, elements);
+//  console.log(cloneElements);
