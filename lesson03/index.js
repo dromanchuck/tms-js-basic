@@ -150,6 +150,7 @@ let user2 = {
 };
 
 let isEgual = true;
+
 let i = 0;
 
 for (let key in user1) {
