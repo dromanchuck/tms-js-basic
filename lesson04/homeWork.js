@@ -55,18 +55,15 @@ console.log(array2);
  * соответствующих элементов заданных массивов.
  */
 
-let array3 = ['L', 'o', 'w', ''],
-    array4 = ['l', 'y'];
+let arr = [1, 5, 4],
+    arr2 = [4, 3];
+ 
+var arr3 = arr.map(function(value, index){
+  if(arr < arr2) { 
+      arr2.push(0)};
+  return value + arr2[index] })
 
-    function sum(a, b) {
-        return a + b;
-      }
-      
-      let sumArray = sum(array3, array4);
-
-    console.log(sumArray);
-
-
+console.log(arr3);
 
 /**
  * Задание 4
@@ -74,17 +71,19 @@ let array3 = ['L', 'o', 'w', ''],
  * И вывести это количество в консоль.
  */
 
-let array5 = ['L', 'o', 'w', 'L', 'o', 'w', 'L', 'o', 'w', 'L', 'o', 'w', 'L', 'o', 'w'],
-logSum = 0;
+let array5 = [1, 2, 3, 1, 2, 3],
+    array6 = [],
+    repeat = 0;
 
-for(let i = 0; i < array5.length; i++) {
-for(let j = 0; j < array5.length; j++) {
-    if(array5[i] === array5[j+1]) {
-        logSum += 1;
+function calcRepeat(array) {
+    for(let i = 0; i < array.length; i++) {
+        if(!array6.includes(array[i])) {
+            array6.push(array[i])
+        } else { repeat += 1;}
     }
-}  
+    return repeat
 }
-console.log(logSum);
+console.log(calcRepeat(array5));
 
 /**
  * Задание 5
@@ -96,7 +95,7 @@ let array6 = [1, 2, 3, 4, 5],
     array7 = [];
     
     array7 = array6.reverse();
-    console.log(array6);    
+    console.log(array7);    
 
 /**
  * Задание 6
@@ -104,11 +103,31 @@ let array6 = [1, 2, 3, 4, 5],
  * например РЕПЕР, ШАЛАШ)
  */
 
+function checkPalindrome(word) {
+    let wordReverse = word.split('').reverse().join('');
+    if(word == wordReverse) {
+        return 'yes';
+    } else { return 'no';}
+}
+console.log(checkPalindrome('РЕПЕР'));
+
 /**
  * Задание 7
  * Написать код, который заменит регистр каждого символа на противоположный.
  * Например 'Hello world' -> 'hELLO WORLD'
  */
+
+function changeCase(str) {
+    let newStr = '';
+    let strConvertToArr = str.split('' && ' ');
+      for(let i = 0; i < strConvertToArr.length; i++) {
+          if(strConvertToArr[i] === strConvertToArr[i].toUpperCase()) {
+              newStr += strConvertToArr[i].toLowerCase();
+          } else {newStr += strConvertToArr[i].toUpperCase()}
+      }
+      return newStr;
+  }
+  console.log(changeCase('Hello world'));
 
 /**
  * Задание 8
@@ -117,13 +136,51 @@ let array6 = [1, 2, 3, 4, 5],
  * соответствующих элементов заданных массивов.
  */
 
+let arr = [1, 5, 4],
+arr2 = [4, 3];
+
+var arr3 = arr.map(function(value, index){
+if(arr < arr2) { 
+  arr2.push(0)};
+return value - arr2[index] })
+
+console.log(arr3);
+
 /**
  * Задание 9
  * Напишите код, который добавит символ двоеточие(':') между нечетными числами.
  * Например, число 556 результат должен быть '5:56', 566 -> 566, 655 -> 65:5
  */
 
+function findOdd(arr) {
+    let newArr = [];
+    let newArr2 = [];
+    let first;
+    let second;
+    let third;
+      
+      for(let i = 0; i < arr.length; i++) {
+        if(i % 2 !== 0) {
+          first = arr.shift();
+          newArr.push(first);
+          second = newArr.join(',').split('');
+          second.splice(1,0,':');
+          third = second.join('')
+          newArr2.push(third);
+        } 
+              
+      }
+      return newArr2
+    }
+    console.log(findOdd([111, 121, 110, 141])); //если получится доделать перезалью.
+
 /**
  * Задание 10
  * Создать массив из 20 чисел. Необходимо высчитать сумму всех элементов.(Используем reduce)
  */
+
+let sumArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    
+let result = sumArr.reduce((sum, current) => sum + current);
+
+    console.log(result);
