@@ -13,11 +13,29 @@
  * Элементы массива будут разделены запятой. Получите результат двумя разными способами.
  */
 
+//  let array = [1,'World',3,'Hello',5];
+
+//  let str1 = array.join(',');
+//  console.log(str1);
+
+//  let str2 = String(array);
+//  console.log(str2);
+
 /**
  * Задание 2
  * Необходимо создать массив из 15 элементов. В массиве обязательно должны быть одинаковые значения.
  * Напишите код, который уберет эти дубликаты из созданного массива.
  */
+
+//  let array = [1,2,2,3,4,5,6,6,7,9,10,11,11,13,15];
+
+//  for (let i = 0; i < array.length; i++) {
+//      if (array[i] === array[i + 1]) {
+//          array.splice (i + 1, 1);
+//      }
+//  }
+//  console.log(array);  
+
 
 /**
  * Задание 3
@@ -26,11 +44,33 @@
  * соответствующих элементов заданных массивов.
  */
 
+// let array1 = [1,2,3,4,5];
+// let array2 = [6,7,8,9,10];
+
+// let array3 = array1.map(function (value, index) {
+//     return value + array2[index];
+//   });
+
+// console.log(array3);
+
+
 /**
  * Задание 4
  * Напишите код, который подсчитает количество повторяющихся элементов в массиве.
  * И вывести это количество в консоль.
  */
+
+//  let array = [1,2,2,3,4,5,6,6,7,9,10,11,11,13,15];
+//  let count = 0;
+
+// for(let i = 0; i < array.length; i++){
+//     if(array[i] === array[i + 1]) {
+//         count++;
+//     }
+// }
+
+// console.log(count);
+
 
 /**
  * Задание 5
@@ -38,17 +78,52 @@
  * Например: исходный массив - [1, 2, 3], результирующий массив - [3, 2, 1]
  */
 
+//  let array = [1,2,3];
+
+//  let array1 = array.reverse();
+//  console.log(array1);
+
 /**
  * Задание 6
  * Напишите код, который проверит является строка полиндромом(слово, которое с обеих сторон читается одинаково,
  * например РЕПЕР, ШАЛАШ)
  */
 
+// function palindrome(str) {
+//     let palin = str.split("").reverse().join("");
+
+//     if (palin === str){
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// console.log(palindrome('шалаш'));
+
+
+
 /**
  * Задание 7
  * Написать код, который заменит регистр каждого символа на противоположный.
  * Например 'Hello world' -> 'hELLO WORLD'
  */
+
+//  let str = 'Hello World';
+//  let str2 = '';
+
+//  function change_register () {
+//      for (let i = 0; i < str.length; i++) {
+//          if (str[i] === str[i].toLowerCase()) {
+//           str2 += str[i].toUpperCase();
+//         } else {
+//           str2 += str[i].toLowerCase();
+//         }
+//       }
+//       return str2;
+//  }
+
+//  console.log(change_register(str));
 
 /**
  * Задание 8
@@ -57,13 +132,45 @@
  * соответствующих элементов заданных массивов.
  */
 
+//  let array1 = [10,-2,24,15];
+//  let array2 = [5,11,-4,10];
+
+
+// let array3 = array1.map(function (value, index) {
+//     return value - array2[index];
+//   });
+
+// console.log(array3);
+
+
 /**
  * Задание 9
  * Напишите код, который добавит символ двоеточие(':') между нечетными числами.
  * Например, число 556 результат должен быть '5:56', 566 -> 566, 655 -> 65:5
  */
 
+// function dots(number){
+//     let numString = '';
+//     let numArr = number.toString().split('');
+    
+//     for(i = 0; i < numArr.length; i++){
+//         if(numArr[i] % 2 === 1 && numArr[i+1] % 2 === 1){
+//             numString += numArr[i] + ':';            
+//         }else{
+//             numString += numArr[i];
+//         }
+//     }
+//     console.log(numString);
+// }
+
+// dots(118);
 /**
  * Задание 10
  * Создать массив из 20 чисел. Необходимо высчитать сумму всех элементов.(Используем reduce)
  */
+
+//  let array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+
+//  let result = array.reduce((sum, current) => sum + current, 0);
+//  console.log(result);
+
