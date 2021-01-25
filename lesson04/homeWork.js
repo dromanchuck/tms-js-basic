@@ -23,7 +23,7 @@ console.log(String(array));
  * Напишите код, который уберет эти дубликаты из созданного массива.
  */
 function removeDublicate(arr) {
-  return arr.filter((value, index) => index === indexOf(value))
+  return arr.filter((value, index) => index === arr.indexOf(value))
 }
 console.log('task2: ' + removeDublicate([1, 5, 5, 6, 8, 9, 4, 1, 2, 3, 5, 5, 6, 15, 20]))
 
