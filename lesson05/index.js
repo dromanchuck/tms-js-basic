@@ -51,3 +51,19 @@ let user = {};
 
 user.name = "Jack";
 user.secondName = "Sparrow";
+
+//arguments
+function findMax() {
+  let argss = [...arguments];
+  console.log(argss, arguments);
+
+  let max = argss.reduce((acc, value) => {
+    return acc > value ? acc : value;
+  }, argss[0]);
+
+  return max;
+}
+
+let max = findMax(1, 2, 3, 4, 8, 9);
+
+//JSON parse stringify
