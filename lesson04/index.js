@@ -66,9 +66,6 @@ let temp;
 
 for (let i = 0; i < array1.length; i++) {
   for (let j = 0; j < array1.length; j++) {
-    if (!array1[j + 1]) {
-      continue;
-    }
     console.log(array1[j], array1[j + 1]);
     if (array1[j] > array1[j + 1]) {
       temp = array1[j + 1];
@@ -132,10 +129,10 @@ let filteredArray = array1.filter((value) => {
 //reduce
 
 let food = [
-  { name: "Gamburger", id: 0, servingSize: 100, price: 10 },
-  { name: "Cheeseburger", id: 1, servingSize: 120, price: 15 },
-  { name: "Kartoha", id: 2, servingSize: 100, price: 5 },
-  { name: "Pizza", id: 3, servingSize: 100, price: 90 },
+  { name: 'Gamburger', id: 0, servingSize: 100, price: 10 },
+  { name: 'Cheeseburger', id: 1, servingSize: 120, price: 15 },
+  { name: 'Kartoha', id: 2, servingSize: 100, price: 5 },
+  { name: 'Pizza', id: 3, servingSize: 100, price: 90 },
 ];
 
 let result = food.reduce(
@@ -149,26 +146,26 @@ let result = food.reduce(
 
     return acc;
   },
-  { receipt: "", total: 0 }
+  { receipt: '', total: 0 }
 );
 
 console.log(result.receipt);
 
 //slice
-console.log("asd" === "asd");
-let testString = "Hello JS";
+console.log('asd' === 'asd');
+let testString = 'Hello JS';
 
 let str = testString.slice(1, 10);
 
 //split
 
-console.log("asd" === "asd");
+console.log('asd' === 'asd');
 
-let testString = "hello";
-let array = testString.split("");
+let testString = 'hello';
+let array = testString.split('');
 
 let newArray = array.map((value, index) =>
   index === 0 ? value.toUpperCase() : value
 );
 
-let resultString = newArray.join("");
+let resultString = newArray.join('');

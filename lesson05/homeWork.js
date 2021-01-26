@@ -13,17 +13,76 @@
  * код сортировки от меньшего к большему находится по пути lesson04/index.js (использовать любые циклы кромe for)
  */
 
+let arr1 = [5, 3, 7, 10, -10, 89, 87];
+
+function task1(arr) {
+  let i, temp, swaps;
+
+  while (true) {
+    i = 0;
+    swaps = 0;
+    while (i < arr.length - 1) {
+      if (arr[i] < arr[i + 1]) {
+        temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swaps += 1;
+      }
+      i++;
+    }
+    if (swaps === 0) {
+      break;
+    }
+  }
+
+  return arr;
+}
+
+console.log('Task1:', task1(arr1));
+
 /**
  * Задание 2
  * Создать массив из 10 чисел. Необходимо создать новый массив, в котором числа будут возведены в квадрат.
  * Например: [1,2,3] -> [1,4,9].
  */
 
+let arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function task2(arr) {
+  return arr.map((el) => el ** 2);
+}
+
+console.log('Task2:', task2(arr2));
+
 /**
  * Задание 3
  * Создать массив объектов с полями: имя, пол. Разделить этот массив на 2 массива (женский и мужской).
  * Использовать reduce.
  */
+
+let arr3 = [
+  { name: 'Robert', sex: 'male' },
+  { name: 'Gloria', sex: 'female' },
+  { name: 'Lexa', sex: 'female' },
+  { name: 'Bellamy', sex: 'male' },
+];
+
+function task3(arr) {
+  let newArr = arr.reduce(
+    (acc, el) => {
+      if (el.sex === 'male') {
+        acc[0].push(el);
+      } else {
+        acc[1].push(el);
+      }
+      return acc;
+    },
+    [[], []]
+  );
+  return newArr;
+}
+
+console.log('Task3:', task3(arr3));
 
 /**
  * Задание 4
@@ -33,14 +92,37 @@
  * (indexOf не использовать)
  */
 
+let arr4 = [1, 4, 'a'];
+let val4 = 'a';
+
+function task4(arr, val) {
+  return arr.findIndex((el) => el === val);
+}
+
+console.log('Task4:', task4(arr4, val4));
+
 /**
  * Задание 5
  * Написать функцию, которая принимает массив из чисел, а возвращает отсортированный массив.
  * Для сортировки можно использовать метод sort, но еще лучше будет если попробовать написать свою соритировку.
  */
 
+let arr5 = [1, 4, 3, -12, 0, 2, 12];
+
+function task5(arr) {
+  return arr.sort((a, b) => a - b);
+}
+
+console.log('Task5:', task5(arr5));
+
 /**
  * Задание 6
  *
  * Написать функцию, которая принимает любое количество чисел(не массив)и возвращает их сумму.
  */
+
+function task6(...args) {
+  return args.reduce((sum, el) => sum + el, 0);
+}
+
+console.log('Task6:', task6(1, 3, 6, 7, 9, 10));
