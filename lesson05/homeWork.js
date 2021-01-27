@@ -12,18 +12,70 @@
  * Написать сортировку позырьком, от большего значения к меньшему.
  * код сортировки от меньшего к большему находится по пути lesson04/index.js (использовать любые циклы кромe for)
  */
-
+function bubbleSort(arr) {
+    let swapped;
+  
+    do {
+      swapped = false;
+      console.log(arr);
+      arr.forEach((item, index) => {
+        if (item > arr[index + 1]) {
+          let temp = item;
+          arr[index] = arr[index + 1];
+          arr[index + 1] = temp;
+          swapped = true;
+        }
+      })
+    } while (swapped);
+  }
+  
+  console.log(bubbleSort([5, 3, 7, 10, -10, 89, 87]))
 /**
  * Задание 2
  * Создать массив из 10 чисел. Необходимо создать новый массив, в котором числа будут возведены в квадрат.
  * Например: [1,2,3] -> [1,4,9].
  */
 
+let arr = [1,2,3,4,5,6,7,8,9,10];
+
+let arrSquared = arr.map(item => item ** 2);
+
+console.log(arrSquared); 
+
 /**
  * Задание 3
  * Создать массив объектов с полями: имя, пол. Разделить этот массив на 2 массива (женский и мужской).
  * Использовать reduce.
  */
+
+let people = [
+    {name: 'Anton',
+     gender: 'male'},
+     
+     {name: 'Semen',
+     gender: 'male'},
+     
+     {name: 'Slavuana',
+     gender: 'female'},
+
+    {name: 'Lena', 
+     gender: 'female'}];
+     
+let maleArr = ['Male:'], femaleArr = ['Female:'];
+    
+let genderSegregation = people.reduce((arr, item, i) => {
+    if(people[i].gender === 'male') {
+        let male = Object.assign({}, people[i]);
+        let {name} = male;
+    return maleArr.push(name);
+        }         
+    else {         
+        let female = Object.assign({}, people[i]);
+        let {name} = female;
+    return femaleArr.push(name);}
+        },[]);
+        
+        console.log(maleArr,femaleArr);
 
 /**
  * Задание 4
@@ -33,14 +85,46 @@
  * (indexOf не использовать)
  */
 
+let indOfArr = (arr, value) => { 
+    
+    for(let i = 0; i < arr.length; i++) {
+      
+        if(arr[i] === value) {return i;} 
+
+        else if(arr[i] === arr.length) {return -1}
+    }};
+
+    console.log(indOfArr([1,2,3,4], 3)); 
+
 /**
  * Задание 5
  * Написать функцию, которая принимает массив из чисел, а возвращает отсортированный массив.
  * Для сортировки можно использовать метод sort, но еще лучше будет если попробовать написать свою соритировку.
  */
 
+let merge = (arr1, arr2) => {
+    let sorted = [];
+  
+    while (arr1.length && arr2.length) {
+      if (arr1[0] < arr2[0]) sorted.push(arr1.shift());
+      else sorted.push(arr2.shift());
+    };
+  
+    return sorted.concat(arr1.slice().concat(arr2.slice()));
+  };
+  
+  console.log(merge([2, 5, 10, 57], [9, 12, 13]));
+
 /**
  * Задание 6
  *
  * Написать функцию, которая принимает любое количество чисел(не массив)и возвращает их сумму.
  */
+
+let sum = (number) => {
+    let numberStr = String(number);
+    let numberArr = numberStr.split('');
+      let newNArr = numberArr.map(i => +i);
+      return newNArr.reduce((total,item) => total + item,0)} 
+   
+  console.log(sum(123456789));
