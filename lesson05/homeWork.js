@@ -12,18 +12,77 @@
  * Написать сортировку позырьком, от большего значения к меньшему.
  * код сортировки от меньшего к большему находится по пути lesson04/index.js (использовать любые циклы кромe for)
  */
+const array1 = [5, 6, 1, 89, 3, 452, 9, 18]
+function bubbleSort(array) {
+  let i = 0
+  while (i < array.length) {
+    let j = 0
+    while (j < array.length) {
+      if (array[j + 1] > array[j]) {
+        temp = array[j]
+        array[j] = array[j + 1]
+        array[j + 1] = temp
+      }
+      j++
+    }
+    i++
+  }
+  return array
+}
+console.log(bubbleSort(array1))
 
 /**
  * Задание 2
  * Создать массив из 10 чисел. Необходимо создать новый массив, в котором числа будут возведены в квадрат.
  * Например: [1,2,3] -> [1,4,9].
  */
+const arr2 = [1, 2, 3, 6, 9, 7, 3, 5]
+const result2 = arr2.map((el) => el ** 2);
 
 /**
  * Задание 3
  * Создать массив объектов с полями: имя, пол. Разделить этот массив на 2 массива (женский и мужской).
  * Использовать reduce.
  */
+const people = [
+  {
+    name: 'Anya',
+    sex: 'female'
+  },
+  {
+    name: 'Anton',
+    sex: 'male'
+  },
+  {
+    name: 'Zhenya',
+    sex: 'male'
+  },
+  {
+    name: 'Julia',
+    sex: 'female'
+  },
+  {
+    name: 'Sergey',
+    sex: 'male'
+  },
+  {
+    name: 'Ilia',
+    sex: 'male'
+  },
+  {
+    name: 'Dasha',
+    sex: 'female'
+  }
+]
+const result3 = people.reduce((acc, cuurent) => {
+  if (cuurent.sex === 'male') {
+    acc[0].push(cuurent);
+  } else {
+    acc[1].push(cuurent);
+  }
+  return acc
+}, [[], []])
+
 
 /**
  * Задание 4
@@ -32,15 +91,27 @@
  * а вторым любое значение, функция должна вернуть индекс если такое значение есть в массиве и -1 если его нет.
  * (indexOf не использовать)
  */
+function findIdx(arr, value) {
+  return arr.findIndex((el) => el === value)
+}
+console.log(findIdx([1, 2, 3, 4], 3));
 
 /**
  * Задание 5
  * Написать функцию, которая принимает массив из чисел, а возвращает отсортированный массив.
  * Для сортировки можно использовать метод sort, но еще лучше будет если попробовать написать свою соритировку.
  */
+function sortArr(arr) {
+  return arr.sort((a, b) => a - b)
+}
 
 /**
  * Задание 6
  *
  * Написать функцию, которая принимает любое количество чисел(не массив)и возвращает их сумму.
  */
+function sum(...args) {
+  return args.reduce((acc, val) => acc + val, 0)
+}
+
+console.log(sum(5, 9, 1, 85, 6, 3, 2))
