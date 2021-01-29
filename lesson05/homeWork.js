@@ -12,6 +12,7 @@
  * Написать сортировку позырьком, от большего значения к меньшему.
  * код сортировки от меньшего к большему находится по пути lesson04/index.js (использовать любые циклы кромe for)
  */
+<<<<<<< HEAD
 function bubbleSort(arr) {
     let swapped;
   
@@ -30,6 +31,39 @@ function bubbleSort(arr) {
   }
   
   console.log(bubbleSort([5, 3, 7, 10, -10, 89, 87]))
+=======
+
+let arr = [4, 7, -3, 10, -2, 5, 13];
+let temp = "";
+
+let counter = 0;
+
+function bubbleSort(arr) {
+  let bubble;
+
+  do {
+    bubble = false;
+
+    arr.forEach((item, index) => {
+      if (item < arr[index + 1]) {
+        let temp = item;
+        arr[index] = arr[index + 1];
+        arr[index + 1] = temp;
+        bubble = true;
+      }
+
+      counter++;
+    });
+  } while (bubble);
+
+  return arr;
+}
+
+let result = bubbleSort(arr);
+
+console.log(result);
+
+>>>>>>> aab8f1db24dc5800635e963aca2856313a8476e3
 /**
  * Задание 2
  * Создать массив из 10 чисел. Необходимо создать новый массив, в котором числа будут возведены в квадрат.
@@ -48,6 +82,7 @@ console.log(arrSquared);
  * Использовать reduce.
  */
 
+<<<<<<< HEAD
 let people = [
     {name: 'Anton',
      gender: 'male'},
@@ -76,15 +111,63 @@ let genderSegregation = people.reduce((arr, item, i) => {
         },[]);
         
         console.log(maleArr,femaleArr);
+=======
+const people = [
+  {
+    name: "Anya",
+    sex: "female",
+  },
+  {
+    name: "Anton",
+    sex: "male",
+  },
+  {
+    name: "Zhenya",
+    sex: "male",
+  },
+  {
+    name: "Julia",
+    sex: "female",
+  },
+  {
+    name: "Sergey",
+    sex: "male",
+  },
+  {
+    name: "Ilia",
+    sex: "male",
+  },
+  {
+    name: "Dasha",
+    sex: "female",
+  },
+];
+
+const result3 = people.reduce(
+  (acc, current) => {
+    console.log(acc);
+
+    if (current.sex === "male") {
+      return { ...acc, male: [...acc.male, current] };
+    } else if (current.sex === "female") {
+      return { ...acc, female: [...acc.female, current] };
+    }
+
+    return acc;
+  },
+  { male: [], female: [] }
+);
+>>>>>>> aab8f1db24dc5800635e963aca2856313a8476e3
 
 /**
  * Задание 4
  *
  * Написать функцию, которая принимает первым аргументом массив,
  * а вторым любое значение, функция должна вернуть индекс если такое значение есть в массиве и -1 если его нет.
- * (indexOf не использовать)
+ * (indexOf, findIndex не использовать)
  */
 
+<<<<<<< HEAD
 let indOfArr = (arr, value) => { 
     
     for(let i = 0; i < arr.length; i++) {
@@ -95,11 +178,32 @@ let indOfArr = (arr, value) => {
     }};
 
     console.log(indOfArr([1,2,3,4], 3)); 
+=======
+//findIndex, find
+
+let arr = [1, 2, 3, 4, 5];
+
+function findIndex(array, value) {
+  let i = 0;
+
+  while (i < array.length) {
+    if (array[i] === value) {
+      return i;
+    }
+
+    i++;
+  }
+
+  return -1;
+}
+
+let index = findIndex(arr, 1);
+>>>>>>> aab8f1db24dc5800635e963aca2856313a8476e3
 
 /**
  * Задание 5
  * Написать функцию, которая принимает массив из чисел, а возвращает отсортированный массив.
- * Для сортировки можно использовать метод sort, но еще лучше будет если попробовать написать свою соритировку.
+ * Для сортировки можно использовать метод sort, но еще лучше будет если попробовать написать свою сортировку.
  */
 
 let merge = (arr1, arr2) => {
