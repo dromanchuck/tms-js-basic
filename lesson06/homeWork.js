@@ -158,9 +158,9 @@ function task8(...args) {
       }
     }
   }
-  return Array.from(new Set(newArr));
+  return newArr.slice(0, newArr.length / args.length);
 }
 
 console.log('Task8:', task8([1, 2], [2, 3], [2, 5]));
 console.log('Task8:', task8([1, 2, 3], [2, 3], [2, 3, 5]));
-console.log('Task8:', task8([1, 7], [3, 3], [2, 3, 5]));
+console.log('Task8:', task8([1, 1], [1, 1], [1, 1, 5]));
