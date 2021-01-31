@@ -14,11 +14,38 @@
  * Внутри если условие равно true, то выполнить первую функцию, если false, то выполнить вторую функцию.
  */
 
+function task1(cond, f1, f2) {
+  return cond ? f1() : f2();
+}
+
+console.log(
+  'Task1:',
+  task1(
+    3 > 2,
+    () => 'Передано true',
+    () => 'Передано false'
+  )
+);
+
 /**
  * Задание 2
  * Написать функцию сравнения двух массивов, которая возвращает true или false в зависимости от того,
  * одинаковые у них элементы или нет.
  */
+
+function task2(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log('Task2:', task2([3, 2, 6, 7], [3, 2, 6, 7]));
 
 /**
  * Задание 3
@@ -27,11 +54,33 @@
  *
  */
 
+function task3() {
+  let counter = 0;
+  return function powCounter() {
+    return (++counter) ** 2;
+  };
+}
+
+let taskNum3 = task3();
+
+console.log('Task3/1:', taskNum3());
+console.log('Task3/2:', taskNum3());
+console.log('Task3/3:', taskNum3());
+
 /**
  * Задание 4
  * Написать функцию, которая выводит количество миллисекунд с начала дня. За начало дня принимаем текущую дату и время 00:00.
  *
  */
+
+function task4() {
+  let date = new Date();
+  date.setHours(0, 0, 0, 0);
+  let now = Date.now();
+  return now - date.getTime();
+}
+
+console.log('Task4:', 'С начала дня прошло ' + task4() + ' мс');
 
 /**
  * Задание 5
@@ -40,6 +89,15 @@
  *
  */
 
+function task5(num) {
+  return num
+    .toString()
+    .split('')
+    .reduce((sum, item) => sum + +item, 0);
+}
+
+console.log('Task5:', task5(2021));
+
 /**
  * Задание 6
  * Описание задачи: Напишите функцию, которая разделит массив на части заданного размера и
@@ -47,12 +105,34 @@
  * Пример функции: splitArray([1, 2, 3, 4, 2) => [[1, 2], [3, 4]]
  */
 
+function task6(arr, div) {
+  // Тут меня понесло :)
+  // Также непонятно, как должны выглядеть внутренние массивы, когда исходный содержит число элементов нацело не делящихся на заданный разделитель, учитывая то, что каждый внутренний массив согласно условию должен быть одинаковой длины.
+  let newArr = new Array(Math.ceil(arr.length / div));
+  let j = 0;
+  for (let i = 0; i < newArr.length; i++) {
+    newArr[i] = [];
+    for (let k = 0; k < div; j++, k++) {
+      newArr[i][k] = arr[j];
+    }
+  }
+  return newArr;
+}
+
+console.log('Task6:', task6([1, 2, 3, 4, 1, 2, 3, 4], 2));
+
 /**
  * Задание 7
  * Напишите функцию, которая очищает массив от нежелательных значений,
  * таких как false, undefined, пустые строки, 0, null.
  *
  */
+
+function task7(arr) {
+  return arr.filter((item) => item);
+}
+
+console.log('Task7:', task7(['', null, 1, '2q', undefined, 0, false, true]));
 
 /**
  * Задание 8 ****
@@ -62,3 +142,25 @@
  *  createArrayWithUniq([1, 2, 3], [2, 3], [2, 3, 5]) => [2, 3]
  *  createArrayWithUniq([1, 3], [2, 3], [2, 3, 5]) => [3]
  */
+
+function task8(...args) {
+  // И здесь меня также понесло :)
+  // В голову приходят только странные решения.
+  let newArr = [];
+  for (let i = 0; i < args.length; i++) {
+    for (let j = 0; j < args[i].length; j++) {
+      let isInAll = 0;
+      for (let k = 0; k < args.length; k++) {
+        args[k].includes(args[i][j]) ? isInAll++ : isInAll--;
+      }
+      if (isInAll === args.length) {
+        newArr.push(args[i][j]);
+      }
+    }
+  }
+  return Array.from(new Set(newArr));
+}
+
+console.log('Task8:', task8([1, 2], [2, 3], [2, 5]));
+console.log('Task8:', task8([1, 2, 3], [2, 3], [2, 3, 5]));
+console.log('Task8:', task8([1, 7], [3, 3], [2, 3, 5]));
