@@ -1,137 +1,137 @@
 /**
+ * Домашнее задание к занятию 7
+ * Каждому нужно создать новую ветку от ветки master. Название ветки должно содержать имя + первая буква фамилии + /lesson05.
+ * Например: dmitryR/lesson07. Выполнение задания производится в свое ветке и в этом файле.
+ * После выполнения задания делаете пулл реквест и сообщаете о том, что задание выполнено:)
+ * В случае неполодок с гитом, присылаете папку с проектом мне в личные сообщения
+ * Код решения должен быть сразу же после самого задания
+ */
+
+//ВНИМАНИЕ! К кажому заданию написать тесты(минимум 3)! Использовать функцию test из index.js или написать свою собственную функцию
+
+/**
  * Задание 0
  * Написать функцию, которая вычислит минимальное значени всех аргументов функции и вернет это значение.
  * (Math.min использовать нельзя :-) )
  */
 
-function findMin(...args) {
-  let min = args.reduce((acc, curr) => {
-    if (acc > curr) {
-      return curr;
-    }
+/** вообще эта фраза пишется только один раз в самом верху файла,
+ * но для удобства дублирую ее в каждом задании 
+ */
 
-    return acc;
-  }, args[0]);
+const assert = require('assert'); 
 
-  return min;
-}
+function arrayMin(...arr) {
+    return arr.reduce((a, b) => {
+      return ( a < b ? a : b )
+    });
+};
+  
+assert.equal(arrayMin(7, 10, 2), 2);
+assert.equal(arrayMin(-2, 1, 7), -2);
+assert.equal(arrayMin(96, 12, 7), 7);
 
-let min = findMin(1, 2, 4, 5, 7, 1, 2, 3, 4, 5);
 
 /**
  * Задание 1
- * Написать функцию, которая  подсчитает сумму всех аргументов функции и вернет это значение.
- */
-
-let makeSum = function () {
-  const args = [...arguments];
-
-  let sum = args.reduce((acc, curr) => {
-    return acc + curr;
-  }, 0);
-
-  return sum;
-};
-
-let sum = makeSum(1, 5, 3, 2, 5, 6, 8, 4, 0, -10, 90);
-console.log(sum);
-
-/**
- * Задание 2
- * Написать функцию, которая будет возвращать количество вызовов этой функции в квадрате.
- * (Использовать замыкание)
- *
- */
-
-function makeCounter() {
-  let count = 0;
-
-  return function () {
-    count++;
-
-    return count ** 2;
-  };
-}
-
-const counter = makeCounter();
-
-console.log(counter());
-console.log(counter());
-console.log(counter());
-console.log(counter());
-
-/**
- * Задание 3
- * Написать функцию сравнения двух массивов, которая возвращает true или false в зависимости от того,
- * одинаковые у них элементы или нет.
- */
-
-const arr1 = [1, 3, 3, 4, 5, 6];
-const arr2 = [1, 2, 3, 4, 5, 6];
-
-function equals(arr1, arr2) {
-  if (arr1.length === arr2.length) {
-    let isEqual = arr1.reduce((prev, curr, index) => {
-      if (curr === arr2[index]) {
-        return prev;
-      }
-
-      if (curr !== arr2[index]) {
-        return false;
-      }
-    }, true);
-
-    return isEqual;
-  }
-
-  return false;
-}
-
-const isEqual = equals(arr1, arr2);
-
-console.log(isEqual);
-
-let arr1 = [1, 2, 3, 4, 5];
-let arr2 = [1, 2, 3, 4, 5];
-
-const equals = (arr1, arr2) => JSON.stringify(arr1) === JSON.stringify(arr2);
-
-let isEqual = equals(arr1, arr2);
-
-/**
- * Задание 4
- * Написать функцию, которая принимает первым аргументом условие,
- * вторым и третьим аргументом функции(функции могут делать все что угодно на ваш выбор).
- * Внутри если условие равно true, то выполнить первую функцию, если false, то выполнить вторую функцию.
- */
-
-function makeWhenTrue() {
-  alert("TRUE");
-}
-
-function makeWhenFalse() {
-  alert("FALSE(");
-}
-
-function checkIsTrue(cond, funcTrue, funcFalse) {
-  return cond ? funcTrue() : funcFalse();
-}
-
-let cond = confirm();
-
-checkIsTrue(cond, makeWhenTrue, makeWhenFalse);
-
-/**
- * Задание 5
  * Сделать функцию, которая вычисляет разность между двумя числами и вернет разность.
  * Выполнить используя замыкание, результат должен выглядеть примерно так
  * let sub = substract(a)(b) // a - b
  */
 
-function substract(a) {
-  return function (b) {
-    return a - b;
-  };
-}
+const assert = require('assert');
 
-let sub = substract(12)(6);
+function difference(a) {
+
+    return (b) => {
+        if (a === b) {
+            return 'Числа равны'
+        } else if (a > b) {
+            return a - b
+        } else {
+            return b - a
+        }
+    }
+};
+
+let diff = difference(4)(6);
+
+assert.equal(diff = difference(4)(6),2);
+assert.equal(diff = difference(4)(1),3);
+assert.equal(diff = difference(5)(5),'Числа равны');
+
+
+/**
+ * Задание 2
+ * Создайте замыкание: функция makePassword получает пароль в аргументе и возвращает
+ * внутреннюю функцию, которая принимает введенную строку и возвращает булево значение true,
+ * если введенная строка совпадает с паролем и false – если не совпадает.
+ * Пример выполнения функции:
+ * let checkPassword = makePassword('somePassword'); //задаем пороль
+ *
+ * checkPassword('password') // возвращает false
+ * checkPassword('somePassword')
+ */
+
+const assert = require('assert');
+
+function makePassword(password) {
+
+    return (str) => {
+        if (password === str) {
+            return true
+        } else {
+            return false
+        }
+    }
+};
+
+let checkPassword = makePassword('somePassword');
+
+assert.equal(checkPassword('somePassword'), true);
+assert.equal(checkPassword('some'), false);
+assert.equal(checkPassword('Password'), false);
+
+/** Задание 3
+ * Написать функцию, которая приобразуем любую строку в строку написанную кебаб кейсом (все буквы с маленькой буквы и на месте пробелов - тире)
+ * Например:
+ * 'Hello World' -> 'hello-world';
+ * 'Hello dear hell' -> 'hello-dear-hell'
+ */
+
+
+/** Если сразу писать проверку на teUpperCase, а потом на пробел/замена на тире, 
+ * то не сработает замена на тире)
+ */
+
+const assert = require('assert');
+
+function notKebabCase(str) {
+
+    return str.split(' ').map((value) => value.toLowerCase()).join('-')
+};
+
+assert.equal(notKebabCase('Hi Friend'), 'hi-friend');
+assert.equal(notKebabCase('It Is My Life'), 'it-is-my-life');
+assert.equal(notKebabCase('I Like My Car'), 'i-like-my-car');
+
+
+/**
+ * Написать функцию, которая из любой фразы сделает вернет ее абревиатуру.
+ *
+ * 'Республика беларусь' -> 'РБ'
+ * 'Минск' -> 'М'
+ */
+
+const assert = require('assert');
+
+function abbreviation(str) {
+    return str.split(' ').map((value) => value[0].toUpperCase()).join('-')
+};
+
+assert.equal(abbreviation('happy cat'), 'HC');
+assert.equal(abbreviation('Volkswagen A G'), 'VAG');
+assert.equal(abbreviation('Скоро закончится зима'), 'СЗЗ');
+
+
+
