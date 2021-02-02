@@ -13,6 +13,7 @@ function testToFuncMinArg(message,result,trueResult) {
     console.log(`${message} -- получилось: ${result} -- ожидалось: ${trueResult} -- Итог ${result == trueResult ? 'Успех' : 'Неудача'}`);;
 }
 
+
 /**
  * Задание 0
  * Написать функцию, которая вычислит минимальное значени всех аргументов функции и вернет это значение.
