@@ -12,11 +12,7 @@ function calcSum(number) {
 
 function test(message, result, expectedResult) {
   let status = result === expectedResult ? " Успех" : " Ошибка";
-  console.log(
-    message +
-      "----" +
-      "Результат: " +
-      result +
+  console.log(message +"----" + "Результат: " + result +
       " ожидаемый результат " +
       expectedResult +
       "   status" +
