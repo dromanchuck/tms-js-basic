@@ -1,45 +1,30 @@
-// ... в аргументах функции
+function calcSum(number) {
+  let numStr = String(number);
+  let arr = numStr.split("");
+  let sum = 0;
 
-let arr = [1, 2, 3, 4, 5];
-let clonedArr = [...arr];
+  for (let i = 0; i < arr.length; i++) {
+    sum += +arr[i];
+  }
 
-clonedArr[0] = "Hello";
-arr[0] = "World";
-
-function findMax(...args) {
-  //first
-  console.log(arguments.length);
-  let args1 = [...arguments];
-  console.log(args1);
-  //second
-
-  console.log(args);
-
-  let max = Math.max(...args); // Math.max(1, 2, 3, 6, 7, 8, 9, 19);
-
-  return max;
+  return sum;
 }
 
-let max = findMax(1, 2, 3, 6, 7, 8, 9, 19);
-
-("use strict");
-
-function sayHelloToWithMessage(message, ...names) {
-  let msg = `Привет, ${message} `;
-
-  names.forEach((name) => {
-    console.log(msg + name);
-  });
+function test(message, result, expectedResult) {
+  let status = result === expectedResult ? " Успех" : " Ошибка";
+  console.log(
+    message +
+      "----" +
+      "Результат: " +
+      result +
+      " ожидаемый результат " +
+      expectedResult +
+      "   status" +
+      status
+  );
 }
 
-sayHelloToWithMessage("Доброе утро", "Петя", "Зина", "Нина");
-
-//Замыкания
-
-function showName(name, sureName) {
-  let getFullName = (firstName, secondName) => firstName + " " + secondName;
-
-  console.log(getFullName(name, sureName));
-}
-
-showName("John", "Doe");
+test("Число 2021 - должно вывести 5", calcSum(2021), 5);
+test("Число 2022 - должно вывести 6", calcSum(2022), 6);
+test("Число 2021 - должно вывести 5", calcSum(2021), 4);
+test("Число 2021 - должно вывести 5", calcSum(2021), 5);
