@@ -23,11 +23,21 @@
  *
  */
 
+const divId = document.getElementById('unordered_list')
+const divClass = document.getElementsByClassName('ordered_list')
+const div = document.querySelector('.ordered_list')
+
 /**
  * Задание №2
  * Получить кнопку с текстом click. Сделать так, чтобы по нажатию на кнопку вызывался alert('Hello!!!');
  *
  */
+
+const clickButton = document.querySelector('.btn')
+
+clickButton.onclick = () => {
+  alert('Hello!!!')
+}
 
 /**
  * Задание №3
@@ -35,12 +45,37 @@
  *
  */
 
+const allButtons = document.querySelectorAll('button')
+
+allButtons.forEach((elem) => {
+  elem.style = `
+  font-family: Lucida Console;
+  font-size: 30px;
+  text-transform: uppercase;
+  `
+})
+
 /**
  * Задание №4
  * Получить все элементы li c классом list_item. Изменить стиль(использовать inline стили и добавление класса).
  * Сделать все буквы маленькими у каждого текстого узла li. Добавить каждому li кнопку c текстом ok.
  *
  */
+
+const allLi = document.querySelectorAll('.list_item')
+
+allLi.forEach((elem) => {
+  elem.style = `
+  text-transform: lowercase;
+  `
+  let button = document.createElement('button')
+  button.innerHTML = 'ok'
+  elem.append(button)
+
+  button.style = `
+  margin-left: 20px;
+  `
+})
 
 /**
  * Задание 5
@@ -53,6 +88,42 @@
  *
  */
 
+const inputAppend = document.createElement('input')
+const buttonAppend = document.createElement('button')
+const divAppend = document.createElement('div')
+
+document.body.append(divAppend)
+
+divAppend.style = `
+margin: 30px;
+`
+
+divAppend.append(inputAppend)
+divAppend.append(buttonAppend)
+
+buttonAppend.innerHTML = 'task 5'
+
+buttonAppend.style = `
+margin-left: 20px;
+`
+
+const camelCase = (input) => {
+  let str = input.trim()
+  return str
+
+    .split(' ')
+    .map((item, index) =>
+      index == 0
+        ? item[0].toLowerCase() + item.slice(1)
+        : item[0].toUpperCase() + item.slice(1)
+    )
+    .join('')
+}
+
+buttonAppend.onclick = () => {
+  alert(camelCase(inputAppend.value))
+}
+
 /**
  * Задание 6
  * Создать элементы 2 input'a и button добавить их в верстку файла index.html. Сделать так,
@@ -64,8 +135,38 @@
  * Инпут2: 'Hello'
  */
 
+const input1 = document.createElement('input')
+const input2 = document.createElement('input')
+const button1 = document.createElement('button')
+const div1 = document.createElement('div')
+
+document.body.append(div1)
+div1.append(input1)
+div1.append(input2)
+div1.append(button1)
+
+button1.innerHTML = 'task 6'
+
+button1.onclick = () => {
+  let temp = input1.value
+  input1.value = input2.value
+  input2.value = temp
+}
+
 /**
  * Задание 7
  * Написать код, который будет каждую минуту будет менять цвет у страницы. Цвет должен генерироваться рандомно.
  *
  */
+
+function changeBgColor() {
+  let r = Math.floor(Math.random() * 256)
+  let g = Math.floor(Math.random() * 256)
+  let b = Math.floor(Math.random() * 256)
+  color = `rgba(${r},${g},${b},1)`
+  document.body.style.backgroundColor = color
+}
+
+setInterval(() => {
+  changeBgColor()
+}, 10000)
