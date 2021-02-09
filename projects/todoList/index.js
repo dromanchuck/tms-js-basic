@@ -28,7 +28,6 @@ function createTodo(text) {
   let textNode = document.createTextNode(text);
   let id = ul.children.length;
 
-  todo.setAttribute("data-state", "todo");
   todo.setAttribute("id", id);
 
   let removeButton = document.createElement("button");
