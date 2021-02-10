@@ -32,6 +32,7 @@ btn.addEventListener('click', function() {
     p.innerText = newText;
 });
 
+
 /**
  * Задание 2
  * Создать 2 инпута, 3 параграфа и кнопку. Разместить следующим образом:
@@ -134,11 +135,41 @@ sortButton.addEventListener('click', function() {
     }
 })
 
+/**
+ * Задание 4
+ * Получить элемент с id = 4. 
+ *   <div id="4">
+      <div class="exercise_4">
+        <button>5</button>
+        <button>6</button>
+        <button>3</button>
+        <button>8</button>
+        <button>1</button>
+        <button>9</button>
+        <button>10</button>
+        <button>9</button>
+        <button>15</button>
+        <button>0</button>
+        <button>10</button>
+        <button>90</button>
+        <button>100</button>
+        <button>2</button>
+        <button>3</button>
+      </div>
+      <button>Отсортировать</button>
+    </div>
+ * 
+ * Сделать так, чтобы по нажатию на кнопку Отсортировать, кнопки были отсортированы по возрастанию.
+ *
+ */
+
+
 /** Задание 5
  * Создать 2 кнопки с текстами 'Заблокировать' и 'Разблокировать' и 1 инпут.
  * Сделать так, чтобы по нажатию на кнопку 'Заблокировать', input блокируется,
  * по нажатию на 'Разблокировать' input разблокируется. Использовать атрибут disabled для input.
  */
+
 
 let btn3 = document.createElement('button');
 let btn4 = document.createElement('button');
@@ -196,3 +227,4 @@ for (let num of array) {
         num.innerText = String(Number(num.innerText) ** 2);
     });
 }
+
