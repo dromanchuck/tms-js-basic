@@ -1,0 +1,23 @@
+.list_item {
+  padding-left: 20px;
+}
+
+.list_item__todo {
+  text-decoration: none;
+}
+
+.list_item__done {
+  text-decoration: line-through;
+}
+
+.done_button {
+  margin-right: 10px;
+}
+
+.remove_button {
+  margin-left: 10px;
+}
+
+.checked {
+  background-color: royalblue;
+}
