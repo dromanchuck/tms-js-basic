@@ -3,3 +3,33 @@
   border: 1px solid black;
   padding: 20px;
 }
+
+.button {
+  padding: 15px 25px;
+}
+
+.paragraph {
+  font-size: 20px;
+}
+
+.second-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.result-btn {
+  display: block;
+  padding: 15px 25px;
+  margin: 0 auto;
+}
+
+a {
+  margin-right: 20px;
+}
+
+p {
+  font-size: 25px;
+  border: 1px solid seagreen;
+}
