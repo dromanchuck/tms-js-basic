@@ -31,3 +31,11 @@ button {
 .li-active {
   background: yellow;
 }
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}
