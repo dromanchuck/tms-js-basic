@@ -31,3 +31,41 @@ button {
 .li-active {
   background: yellow;
 }
+
+.counter {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: aquamarine;
+}
+
+.count {
+  margin-left: 10px;
+}
+
+.container_task4 {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 450px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: aqua;
+}
+
+.container_task5 {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  background-color: cornflowerblue;
+  color: white;
+}
