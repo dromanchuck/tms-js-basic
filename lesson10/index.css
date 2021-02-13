@@ -1,4 +1,4 @@
-li,
+/* li,
 button {
   cursor: pointer;
 }
@@ -30,4 +30,9 @@ button {
 
 .li-active {
   background: yellow;
+} */
+
+.hidden {
+  display:none;
 }
+
