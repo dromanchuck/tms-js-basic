@@ -25,28 +25,3 @@
   },
  * Вывести в html внутри div с id = 2
  */
-
-fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
-  .then((response) => response.json())
-  .then((json) => {
-    const object = json;
-    return object;
-  })
-  .then((object) => {
-    let ol = document.createElement("ol");
-    ol.setAttribute("class", "third-list");
-
-    let h2 = document.createElement("h2");
-    h2.append("Задание 2");
-    let thirdContainer = document.getElementById("2");
-    thirdContainer.append(h2);
-    thirdContainer.append(ol);
-    object.forEach((elem) => {
-      let li = document.createElement("li");
-      ol.append(li);
-      let img = document.createElement("img");
-      img.setAttribute("class", "photo");
-      img.setAttribute("src", elem.url);
-      li.append(img);
-    });
-  });

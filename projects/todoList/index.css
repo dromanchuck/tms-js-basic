@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .list_item {
   padding-left: 20px;
 }
@@ -7,6 +8,23 @@
 }
 
 .list_item__done {
+=======
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+.list_item {
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.list_item__todo p {
+  text-decoration: none;
+}
+
+.list_item__done p {
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
   text-decoration: line-through;
 }
 
@@ -21,3 +39,10 @@
 .checked {
   background-color: royalblue;
 }
+<<<<<<< HEAD
+=======
+
+.hide_add_button {
+  display: none;
+}
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961

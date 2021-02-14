@@ -15,6 +15,7 @@
  * на кнопку, в параграф вставлялась рандомная цифра от 0 до 10.
  */
 
+<<<<<<< HEAD
 const taskOneButton = document.createElement('button')
 const taskOneP = document.createElement('p')
 
@@ -27,6 +28,8 @@ taskOneButton.addEventListener('click', (event) => {
 
 document.body.append(taskOneButton, taskOneP)
 
+=======
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 /**
  * Задание 2
  * Создать 2 инпута, 3 параграфа и кнопку. Разместить следующим образом:
@@ -34,6 +37,7 @@ document.body.append(taskOneButton, taskOneP)
  * И ниже разместить кнопку с текстом 'посчитать сумму'.
  * Сделать так, чтобы пожатию на кнопку, происходило подсчет введенных в инпуты чисел.
  */
+<<<<<<< HEAD
 const taskTwoDiv = document.createElement('div')
 
 const taskTwoInputOne = document.createElement('input')
@@ -69,6 +73,8 @@ document.body.append(taskTwoButton)
 taskTwoButton.addEventListener('click', (event) => {
   taskTwoPThree.innerText = +taskTwoInputOne.value + +taskTwoInputTwo.value
 })
+=======
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 
 /**
  * Задание 3
@@ -78,6 +84,7 @@ taskTwoButton.addEventListener('click', (event) => {
  * Ссылка с текстом 'Ссылка 1' после нажатия на кнопку текст меняется на 'Ссылка 1 (yandex.ru)'.
  */
 
+<<<<<<< HEAD
 const taskThreeGetDivA = document.querySelectorAll('div[id="3"] > a')
 const taskThreeGetDiv = document.getElementById('3')
 
@@ -97,6 +104,8 @@ taskThreeButton.addEventListener('click', (event) => {
   taskThreeButton.remove()
 })
 
+=======
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 /**
  * Задание 4
  * Получить элемент с id = 4. 
@@ -125,6 +134,7 @@ taskThreeButton.addEventListener('click', (event) => {
  *
  */
 
+<<<<<<< HEAD
 const taskFourDiv = document.getElementById('4')
 const numButtons = document.querySelectorAll('.exercise_4 > button')
 const sortButton = document.querySelector('.sortButton')
@@ -140,12 +150,15 @@ sortButton.addEventListener('click', (event) => {
   }
 })
 
+=======
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 /** Задание 5
  * Создать 2 кнопки с текстами 'Заблокировать' и 'Разблокировать' и 1 инпут.
  * Сделать так, чтобы по нажатию на кнопку 'Заблокировать', input блокируется,
  * по нажатию на 'Разблокировать' input разблокируется. Использовать атрибут disabled для input.
  */
 
+<<<<<<< HEAD
 const taskFiveDiv = document.createElement('div')
 const taskFiveButtonOne = document.createElement('button')
 const taskFiveButtonTwo = document.createElement('button')
@@ -166,12 +179,15 @@ taskFiveButtonTwo.addEventListener('click', (event) => {
   taskFiveInput.removeAttribute('disabled')
 })
 
+=======
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 /**
  * Задание 6
  * Создать 5 параграфов с числами(<p>5</p>).
  * По нажатию на параграф в нем должен появится квадрат числа, которое он содержит.
  *
  */
+<<<<<<< HEAD
 
 const p1 = document.createElement('p')
 const p2 = document.createElement('p')
@@ -198,3 +214,5 @@ for (let elem of pArray) {
     elem.innerText = (+elem.innerText) ** 2
   })
 }
+=======
+>>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
