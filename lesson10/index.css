@@ -1,33 +1,37 @@
 li,
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .container {
-  background: white;
+    background: white;
 }
 
 .second-container {
-  background: gray;
+    background: gray;
 }
 
 .todo-text {
-  font-size: 20px;
-  margin: 0 10px;
+    font-size: 20px;
+    margin: 0 10px;
 }
 
 .wrapper {
-  display: flex;
+    display: flex;
 }
 
 .button-active {
-  background: yellowgreen;
+    background: yellowgreen;
 }
 
 .text-done {
-  text-decoration: line-through;
+    text-decoration: line-through;
 }
 
 .li-active {
-  background: yellow;
+    background: yellow;
+}
+
+.hidden {
+    display: none;
 }
