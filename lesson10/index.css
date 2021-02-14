@@ -31,3 +31,6 @@ button {
 .li-active {
   background: yellow;
 }
+.unseen{
+  display: none;
+}
