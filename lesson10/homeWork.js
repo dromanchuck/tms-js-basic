@@ -78,8 +78,7 @@ let inputs2 = [...inputs1];
 inputs2.forEach((elem, index) => {
     elem.addEventListener(`keydown`, (event) => {
         if (event.key === 'Enter') {
-            inputs2.push(`${index}: ${event.target.value}`);
-            divResult.innerText = inputs2.join(' ');
+            divResult.innerText = `${index}: ${event.target.value}`;
         }
     })
 })
@@ -111,7 +110,7 @@ let userArray = [
 ];
 buttonLog.addEventListener(`click`, () => {
     for ( let userName of userArray){
-        if (userName.value === inputLog.value && password.value === inputPass.value){
+        if (userName.userName === inputLog.value && userName.password === inputPass.value){
             inputLog.classList.add(`unseen`);
             inputPass.classList.add(`unseen`);
             buttonLog.classList.add(`unseen`);
@@ -135,5 +134,9 @@ div3.append(p1);
 let time = new Date();
 let hours = time.getHours();
 let minutes = time.getMinutes();
+if (minutes < 10 ) {
+    minutes = `0${minutes}`};
 let seconds = time.getSeconds();
+if (seconds < 10) {
+    seconds = `0${seconds}`};
 p1.innerText = `Текущее время  ` + `${hours}:`+`${minutes}:`+`${seconds}`;
