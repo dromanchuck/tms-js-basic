@@ -31,3 +31,13 @@ button {
 .li-active {
   background: yellow;
 }
+
+.hidden {
+  display: none;
+}
+
+.time {
+  max-width: 300px;
+  margin: 150px auto 0 auto;
+  font-size: 45px;
+}

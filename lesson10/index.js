@@ -4,14 +4,14 @@ document.body.classList.add("container");
 let localTodos = localStorage.getItem("todos");
 let todos = JSON.parse(localTodos) || [];
 
-setInterval(() => {
-  if (document.body.classList.contains("second-container")) {
-    document.body.classList.remove("second-container");
-    return;
-  }
+// setInterval(() => {
+//   if (document.body.classList.contains("second-container")) {
+//     document.body.classList.remove("second-container");
+//     return;
+//   }
 
-  document.body.classList.add("second-container");
-}, 5000);
+//   document.body.classList.add("second-container");
+// }, 5000);
 
 header.append("TODO LIST/tms edition");
 container.append(header);
@@ -160,9 +160,7 @@ doneAllButton.addEventListener("click", () => {
     let buttons = item.querySelectorAll("button");
     let buttonsArr = [...buttons];
 
-    let doneButton = buttonsArr.find(
-      (item) => item.innerText === "Done" || item.innerText === "To Do"
-    );
+    let doneButton = buttonsArr.find((item) => item.innerText === "Done" || item.innerText === "To Do");
 
     if (doneButton.innerHTML === "Done") {
       doneButton.innerHTML = "To Do";
