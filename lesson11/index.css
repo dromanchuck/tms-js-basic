@@ -1,7 +1,7 @@
 body {
   font-size: 20px;
   color: #ffffff;
-  background-color: rgb(7, 7, 7);
+  background-color: rgba(0, 0, 0, 0.76);
 }
 
 p {
@@ -22,4 +22,25 @@ p {
 .photo {
   width: 150px;
   height: 150px;
+}
+
+.user-container {
+  border-bottom: 1px solid rgb(241, 149, 149);
+}
+
+.todo-container {
+  border-bottom: 1px solid rgb(24, 122, 250);
+}
+
+li {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.back {
+  margin-bottom: 20px;
+  cursor: pointer;
 }
