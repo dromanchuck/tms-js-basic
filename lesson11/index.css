@@ -1,25 +1,4 @@
-body {
-  font-size: 20px;
-  color: #ffffff;
-  background-color: rgb(7, 7, 7);
-}
-
-p {
-  color: #ffffff;
-}
-
-.second-ol {
-  list-style-type: none;
-  margin-left: 0px;
-  padding-left: 10px;
-}
-
-.third-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.photo {
-  width: 150px;
-  height: 150px;
+body > div:not(:last-child) {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
 }
