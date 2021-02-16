@@ -4,18 +4,22 @@ body {
   background-color: rgb(7, 7, 7);
 }
 
+p {
+  color: #ffffff;
+}
+
 .second-ol {
   list-style-type: none;
   margin-left: 0px;
   padding-left: 10px;
-};
+}
 
 .third-list {
   display: flex;
   flex-wrap: wrap;
-};
+}
 
 .photo {
   width: 150px;
   height: 150px;
-};
+}
