@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 .list_item {
   padding-left: 20px;
 }
@@ -9,6 +10,8 @@
 
 .list_item__done {
 =======
+=======
+>>>>>>> 8d10e18b2f8811e79bc9f228ed9850e2a2cf13b6
 body {
   width: 100%;
   height: 100vh;
@@ -24,7 +27,10 @@ body {
 }
 
 .list_item__done p {
+<<<<<<< HEAD
 >>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
+=======
+>>>>>>> 8d10e18b2f8811e79bc9f228ed9850e2a2cf13b6
   text-decoration: line-through;
 }
 
@@ -40,9 +46,15 @@ body {
   background-color: royalblue;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 8d10e18b2f8811e79bc9f228ed9850e2a2cf13b6
 
 .hide_add_button {
   display: none;
 }
+<<<<<<< HEAD
 >>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
+=======
+>>>>>>> 8d10e18b2f8811e79bc9f228ed9850e2a2cf13b6
