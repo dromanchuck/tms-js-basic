@@ -8,6 +8,10 @@ p {
   color: #000;
 }
 
+p {
+  color: #ffffff;
+}
+
 .second-ol {
   list-style-type: none;
   margin-left: 0px;
@@ -23,3 +27,4 @@ p {
   width: 150px;
   height: 150px;
 }
+

@@ -1,3 +1,4 @@
+
 let title = document.createElement("h1");
 let container = document.createElement("div");
 let input = document.createElement("input");
@@ -14,6 +15,7 @@ addButton.onclick = () => {
   ul.append(todo);
 
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
+
 let title = document.createElement('h1');
 let container = document.createElement('div');
 let input = document.createElement('input');
@@ -81,6 +83,12 @@ function createTodo(text, id, done = false) {
   let todo = document.createElement('li');
   let p = document.createElement('p');
   let textNode = document.createTextNode(text);
+
+function createTodo(text, id, done = false) {
+  let todo = document.createElement('li');
+  let p = document.createElement('p');
+  let textNode = document.createTextNode(text);
+
   let editInput = document.createElement('input');
 
   p.append(textNode);
