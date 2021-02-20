@@ -1,0 +1,37 @@
+.hidden {
+    display: none;
+}
+
+.modal{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color:rgba(0,0,0,0.5);
+}
+
+.modalBody {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    min-height: 200px;
+    background-color: white;
+}
+
+.modalHeader {
+    padding:0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    height: 30px;
+}
+
+.modalPhoto {
+    width: 600px;
+    height: 600px;
+}
