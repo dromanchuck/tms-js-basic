@@ -1,9 +1,8 @@
-<<<<<<< HEAD
+
 let title = document.createElement("h1");
 let container = document.createElement("div");
 let input = document.createElement("input");
 let ul = document.createElement("ul");
-<<<<<<< HEAD
 
 //ADD BUTTON
 let addButton = document.createElement("button");
@@ -14,15 +13,14 @@ addButton.onclick = () => {
   let todo = createTodo(input.value);
 
   ul.append(todo);
-=======
+
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
-=======
+
 let title = document.createElement('h1');
 let container = document.createElement('div');
 let input = document.createElement('input');
 let ul = document.createElement('ul');
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
->>>>>>> 8d04ff9ca90033baf2c5aa1ffc0a7e347b619659
 
 function getID() {
   return '_' + Math.random().toString(36).substr(2, 9);
@@ -64,10 +62,6 @@ addButton.onclick = () => {
   } else {
     alert('Ну введи уже что-нибудь!');
   }
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 8d04ff9ca90033baf2c5aa1ffc0a7e347b619659
 };
 
 let titleText = document.createTextNode('TODO-LIST');
@@ -76,8 +70,6 @@ title.append(titleText);
 container.append(title, input, addButton, ul);
 document.body.append(container);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 function createTodo(text) {
   let todo = document.createElement("li");
   let textNode = document.createTextNode(text);
@@ -86,13 +78,17 @@ function createTodo(text) {
 
   return todo;
 }
-=======
-=======
->>>>>>> 8d04ff9ca90033baf2c5aa1ffc0a7e347b619659
+
 function createTodo(text, id, done = false) {
   let todo = document.createElement('li');
   let p = document.createElement('p');
   let textNode = document.createTextNode(text);
+
+function createTodo(text, id, done = false) {
+  let todo = document.createElement('li');
+  let p = document.createElement('p');
+  let textNode = document.createTextNode(text);
+
   let editInput = document.createElement('input');
 
   p.append(textNode);
@@ -226,7 +222,4 @@ document.body.addEventListener('click', () => {
     item.classList.remove('checked');
   });
 });
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> 8d04ff9ca90033baf2c5aa1ffc0a7e347b619659
+
