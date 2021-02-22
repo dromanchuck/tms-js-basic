@@ -20,7 +20,7 @@
  * Дописать задание 4 из занятия 11. Нужно сделать так, чтобы по нажатию на фотку она должна
  * отобразиться поверх всех фоток как модальное окно (пример здесь https://itchief.ru/javascript/modal-window).
  * У модального окна должна быть кнопка, по нажатию на который модальное окно закрывается.
- *  Код разместить в отдельном файле с названием task2.js. Результат нужно разместить в div c id = result
+ * Код разместить в отдельном файле с названием task2.js. Результат нужно разместить в div c id = result
  */
 
 /**
@@ -29,6 +29,51 @@
  * кнопку в div отображалось соотвествующее задание. Реализовать путем добавления/удаления тега script c src task1.js или task2.js.
  *
  */
+
+let button1 = document.createElement("button");
+button1.innerText = "Task1";
+
+let button2 = document.createElement("button");
+button2.innerText = "Task2";
+
+function changeTask(event) {
+  let id = event.target.innerText;
+  let result = document.getElementById("result");
+
+  result.innerHTML = "";
+
+  if (id === "Task1") {
+    button1.disabled = true;
+    button2.disabled = false;
+  } else {
+    button1.disabled = false;
+    button2.disabled = true;
+  }
+
+  let pathMap = {
+    Task1: "task1.js",
+    Task2: "task2.js",
+  };
+
+  let path = pathMap[id];
+
+  let prevScript = document.getElementById(id === "Task1" ? "Task2" : "Task1");
+
+  if (prevScript) {
+    prevScript.remove();
+  }
+
+  let script = document.createElement("script");
+  script.id = id;
+  script.src = path;
+
+  document.body.append(script);
+}
+
+button1.addEventListener("click", changeTask);
+button2.addEventListener("click", changeTask);
+
+document.body.prepend(button1, button2);
 
 //Promise
 
