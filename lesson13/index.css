@@ -1,0 +1,69 @@
+.modal-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(30, 30, 30, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.big-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  max-height: calc(100vh - 50px);
+}
+
+.close-button {
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-size: 30px;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+
+.close-button:hover {
+  cursor: pointer;
+  color: white;
+  background: black;
+}
+
+.button-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.button-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  max-width: 470px;
+  margin-left: 20px;
+}
+
+.slider__photos {
+  display: inline-flex;
+  transition: all 0.5s ease-out;
+  flex-wrap: nowrap;
+  max-width: 470px;
+}
+
+.slider div img:not(:last-child) {
+  margin-right: 10px;
+}
