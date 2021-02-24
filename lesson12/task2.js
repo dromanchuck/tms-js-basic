@@ -1,5 +1,5 @@
 try {
-  let container = document.querySelector("#result");
+  export let container = document.querySelector("#result");
   let albumsContainer = document.createElement("div");
   let photosContainer = document.createElement("div");
   let backButton = document.createElement("button");
@@ -155,7 +155,7 @@ try {
     rightButton.innerText = ">";
 
     rightButton.onclick = function () {
-      offset = -offset + IMAGE_SIZE + 10;
+      offset = offset + IMAGE_SIZE + 10;
 
       innerContainer.style.transform = `translateX(${-offset}px)`;
     };
