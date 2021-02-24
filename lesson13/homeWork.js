@@ -95,7 +95,6 @@ let stud1 = {
   groupNumber: 32,
   marks: [7, 6, 9, 10, 4, 3],
 }
-
 let stud2 = {
   name: 'Kate',
   age: 19,
