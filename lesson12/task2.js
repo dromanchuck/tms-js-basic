@@ -1,4 +1,5 @@
-try {
+function startWork() {
+  // try {
   let container = document.querySelector("#result");
   let albumsContainer = document.createElement("div");
   let photosContainer = document.createElement("div");
@@ -145,7 +146,19 @@ try {
     let leftButton = document.createElement("button");
     leftButton.innerText = "<";
 
+    if (offset === 0) {
+      leftButton.setAttribute('disabled', true)
+    }
+
+
     leftButton.onclick = function () {
+      if (offset === 0) {
+        leftButton.setAttribute('disabled', true)
+      }
+      if (offset !== IMAGE_SIZE * 46 + 46 * 10) {
+        rightButton.removeAttribute('disabled', true)
+      }
+
       offset = offset - IMAGE_SIZE - 10;
 
       innerContainer.style.transform = `translateX(${-offset}px)`;
@@ -155,7 +168,15 @@ try {
     rightButton.innerText = ">";
 
     rightButton.onclick = function () {
-      offset = -offset + IMAGE_SIZE + 10;
+      console.log(offset)
+      if (offset === IMAGE_SIZE * 46 + 46 * 10) {
+        rightButton.setAttribute('disabled', true)
+      }
+      if (offset !== 0) {
+        leftButton.removeAttribute('disabled', true)
+      }
+
+      offset = offset + IMAGE_SIZE + 10;
 
       innerContainer.style.transform = `translateX(${-offset}px)`;
     };
@@ -166,6 +187,10 @@ try {
     photosContainer.append(backButton, mainContainer);
     albumsContainer.replaceWith(photosContainer);
   }
-} catch (error) {
-  console.log(error);
-}
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+
+  export default { startWork }
