@@ -1,5 +1,9 @@
+
 export default function slider() {
 
+
+
+try {
 
   let container = document.querySelector("#result");
   let albumsContainer = document.createElement("div");
@@ -147,6 +151,7 @@ export default function slider() {
     let leftButton = document.createElement("button");
     leftButton.innerText = "<";
 
+
     if (offset === 0) {
       leftButton.setAttribute('disabled', true)
   }
@@ -178,12 +183,34 @@ rightButton.onclick = function () {
     innerContainer.style.transform = `translateX(${-offset}px)`;
 };
 
+    leftButton.onclick = function () {
+      offset = offset - IMAGE_SIZE - 10;
+
+      innerContainer.style.transform = `translateX(${-offset}px)`;
+    };
+
+    let rightButton = document.createElement("button");
+    rightButton.innerText = ">";
+
+    rightButton.onclick = function () {
+      offset = -offset + IMAGE_SIZE + 10;
+
+      innerContainer.style.transform = `translateX(${-offset}px)`;
+    };
+
+
     innerContainer.append(...photosElems);
     container.append(innerContainer);
     mainContainer.append(leftButton, container, rightButton);
     photosContainer.append(backButton, mainContainer);
     albumsContainer.replaceWith(photosContainer);
+
   
 }
+}
+
+  }
+} catch (error) {
+  console.log(error);
 }
 
