@@ -1,123 +1,103 @@
 /**
- * Решить задания
- * https://learn.javascript.ru/task/async-from-regular
-  https://learn.javascript.ru/task/rewrite-async
-  http://new.code.mu/ru/javascript/book/promise/resolve-reject/
+ * Домашнее задание к занятию 12
+ * Каждому нужно создать новую ветку от ветки master. Название ветки должно содержать имя + первая буква фамилии + /lesson12.
+ * Например: dmitryR/lesson12. Выполнение задания производится в свое ветке и в этом файле.
+ * После выполнения задания делаете пулл реквест и сообщаете о том, что задание выполнено:)
+ * В случае неполодок с гитом, присылаете папку с проектом мне в личные сообщения
+ * Код решения должен быть сразу же после самого задания
  */
 
-function loadJson(url) {
-  return fetch(url).then((response) => {
-    if (response.status == 200) {
-      return response.json();
-    } else {
-      throw new Error(response.status);
-    }
-  });
-}
-
-async function loadJson(url) {
-  let response = await fetch(url);
-
-  if (response.status === 200) {
-    return response.json();
-  } else {
-    throw new Error(response.status);
-  }
-}
-
-loadJson("some-url.com")
-  .then((response) => console.log(response))
-  .catch((e) => console.log(e));
+/**
+ * Задание 1
+ * Перепишите задание 1 из урока 11 используя async/await.
+ * Код разместить в отдельном файле с названием task1.js. Результат нужно разместить в div c id = result
+ */
 
 /**
+ * Задание 2
+ * Дописать задание 4 из занятия 11. Нужно сделать так, чтобы по нажатию на фотку она должна
+ * отобразиться поверх всех фоток как модальное окно (пример здесь https://itchief.ru/javascript/modal-window).
+ * У модального окна должна быть кнопка, по нажатию на который модальное окно закрывается.
+ * Код разместить в отдельном файле с названием task2.js. Результат нужно разместить в div c id = result
+ */
+
+/**
+ * Задание 3
+ * Создать 2 кнопки с текстом Таск1 Таск2. Сделать так, чтобы по нажатию на
+ * кнопку в div отображалось соотвествующее задание. Реализовать путем добавления/удаления тега script c src task1.js или task2.js.
+ *
+ */
+
+let button1 = document.createElement("button");
+button1.innerText = "Task1";
+
+let button2 = document.createElement("button");
+button2.innerText = "Task2";
+
+function changeTask(event) {
+  let id = event.target.innerText;
+  let result = document.getElementById("result");
+
+  result.innerHTML = "";
+
+  if (id === "Task1") {
+    button1.disabled = true;
+    button2.disabled = false;
+  } else {
+    button1.disabled = false;
+    button2.disabled = true;
+  }
+
+  let pathMap = {
+    Task1: "task1.js",
+    Task2: "task2.js",
+  };
+
+  let path = pathMap[id];
+
+  let prevScript = document.getElementById(id === "Task1" ? "Task2" : "Task1");
+
+  if (prevScript) {
+    prevScript.remove();
+  }
+
+  let script = document.createElement("script");
+  script.id = id;
+  script.src = path;
+
+  document.body.append(script);
+}
+
+button1.addEventListener("click", changeTask);
+button2.addEventListener("click", changeTask);
+
+document.body.prepend(button1, button2);
+
+//Promise
+
+/**
+ * Задание 4
  * Сделайте промис, внутри которого будет задержка setTimeout в 3
  * секунды, после которой промис должен зарезолвится (то есть выполнится успешно).
  *
  * */
 
-let promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve();
-  }, 3000);
-});
-
 /**
+ * Задание 5
  * Сделайте промис, внутри которого будет задержка setTimeout в 3 секунды,
  * после которой промис должен зареджектится (то есть выполнится с ошибкой).
  */
 
-let promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    reject();
-  }, 3000);
-});
-
 /**
+ * Задание 6
  * Сделайте функцию, которая будет генерировать случайные числа от 1 до 10. Сделайте так,
  * чтобы сгенерированное число было задержкой функции setTimeout в секундах. Оберните все это в промис.
  * Пусть промис выполнится успешно, если сгенерировано число от 1 до 5, и с ошибкой - если от 6 до 10.
  */
 
-let getRandomNumber = () => {
-  return Math.ceil(Math.random() * 10);
-};
-
-let promise = new Promise((resolve, reject) => {
-  let randomNumber = getRandomNumber();
-
-  setTimeout(() => {
-    if (randomNumber >= 1 && randomNumber <= 5) {
-      resolve(randomNumber);
-    }
-
-    if (randomNumber >= 6 && randomNumber <= 10) {
-      reject(new Error("Error " + randomNumber));
-    }
-  }, randomNumber * 1000);
-});
-
-promise.then((response) => console.log(response)).catch((e) => console.log(e));
-
-let showRandomNumber = async () => {
-  let randomNumber = getRandomNumber();
-
-  setTimeout(() => {
-    try {
-      if (randomNumber >= 1 && randomNumber <= 5) {
-        console.log(randomNumber);
-      }
-
-      if (randomNumber >= 6 && randomNumber <= 10) {
-        throw new Error("Error " + randomNumber);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }, randomNumber * 1000);
-};
-
-showRandomNumber()
-  .then((response) => console.log(response))
-  .catch((e) => console.log(e));
-
 /**
- * Задание со зведочкой
- *
- * Переписать дз к уроку 11 используя async/await вместо промисов
- *
+ * Задание 7
+ * Сделайте 3 промиса, в каждом из которых расположена функция setTimeout со случайно задержкой от 1 до 5 секунд.
+ * Пусть каждый промис своим результатом возвращает эту задержку.
+ * С помощью Promise.all получите массив результатов, найдите его сумму, выведите на экран.
  */
-
-async function getUsers() {
-  try {
-    let response = await fetch("https://jsonplaceholder.typicode.com/users");
-    let users = response.json();
-
-    users.forEach((user) => {
-      console.log(user);
-    });
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-getUsers();
