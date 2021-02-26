@@ -43,3 +43,33 @@
  * Для использования этой функции для каждого из студентов использовать функции привязки контекста(bind или call или apply)
  * и this
  */
+let stud1 = {
+  name: "Archi",
+  age: 20,
+  groupNumber: 32,
+  marks: [7, 6, 9, 10, 4, 3],
+};
+
+let stud2 = {
+  name: "Kate",
+  age: 19,
+  groupNumber: 33,
+  marks: [9, 4, 9, 5, 4, 3],
+};
+
+let stud3 = {
+  name: "Inna",
+  age: 21,
+  groupNumber: 32,
+  marks: [7, 6, 9, 10, 4, 3],
+};
+
+function getAverageMark() {
+  this.averageMark =
+    this.marks.reduce((acc, currentValue) => acc + currentValue, 0) /
+    this.marks.length;
+  return this.averageMark;
+}
+
+console.log(getAverageMark.apply(stud1));
+console.log(stud1);
