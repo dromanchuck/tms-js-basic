@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 let title = document.createElement("h1");
 let container = document.createElement("div");
 let input = document.createElement("input");
@@ -17,12 +18,17 @@ addButton.onclick = () => {
 =======
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 =======
+=======
+>>>>>>> c31149d5994b8610c95fc72d173311518e3db3d4
 let title = document.createElement('h1');
 let container = document.createElement('div');
 let input = document.createElement('input');
 let ul = document.createElement('ul');
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
+<<<<<<< HEAD
 >>>>>>> 6783e2f910bce3cbdfcfc3f03a8cc1ce5c390452
+=======
+>>>>>>> c31149d5994b8610c95fc72d173311518e3db3d4
 
 function getID() {
   return '_' + Math.random().toString(36).substr(2, 9);
@@ -65,9 +71,12 @@ addButton.onclick = () => {
     alert('Ну введи уже что-нибудь!');
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 =======
 >>>>>>> 6783e2f910bce3cbdfcfc3f03a8cc1ce5c390452
+=======
+>>>>>>> c31149d5994b8610c95fc72d173311518e3db3d4
 };
 
 let titleText = document.createTextNode('TODO-LIST');
@@ -76,6 +85,7 @@ title.append(titleText);
 container.append(title, input, addButton, ul);
 document.body.append(container);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 function createTodo(text) {
@@ -89,6 +99,8 @@ function createTodo(text) {
 =======
 =======
 >>>>>>> 6783e2f910bce3cbdfcfc3f03a8cc1ce5c390452
+=======
+>>>>>>> c31149d5994b8610c95fc72d173311518e3db3d4
 function createTodo(text, id, done = false) {
   let todo = document.createElement('li');
   let p = document.createElement('p');
@@ -227,6 +239,9 @@ document.body.addEventListener('click', () => {
   });
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 71b538bf6bb1593d0e9c03b03f95b4714e68e961
 =======
 >>>>>>> 6783e2f910bce3cbdfcfc3f03a8cc1ce5c390452
+=======
+>>>>>>> c31149d5994b8610c95fc72d173311518e3db3d4
