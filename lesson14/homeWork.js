@@ -1,86 +1,273 @@
 /**
- * Задание 0
- * Переписать задания к уроку 13 используя классы.
+ * Задание 1
+ * Реализуйте функцию конструктор Worker (Работник), который будет создавать объект и иметь следующие свойства: name (имя),
+ * secondName (фамилия),
+ * rate (ставка за день работы), days (количество отработанных дней). Также класс должен иметь метод getSalary(),
+ * который будет выводить зарплату работника.
+ * Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.
  */
 
-function MyString() {}
+//  function Worker(options) {
+//     this.name = options.name;
+//     this.secondName = options.secondName;
+//     this.rate = options.rate;
+//     this.days = options.days;
+//  }
 
-MyString.prototype.reverse = function (str) {
-  let arr = [...str].reverse();
+//  Worker.prototype.getSalary = function() {
+//      console.log(`Зарплата равна: ${this.rate * this.days} рублей`);
+//  }
 
-  return arr.join("");
-};
+//  let worker = new Worker({
+//      name: 'Igor',
+//      secondName: 'Petrov',
+//      rate: 17,
+//      days: 22,
+//  });
 
-MyString.prototype.upperCaseFirst = function (str) {
-  let arr = [...str];
-  arr[0] = arr[0].toUpperCase();
-
-  return arr.join("");
-};
-
-MyString.prototype.upperCaseWords = function (str) {
-  let arr = str.split(" ");
-
-  arr.forEach((element, index, array) => {
-    arr[index] = this.upperCaseFirst(element);
-  });
-
-  return arr.join(" ");
-};
-
-class MyString {
-  static reverse(str) {
-    let arr = [...str].reverse();
-
-    return arr.join("");
-  }
-
-  static upperCaseFirst(str) {
-    let arr = [...str];
-    arr[0] = arr[0].toUpperCase();
-
-    return arr.join("");
-  }
-
-  static upperCaseWords(str) {
-    let arr = str.split(" ");
-
-    arr.forEach((element, index, array) => {
-      arr[index] = this.upperCaseFirst(element);
-    });
-
-    return arr.join(" ");
-  }
-}
-
-MyString.reverse("Hello");
+//  console.log(worker);
+//  worker.getSalary();
 
 /**
- * Задание 1
+ * Задание 2
+ * Модифицируйте функцию конструктор Worker из предыдущей задачи следующим образом:
+ * У каждого объекта класса Worker должны быть доступны методы getName, getSecondName, getRate, getDays,
+ * каждый из которых будет возвращать соответствующее поле в объекте.
+ * И также методы setRate, setDays, которые будут устанавливать новые значения для соответственно свойств rate и days.
+ */
+
+//  function Worker(options) {
+//     this.name = options.name;
+//     this.secondName = options.secondName;
+//     this.rate = options.rate;
+//     this.days = options.days;
+
+//  }
+
+//  Worker.prototype.getSalary = function() {
+//      console.log(`Зарплата равна: ${this.rate * this.days} рублей`);
+//  }
+//  Worker.prototype.getName = function() {
+//     console.log(`Имя работника: ${this.name}`);
+// }
+// Worker.prototype.getSecondName = function() {
+//     console.log(`Фамилия работника: ${this.secondName}`);
+// }
+// Worker.prototype.getRate = function() {
+//     console.log(`Ставка работника: ${this.rate}`);
+// }
+// Worker.prototype.getDays = function() {
+//     console.log(`Количество отработанных дней : ${this.days}`);
+// }
+
+// Worker.prototype.setRate = function(rate) {
+//     this.rate = rate;
+// }
+// Worker.prototype.setDays = function(days) {
+//     this.days = days;
+// }
+
+//  let worker = new Worker({
+//      name: 'Igor',
+//      secondName: 'Petrov',
+//  });
+
+//  console.log(worker);
+//  worker.getName();
+//  worker.getSecondName();
+
+//  worker.setDays(5);
+//  worker.setRate(14);
+
+//  worker.getRate();
+//  worker.getDays();
+//  worker.getSalary();
+ 
+
+/** 
+ * Задание 3
+ * Сделать задание 1-2 с использованием классов.
+ *
+ */
+
+//  Задание 1
+//  class Worker {
+//      constructor(options) {
+//         this.name = options.name;
+//         this.secondName = options.secondName;
+//         this.rate = options.rate;
+//         this.days = options.days;
+//      }
+
+//      getSalary() {
+//         console.log(`Зарплата равна: ${this.rate * this.days} рублей`);
+//      }
+//  };
+
+//  let worker = new Worker({
+//      name: 'Gena',
+//      secondName: 'Bykin',
+//      rate: 54,
+//      days: 22
+//  })
+
+//  console.log(worker);
+
+//  worker.getSalary();
+
+//  Задание 2
+// class Worker {
+//     constructor(options) {
+//         this.name = options.name;
+//         this.secondName = options.secondName;
+//         this.rate = options.rate;
+//         this.days = options.days;
+//     }
+
+//     getSalary() {
+//         console.log(`Зарплата равна: ${this.rate * this.days} рублей`);
+//      }
+
+//     getName() {
+//         return this.name;
+//     }
+//     getSecondName() {
+//         return this.secondName;
+//     }
+//     getRate() {
+//         return this.rate;
+//     }
+//     getDays() {
+//         return this.days;
+//     }
+
+//     setRate(rate) {
+//         this.rate = rate;
+//     }
+//     setDays(days) {
+//         this.days = days;
+//     }
+// }
+
+// let worker = new Worker({
+//     name: 'Lena',
+//     secondName: 'Ivanova',
+//     rate: 29,
+//     days: 13
+// })
+
+// console.log(worker);
+// console.log(worker.getSalary());
+
+// console.log(worker.getName());
+// console.log(worker.getSecondName());
+// console.log(worker.getRate());
+// console.log(worker.getDays());
+
+// worker.setRate(5);
+// worker.setDays(22);
+// console.log(worker);
+// console.log(worker.getSalary());
+
+/**
+ * Задание 4
+ * Реализуйте функцию конструктор MyString, объект которого будет иметь следующие методы: метод reverse(),
+ * который параметром принимает строку, а возвращает ее в перевернутом виде,
+ * метод ucFirst(),
+ * который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной
+ * и метод ucWords,
+ * который принимает строку и делает заглавной первую букву каждого слова этой строки.
+ */
+
+//  function MyString() {
+//     this.reverse = function(str) {
+//         let reversedStr = str.split("").reverse().join("");
+//         console.log(reversedStr);
+//     };
+//     this.ucFirst = function(str) {
+//         let upperCased = str[0].toUpperCase() + str.slice(1);
+//         console.log(upperCased);
+//     };
+//     this.ucWords = function(str) {
+//         let result = str.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()});
+//         console.log(result);
+//     };
+// } 
+
+// let string = new MyString();
+
+// string.reverse('hello');
+// string.ucFirst('hello');
+// string.ucWords('hello world');
+
+
+/**
+ * Задание 5
+ * Сделать задание 4 с использованием классов.
+ *
+ */
+
+//  class MyString {
+//      constructor() {
+
+//      }
+//      reverse(str) {
+//         let reversedStr = str.split("").reverse().join("");
+//         console.log(reversedStr);
+//      }
+
+//      ucFirst(str) {
+//         let upperCased = str[0].toUpperCase() + str.slice(1);
+//         console.log(upperCased);
+//      }
+//      ucWords(str) {
+//         let result = str.replace(/(^|\s)\S/g, function(a) {return a.toUpperCase()});
+//         console.log(result);
+//      }
+//  }
+
+//  let stringClass = new MyString();
+
+//  stringClass.reverse('hello');
+//  stringClass.ucFirst('hello');
+//  stringClass.ucWords('hello world');
+
+
+/**
+ * Задание 6
  * Реализуйте класс User, который будет иметь следующие свойства: имя, фамилия, email; следующие методы:
  * getFullName, getEmail.
  */
 
-class User {
-  constructor(name, surname, email) {
-    this.name = name;
-    this.surname = surname;
-    this.email = email;
-  }
+//  class User {
+//      constructor(options) {
+//          this.name = options.name;
+//          this.surname = options.surname;
+//          this.email = options.email;
+//      }
 
-  getFullName() {
-    return this.name + " " + this.surname;
-  }
+//      getFullName() {
+//          console.log(`Полное имя: ${this.name} ${this.surname}`);
+//      }
 
-  getEmail() {
-    return this.email;
-  }
-}
+//      getEmail() {
+//          console.log(`Адрес эл. почты: ${this.email}`);
+//      }
+//  }
 
-let user = new User("Arnold", "Schwarzennegger", "ash@mail.ru");
+//  let person = new User({
+//      name: 'Oleg',
+//      surname: 'Ivanov',
+//      email: 'olegIvanovJS@gmail.com'
+//  });
+
+//  console.log(person);
+
+//  person.getFullName();
+//  person.getEmail();
 
 /**
- * Задание 2
+ * Задание 7
  * Реализуйте класс Student, который будет наследовать класс User.
  * Этот класс должен иметь следующие свойства: name (имя, наследуется от User), surname (фамилия, наследуется от User),
  * year (год поступления в вуз). Класс должен иметь метод getFullName() (наследуется от User),
@@ -89,27 +276,26 @@ let user = new User("Arnold", "Schwarzennegger", "ash@mail.ru");
  * поступления в вуз. Текущий год получить программно, используя объект Date (https://learn.javascript.ru/datetime).
  */
 
-class Student extends User {
-  constructor(name, surname, email, year) {
-    super(name, surname, email);
+// class Student extends User {
+//     constructor(options) {
+//         super(options);
+//         this.admissionYear = options.admissionYear;
+//     }
 
-    this.year = year;
-  }
+//     getCourse() {
+//         let course = new Date().getFullYear() - this.admissionYear;
+//         console.log(`Студент учится на ${course} курсе!`);
+//     }
+// }
 
-  getCourse() {
-    let date = new Date();
-    let currentYear = date.getFullYear();
+// let student = new Student({
+//     name: 'Vika',
+//     surname: 'Petrova',
+//     email: 'vikaPetrovaJs@gmail.com',
+//     admissionYear: 2019,
+// })
 
-    let diff = currentYear - this.year;
+// console.log(student);
 
-    if (diff === 0) {
-      return 1;
-    }
-
-    if (diff >= 1 && diff <= 5) {
-      return diff;
-    }
-
-    alert("Error");
-  }
-}
+// student.getFullName();
+// student.getCourse();
