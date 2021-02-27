@@ -77,37 +77,3 @@ counter.return = function(){
  * Для использования этой функции для каждого из студентов использовать функции привязки контекста(bind или call или apply)
  * и this
  */
-studentAlice = {
-    name: `Alice`,
-    age: 23,
-    group: 4,
-    marks: [5, 4, 5, 5, 4],
-};
-studentMike = {
-    name: `Mike`,
-    age: 20,
-    group: 3,
-    marks: [4, 4, 5, 4, 4],
-};
-studentBillie = {
-    name: `Billie`,
-    age: 21,
-    group: 4,
-    marks: [3, 4, 3, 5, 4],
-};
-studentAngela = {
-    name: `Angela`,
-    age: 19,
-    group: 3,
-    marks: [5, 3, 5, 5, 4],
-};
-function middleMarks(array){
-    let sumMarks = this.marks.reduce((a, b) => (a + b));
-    let result = sumMarks / this.marks.length;
-    this.newMiddleMarks = result;
-    return result;
-    }
-alert(middleMarks.call(studentAngela))
-alert(middleMarks.call(studentBillie))
-alert(middleMarks.call(studentMike))
-alert(middleMarks.call(studentAlice))
