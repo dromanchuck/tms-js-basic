@@ -1,10 +1,9 @@
-<<<<<<< HEAD
+
 let title = document.createElement("h1");
 let container = document.createElement("div");
 let input = document.createElement("input");
 let ul = document.createElement("ul");
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 //ADD BUTTON
 let addButton = document.createElement("button");
@@ -15,17 +14,16 @@ addButton.onclick = () => {
   let todo = createTodo(input.value);
 
   ul.append(todo);
-=======
-=======
->>>>>>> b4a76fd2b60731247e4897dc8252264a6fc1a918
+
+
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
-=======
+
 let title = document.createElement('h1');
 let container = document.createElement('div');
 let input = document.createElement('input');
 let ul = document.createElement('ul');
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
->>>>>>> master
+
 
 function getID() {
   return '_' + Math.random().toString(36).substr(2, 9);
@@ -37,16 +35,15 @@ todos.forEach((item) => {
   ul.append(todo);
 });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 //ADD BUTTON
 let addButton = document.createElement("button");
 let addButtonText = document.createTextNode("Add");
-=======
+
 input.placeholder = "Сделай же что-нибудь!";
-=======
+
 input.placeholder = 'Сделай же что-нибудь!';
->>>>>>> master
+
 
 input.addEventListener('keydown', (event) => {
   if (event.target.value.length > 1) {
@@ -57,30 +54,28 @@ input.addEventListener('keydown', (event) => {
 });
 
 //ADD BUTTON
-<<<<<<< HEAD
+
 let addButton = document.createElement("button");
 let addButtonText = document.createTextNode("Добавить");
->>>>>>> 1b82d5514e453e30d95353ad23749ef94731177f
-=======
+
 let addButton = document.createElement('button');
 let addButtonText = document.createTextNode('Добавить');
->>>>>>> master
+
 addButton.append(addButtonText);
 
 addButton.classList.add('hide_add_button');
 
 addButton.onclick = () => {
-<<<<<<< HEAD
+
   let todo = createTodo(input.value);
-<<<<<<< HEAD
-=======
+
+
   input.value = "";
->>>>>>> 1b82d5514e453e30d95353ad23749ef94731177f
-=======
+
   if (input.value) {
     let id = getID();
     let todo = createTodo(input.value, id, false);
->>>>>>> master
+
 
     ul.append(todo);
     todos.push({ title: input.value, done: false, id });
@@ -90,10 +85,7 @@ addButton.onclick = () => {
   } else {
     alert('Ну введи уже что-нибудь!');
   }
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> b4a76fd2b60731247e4897dc8252264a6fc1a918
+
 };
 
 let titleText = document.createTextNode('TODO-LIST');
@@ -102,41 +94,37 @@ title.append(titleText);
 container.append(title, input, addButton, ul);
 document.body.append(container);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 function createTodo(text) {
-=======
+
 function createTodo(text, id, done = false) {
-<<<<<<< HEAD
->>>>>>> b4a76fd2b60731247e4897dc8252264a6fc1a918
+
   let todo = document.createElement("li");
   let p = document.createElement("p");
   let textNode = document.createTextNode(text);
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
   todo.append(textNode);
 
   return todo;
 }
-=======
-<<<<<<< HEAD
+
 function createTodo(text, id, done = false) {
   let todo = document.createElement("li");
   let p = document.createElement("p");
   let textNode = document.createTextNode(text);
-=======
+
   let id = ul.children.length;
-=======
->>>>>>> b4a76fd2b60731247e4897dc8252264a6fc1a918
+
+  let id = ul.children.length;
+
   let editInput = document.createElement("input");
->>>>>>> master
-=======
+
   let todo = document.createElement('li');
   let p = document.createElement('p');
   let textNode = document.createTextNode(text);
   let editInput = document.createElement('input');
->>>>>>> master
+
 
   p.append(textNode);
   todo.setAttribute('id', id);
@@ -221,9 +209,7 @@ ul.addEventListener('click', function (event) {
     event.target.classList.toggle('checked');
   }
 });
-<<<<<<< HEAD
->>>>>>> 1b82d5514e453e30d95353ad23749ef94731177f
-=======
+
 
 let removeAllButton = document.createElement('button');
 let doneAllButton = document.createElement('button');
@@ -272,10 +258,4 @@ document.body.addEventListener('click', () => {
     item.classList.remove('checked');
   });
 });
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> b4a76fd2b60731247e4897dc8252264a6fc1a918
->>>>>>> master
+
