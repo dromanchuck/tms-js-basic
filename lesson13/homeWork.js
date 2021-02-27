@@ -14,6 +14,7 @@
  * 2. Перенести код задания в урок 13 в отдельную папку(название выбрать самостоятельно)ю
  * 3. Разделить весь код в разные файлы используя import/export
  */
+//1. Надо было с rightButton.onclick убрать минус у offset и стало работать правильно. 
 
 /**
  * Задание 2
@@ -21,20 +22,53 @@
  * Плюс у него должны быть методы: sayHello - функция, которая принимает имя и
  * будет выводить в alert сообщение 'Привет, ИМЯ! Меня зовут ИМЯ_РАБОТНИКА' (использовать this)
  */
-
+let worker = {
+    firstName: `Chandler`,
+    surname: `Bing`,
+    exp: 14,
+    email: `channybing@gmail.com`
+};
+worker.sayHello = function(name){
+    alert(`Hello, ${name}. My name is ${this.firstName} ${this.surname}`)
+};
+worker.sayHello(`Dima`);
 /**
  * Задание 3
  * Добавить в объект работника поле количество выполненных деталей. Добавить метод,
  * который будет увеличивать количество деталей на 1. Добавить метод, который будет делать ресет этого количества в 0. (использовать this)
  */
-
+let worker = {
+    firstName: `Chandler`,
+    surname: `Bing`,
+    exp: 14,
+    email: `channybing@gmail.com`,
+    countWorksDone: 35,
+};
+worker.count = function(){
+   return this.countWorksDone++;
+};
+alert(worker1.count())
+worker.deleteCount = function(){
+    this.countWorksDone = 0;
+}
 /**
  * Задание 4
  * Создать объект счетчика, который будет иметь поле count - значение счетчика. Объект будет иметь следующие методы:
  * метод для инкремента(+1) счетчика, метод для декремента(-1) счетчика, метод который будет возвращать (return) значение счетчика.
  * (использовать this)
  */
-
+let counter = {
+    count: 0,
+}
+counter.increment = function(){
+    return this.count++;
+}
+counter.decrement = function(){
+    return this.count--;
+}
+counter.return = function(){
+    return this.count;
+}
 /**
  * Задание 5
  * Создать несколько объектов student c полями имя, возраст, номер группы, массив оценок.
@@ -43,33 +77,3 @@
  * Для использования этой функции для каждого из студентов использовать функции привязки контекста(bind или call или apply)
  * и this
  */
-let stud1 = {
-  name: "Archi",
-  age: 20,
-  groupNumber: 32,
-  marks: [7, 6, 9, 10, 4, 3],
-};
-
-let stud2 = {
-  name: "Kate",
-  age: 19,
-  groupNumber: 33,
-  marks: [9, 4, 9, 5, 4, 3],
-};
-
-let stud3 = {
-  name: "Inna",
-  age: 21,
-  groupNumber: 32,
-  marks: [7, 6, 9, 10, 4, 3],
-};
-
-function getAverageMark() {
-  this.averageMark =
-    this.marks.reduce((acc, currentValue) => acc + currentValue, 0) /
-    this.marks.length;
-  return this.averageMark;
-}
-
-console.log(getAverageMark.apply(stud1));
-console.log(stud1);
