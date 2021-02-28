@@ -14,6 +14,7 @@
  * 2. Перенести код задания в урок 13 в отдельную папку(название выбрать самостоятельно)ю
  * 3. Разделить весь код в разные файлы используя import/export
  */
+//1. Надо было с rightButton.onclick убрать минус у offset и стало работать правильно. 
 
 /**
  * Задание 2
@@ -21,20 +22,53 @@
  * Плюс у него должны быть методы: sayHello - функция, которая принимает имя и
  * будет выводить в alert сообщение 'Привет, ИМЯ! Меня зовут ИМЯ_РАБОТНИКА' (использовать this)
  */
-
+let worker = {
+    firstName: `Chandler`,
+    surname: `Bing`,
+    exp: 14,
+    email: `channybing@gmail.com`
+};
+worker.sayHello = function(name){
+    alert(`Hello, ${name}. My name is ${this.firstName} ${this.surname}`)
+};
+worker.sayHello(`Dima`);
 /**
  * Задание 3
  * Добавить в объект работника поле количество выполненных деталей. Добавить метод,
  * который будет увеличивать количество деталей на 1. Добавить метод, который будет делать ресет этого количества в 0. (использовать this)
  */
-
+let worker = {
+    firstName: `Chandler`,
+    surname: `Bing`,
+    exp: 14,
+    email: `channybing@gmail.com`,
+    countWorksDone: 35,
+};
+worker.count = function(){
+   return this.countWorksDone++;
+};
+alert(worker1.count())
+worker.deleteCount = function(){
+    this.countWorksDone = 0;
+}
 /**
  * Задание 4
  * Создать объект счетчика, который будет иметь поле count - значение счетчика. Объект будет иметь следующие методы:
  * метод для инкремента(+1) счетчика, метод для декремента(-1) счетчика, метод который будет возвращать (return) значение счетчика.
  * (использовать this)
  */
-
+let counter = {
+    count: 0,
+}
+counter.increment = function(){
+    return this.count++;
+}
+counter.decrement = function(){
+    return this.count--;
+}
+counter.return = function(){
+    return this.count;
+}
 /**
  * Задание 5
  * Создать несколько объектов student c полями имя, возраст, номер группы, массив оценок.
