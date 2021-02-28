@@ -21,7 +21,7 @@ function Worker1(name, secondname, rate, days) {
   };
 }
 
-let worker1 = new Worker1('Tom', 'Keen', 3, 5);
+let worker1 = new Worker1('Tom', 'Keen', 5, 5);
 worker1.getSalary();
 
 /**
