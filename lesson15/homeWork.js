@@ -14,9 +14,42 @@
  * Ссылка на API https://quotes.rest/
  */
 
+
+
 /**
  * Задание 2
  * Написать мини приложение "напоминалка". Оно должно содержать инпут и кнопку.
  * В инпут необходимо ввести время (минут) через сколько должна сработать напоминалка(alert с сообщением)
  * + как только пришло время должен сработать звуковой сигнал (погуглить как работать с звуком в js).
  */
+
+
+let input = document.createElement('input')
+document.body.append(input)
+let btn = document.createElement('button')
+btn.innerHTML = 'Sound ON'
+
+btn.onclick = async () => {
+    if (input.value.trim() !== '') {
+        if (input.value > 0) {
+            let timer = input.value * 60000
+            setTimeout(() => {
+                var audio = new Audio();
+                audio.preload = 'auto';
+                audio.src = 'Sound_17211.mp3';
+                audio.play();
+                setTimeout(() => {
+                    alert('ZABAVNO')
+                }, timer)
+            }, timer)
+        }
+        else {
+            throw new Error('NOT LETTERS')
+        }
+    }
+    else {
+        throw new Error('ENTER SOMETHING')
+    }
+}
+
+document.body.append(input, btn)

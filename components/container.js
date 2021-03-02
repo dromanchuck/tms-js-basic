@@ -9,7 +9,9 @@ export class Container extends Element {
 
   addChild(...children) {
     let elements = children.map((child) => child.getElement());
-
+    while (this.elem.firstChild) {
+      this.elem.removeChild(this.elem.firstChild);
+    }
     this.elem.append(...elements);
   }
 }

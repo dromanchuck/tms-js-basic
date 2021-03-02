@@ -31,3 +31,8 @@ button {
 .li-active {
   background: yellow;
 }
+
+.btn {
+  padding:5px;
+  background-color: #eee;
+}

@@ -6,19 +6,44 @@ import { QuoteService } from "./services/QuoteService.js";
 
 let quoteContainer = new Container();
 
-async function showQuoteOfDay() {
+async function showQuoteOfDay(promise) {
   try {
-    let { author, quote } = await QuoteService.getQuote();
-    let title = new Header("Цитата дня");
-    let authorElem = new Paragraph(author);
-    let quoteElem = new Paragraph(quote);
+    let title
+    let authorElem
+    let quoteElem
+    if (promise) {
+      promise.then(obj => {
+        title = new Header("RandomQuote");
+        authorElem = new Paragraph(obj.randomAuthor);
+        quoteElem = new Paragraph(obj.randomQuote);
+        quoteContainer.addChild(title, authorElem, quoteElem);
+      })
+    }
+    else {
+      let { author, quote } = await QuoteService.getQuote();
+      title = new Header("Цитата дня");
+      authorElem = new Paragraph(author);
+      quoteElem = new Paragraph(quote);
 
-    quoteContainer.addChild(title, authorElem, quoteElem);
+      quoteContainer.addChild(title, authorElem, quoteElem);
+    }
+
+
   } catch (e) {
     console.log(e);
   }
 }
 
+
+let btn = document.createElement('button')
+btn.classList.add('btn')
+btn.innerHTML = 'Click To Get Random Quote'
+
+btn.onclick = () => {
+  let action = QuoteService.getRandomQuote()
+  showQuoteOfDay(action)
+}
 showQuoteOfDay();
+document.body.append(btn)
 
 export { quoteContainer };
