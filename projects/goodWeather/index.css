@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,100");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css");
+
+body {
+  background: #1619b0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+  font-family: "Roboto";
+  font-weight: 100;
+  line-height: 1.1;
+  letter-spacing: 0.025em;
+  margin: 0;
+  padding: 0;
+}
+
+.fahrenheit,
+.celsius {
+  color: white;
+  opacity: 0.54;
+  cursor: pointer;
+  font-size: 1.75rem;
+}
+
+.active {
+  opacity: 1;
+}
+
+.wrapper {
+  width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+.searchbar,
+.button {
+  height: 45px;
+  margin: 1em 0 4em;
+  padding: 0;
+  font: 400 1rem "Roboto";
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  border: none;
+}
+.searchbar {
+  float: left;
+  width: 380px;
+  border-bottom: solid thin white;
+}
+
+.button {
+  float: right;
+  width: 100px;
+}
+.panel {
+  width: 100%;
+  display: inline-block;
+}
+.weather {
+  width: 100%;
+  margin-top: 20px;
+  display: inline-block;
+}
+.city {
+  text-align: left;
+  border-bottom: solid thin white;
+  text-transform: uppercase;
+  color: #e8e8e8;
+  color: rgba(255, 255, 255, 0.7);
+}
+.group {
+  width: 165px;
+  margin-bottom: 20px;
+  text-align: right;
+  float: right;
+  clear: both;
+}
+.temp {
+  font-size: 4.5em;
+  font-weight: 300;
+  line-height: 0.75;
+  display: flex;
+}
+
+.divider {
+  font-size: 1.75rem;
+}
+.divider {
+  margin: 0 0.05em;
+}
+.forecast {
+  display: table;
+  text-transform: uppercase;
+  width: 100%;
+}
+.block {
+  display: table-cell;
+  padding: 1.5em 0 0 0;
+  text-align: center;
+}
+.high {
+  font-weight: 300;
+  margin: 0.25em 0;
+}
+
+.secondary {
+  opacity: 0.7;
+}
+.transparent {
+  background: transparent;
+}
+.hot {
+  background: #ff5722;
+}
+.warm {
+  background: #ff6f00;
+}
+.cool {
+  background: #2196f3;
+}
+.cold {
+  background: #3f51b5;
+}
+.color404 {
+  background: #161616;
+}
+.button-hot {
+  background: #bf360c;
+}
+.button-warm {
+  background: #b34e00;
+}
+.button-cool {
+  background: #0d47a1;
+}
+.button-cold {
+  background: #1a237e;
+}
+.button404 {
+  background: black;
+}
+
+#description {
+  text-transform: capitalize;
+}
+
+.transparent {
+  visibility: hidden;
+}
+
+.preloader {
+  width: 100px;
+  height: 100px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+
+  animation: rotations 1s 300;
+}
+
+@keyframes rotations {
+  from {
+    transform: translateX(-50%) translateY(-10%) rotate(0);
+  }
+  to {
+    transform: translateX(-50%) translateY(-10%) rotate(360deg);
+  }
+}
+
+.active {
+  display: block;
+}
