@@ -20,3 +20,19 @@
  * В инпут необходимо ввести время (минут) через сколько должна сработать напоминалка(alert с сообщением)
  * + как только пришло время должен сработать звуковой сигнал (погуглить как работать с звуком в js).
  */
+
+const getTimeInput = document.querySelector('.input')
+const getMsgInput = document.querySelector('.msgInput')
+const runBtn = document.querySelector('.button')
+
+runBtn.addEventListener('click', (event) => {
+  let delay = getTimeInput.value
+  let text = getMsgInput.value
+  setTimeout(() => {
+    let audio = new Audio()
+    audio.preload = 'auto'
+    audio.src = 'Sound.mp3'
+    audio.play()
+    alert(`Напоминаю ${text}!`)
+  }, delay * 1000 * 60)
+})

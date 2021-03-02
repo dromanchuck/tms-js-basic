@@ -1,24 +1,30 @@
-import { Container } from "../components/container.js";
-import { Header } from "../components/header.js";
-import { Paragraph } from "../components/paragraph.js";
+import { Container } from '../components/container.js'
+import { Header } from '../components/header.js'
+import { Paragraph } from '../components/paragraph.js'
 
-import { QuoteService } from "./services/QuoteService.js";
+import { QuoteService } from './services/QuoteService.js'
 
-let quoteContainer = new Container();
+const createQuoteButton = document.createElement('button')
+createQuoteButton.innerText = 'Сгенерировать цитату!'
+
+let quoteContainer = new Container()
 
 async function showQuoteOfDay() {
   try {
-    let { author, quote } = await QuoteService.getQuote();
-    let title = new Header("Цитата дня");
-    let authorElem = new Paragraph(author);
-    let quoteElem = new Paragraph(quote);
+    let response = await fetch('https://quotable.io/random')
+    let data = await response.json()
+    console.log(data.content)
+    console.log(data.author)
+    let title = new Header('Цитата дня')
+    let authorElem = new Paragraph(data.author)
+    let quoteElem = new Paragraph(data.content)
 
-    quoteContainer.addChild(title, authorElem, quoteElem);
+    quoteContainer.addChild(title, authorElem, quoteElem)
   } catch (e) {
-    console.log(e);
+    console.log(e)
   }
 }
 
-showQuoteOfDay();
-
-export { quoteContainer };
+createQuoteButton.addEventListener('click', showQuoteOfDay)
+document.body.append(createQuoteButton)
+export { quoteContainer }
