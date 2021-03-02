@@ -5,7 +5,7 @@ export class QuoteService {
     try {
       let response = await fetch(QUOTE_URL);
       let data = await response.json();
-
+      console.log({ data });
       let {
         contents: { quotes },
       } = data;
@@ -14,6 +14,8 @@ export class QuoteService {
       let { quote, author } = quoteData;
 
       return { quote, author };
-    } catch (e) {}
+    } catch (e) {
+      console.log({ e });
+    }
   }
 }
