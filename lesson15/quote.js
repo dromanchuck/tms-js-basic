@@ -1,8 +1,8 @@
-import { Container } from "./container.js";
-import { Header } from "./header.js";
-import { Paragraph } from "./paragraph.js";
+import { Container } from "../components/container.js";
+import { Header } from "../components/header.js";
+import { Paragraph } from "../components/paragraph.js";
 
-import { QuoteService } from "../services/QuoteService.js";
+import { QuoteService } from "./services/QuoteService.js";
 
 let quoteContainer = new Container();
 
