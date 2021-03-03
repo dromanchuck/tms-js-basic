@@ -31,8 +31,9 @@ h4 {
 }
 
 .wrapper {
-  width: 600px;
+  width: 700px;
   margin: 0 auto;
+  position: relative;
 }
 .searchbar,
 .button {
@@ -48,45 +49,6 @@ h4 {
   float: left;
   width: 380px;
   border-bottom: solid thin white;
-}
-
-.searchbar::-webkit-input-placeholder {
-  color: white;
-  opacity: 0.35;
-}
-.searchbar::-moz-placeholder {
-  color: white;
-  opacity: 0.35;
-}
-.searchbar:-ms-input-placeholder {
-  color: white;
-  opacity: 0.35;
-}
-.searchbar:-moz-placeholder {
-  color: white;
-  opacity: 0.35;
-}
-
-.button:focus,
-.searchbar:focus {
-  outline: none;
-  color: white;
-}
-.searchbar:focus::-webkit-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
-.searchbar:focus::-moz-placeholder {
-  color: white;
-  opacity: 0.7;
-}
-.searchbar:focus:-ms-input-placeholder {
-  color: white;
-  opacity: 0.7;
-}
-.searchbar:focus:-moz-placeholder {
-  color: white;
-  opacity: 0.7;
 }
 
 .button {
@@ -120,6 +82,7 @@ h4 {
   font-size: 4.5em;
   font-weight: 300;
   line-height: 0.75;
+  display: flex;
 }
 
 .divider {
@@ -182,4 +145,33 @@ h4 {
 
 #description {
   text-transform: capitalize;
+}
+
+.transparent {
+  visibility: hidden;
+}
+
+.preloader {
+  width: 100px;
+  height: 100px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+
+  animation: rotations 1s 300;
+}
+
+@keyframes rotations {
+  from {
+    transform: translateX(-50%) translateY(-10%) rotate(0);
+  }
+  to {
+    transform: translateX(-50%) translateY(-10%) rotate(360deg);
+  }
+}
+
+.active {
+  display: block;
 }

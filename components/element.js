@@ -29,4 +29,8 @@ export class Element {
   containsClass(className) {
     return this.elem.classList.contains(className);
   }
+
+  static addToBody(...children) {
+    document.body.append(...children);
+  }
 }
