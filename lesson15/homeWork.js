@@ -20,3 +20,19 @@
  * В инпут необходимо ввести время (минут) через сколько должна сработать напоминалка(alert с сообщением)
  * + как только пришло время должен сработать звуковой сигнал (погуглить как работать с звуком в js).
  */
+let input = document.createElement(`input`);
+let button = document.createElement(`button`);
+let message  = `Вспомни, что ты должен сделать!`;
+document.body.append(input, button);
+input.placeholder = `Введите количество минут`;
+input.setAttribute(`size`, `40px`);
+input.setAttribute(`onclick`, `this.value`);
+button.innerText = `Напомнить!`;
+function alarm (){
+    alert(message);
+    let audio = new Audio(`https://freesound.org/people/Nandoo1/sounds/110268/`);
+    audio.preload = `auto`;
+    audio.src = `https://freesound.org/people/Nandoo1/sounds/110268/`;
+    audio.play(`https://freesound.org/people/Nandoo1/sounds/110268/`);
+}
+setTimeout(alarm(), input.value*1000)
