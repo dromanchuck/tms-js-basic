@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 let title = document.createElement("h1");
 let container = document.createElement("div");
 let input = document.createElement("input");
 let ul = document.createElement("ul");
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 //ADD BUTTON
@@ -14,10 +16,19 @@ addButton.onclick = () => {
 
   ul.append(todo);
 =======
+=======
+>>>>>>> 614ab57e03302330f2c1385e0fac24657c2d990c
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
+=======
+let title = document.createElement('h1');
+let container = document.createElement('div');
+let input = document.createElement('input');
+let ul = document.createElement('ul');
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+>>>>>>> 6783e2f910bce3cbdfcfc3f03a8cc1ce5c390452
 
 function getID() {
-  return "_" + Math.random().toString(36).substr(2, 9);
+  return '_' + Math.random().toString(36).substr(2, 9);
 }
 
 todos.forEach((item) => {
@@ -26,22 +37,22 @@ todos.forEach((item) => {
   ul.append(todo);
 });
 
-input.placeholder = "Сделай же что-нибудь!";
+input.placeholder = 'Сделай же что-нибудь!';
 
-input.addEventListener("keydown", (event) => {
+input.addEventListener('keydown', (event) => {
   if (event.target.value.length > 1) {
-    addButton.classList.remove("hide_add_button");
+    addButton.classList.remove('hide_add_button');
   } else {
-    addButton.classList.add("hide_add_button");
+    addButton.classList.add('hide_add_button');
   }
 });
 
 //ADD BUTTON
-let addButton = document.createElement("button");
-let addButtonText = document.createTextNode("Добавить");
+let addButton = document.createElement('button');
+let addButtonText = document.createTextNode('Добавить');
 addButton.append(addButtonText);
 
-addButton.classList.add("hide_add_button");
+addButton.classList.add('hide_add_button');
 
 addButton.onclick = () => {
   if (input.value) {
@@ -50,21 +61,25 @@ addButton.onclick = () => {
 
     ul.append(todo);
     todos.push({ title: input.value, done: false, id });
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos));
 
-    input.value = "";
+    input.value = '';
   } else {
-    alert("Ну введи уже что-нибудь!");
+    alert('Ну введи уже что-нибудь!');
   }
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> 614ab57e03302330f2c1385e0fac24657c2d990c
 };
 
-let titleText = document.createTextNode("TODO-LIST");
+let titleText = document.createTextNode('TODO-LIST');
 title.append(titleText);
 
 container.append(title, input, addButton, ul);
 document.body.append(container);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 function createTodo(text) {
   let todo = document.createElement("li");
@@ -75,22 +90,24 @@ function createTodo(text) {
   return todo;
 }
 =======
+=======
+>>>>>>> 614ab57e03302330f2c1385e0fac24657c2d990c
 function createTodo(text, id, done = false) {
-  let todo = document.createElement("li");
-  let p = document.createElement("p");
+  let todo = document.createElement('li');
+  let p = document.createElement('p');
   let textNode = document.createTextNode(text);
-  let editInput = document.createElement("input");
+  let editInput = document.createElement('input');
 
   p.append(textNode);
-  todo.setAttribute("id", id);
-  todo.classList.add("list_item");
+  todo.setAttribute('id', id);
+  todo.classList.add('list_item');
 
-  let removeButton = document.createElement("button");
-  removeButton.innerText = "Удалить";
-  removeButton.classList.add("remove_button");
+  let removeButton = document.createElement('button');
+  removeButton.innerText = 'Удалить';
+  removeButton.classList.add('remove_button');
 
   if (done) {
-    todo.classList.add("list_item__done");
+    todo.classList.add('list_item__done');
   }
 
   removeButton.onclick = function (event) {
@@ -99,38 +116,38 @@ function createTodo(text, id, done = false) {
 
     todos = todos.filter((item) => item.id !== id);
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos));
   };
 
-  let doneButton = document.createElement("button");
-  doneButton.innerText = "Выполнено";
-  doneButton.classList.add("done_button");
+  let doneButton = document.createElement('button');
+  doneButton.innerText = 'Выполнено';
+  doneButton.classList.add('done_button');
 
   doneButton.onclick = function (event) {
     event.stopPropagation();
-    todo.classList.toggle("list_item__done");
+    todo.classList.toggle('list_item__done');
 
     todos = todos.map((item) =>
       item.id === id ? { ...item, done: !item.done } : item
     );
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos));
   };
 
-  let editButton = document.createElement("button");
-  editButton.innerHTML = "Редактировать";
+  let editButton = document.createElement('button');
+  editButton.innerHTML = 'Редактировать';
 
   editButton.onclick = () => {
     let textButton = editButton.innerText;
 
-    if (textButton === "Редактировать") {
+    if (textButton === 'Редактировать') {
       editInput.value = text;
       p.replaceWith(editInput);
 
-      editButton.innerText = "Применить";
+      editButton.innerText = 'Применить';
     }
 
-    if (textButton === "Применить") {
+    if (textButton === 'Применить') {
       let inputText = editInput.value;
       p.innerText = inputText;
 
@@ -138,10 +155,10 @@ function createTodo(text, id, done = false) {
         item.id === id ? { ...item, title: inputText } : item
       );
 
-      localStorage.setItem("todos", JSON.stringify(todos));
+      localStorage.setItem('todos', JSON.stringify(todos));
 
       editInput.replaceWith(p);
-      editButton.innerText = "Редактировать";
+      editButton.innerText = 'Редактировать';
     }
   };
 
@@ -157,32 +174,32 @@ function createTodo(text, id, done = false) {
   return todo;
 }
 
-ul.addEventListener("click", function (event) {
+ul.addEventListener('click', function (event) {
   event.stopPropagation();
 
   if (event.target.id) {
-    event.target.classList.toggle("checked");
+    event.target.classList.toggle('checked');
   }
 });
 
-let removeAllButton = document.createElement("button");
-let doneAllButton = document.createElement("button");
+let removeAllButton = document.createElement('button');
+let doneAllButton = document.createElement('button');
 
-removeAllButton.innerHTML = "Удалить все";
-doneAllButton.innerHTML = "Все выполнены";
+removeAllButton.innerHTML = 'Удалить все';
+doneAllButton.innerHTML = 'Все выполнены';
 
 container.append(removeAllButton, doneAllButton);
 
 removeAllButton.onclick = function (event) {
   event.stopPropagation();
 
-  let checkedItems = document.getElementsByClassName("checked");
+  let checkedItems = document.getElementsByClassName('checked');
 
   let arr = [...checkedItems];
 
   for (let item of arr) {
     todos = todos.filter((value) => value.id !== item.id);
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos));
 
     item.remove();
   }
@@ -190,26 +207,29 @@ removeAllButton.onclick = function (event) {
 
 doneAllButton.onclick = function (event) {
   event.stopPropagation();
-  let checkedItems = document.getElementsByClassName("checked");
+  let checkedItems = document.getElementsByClassName('checked');
   let arr = [...checkedItems];
 
   for (let item of arr) {
-    item.classList.add("list_item__done");
+    item.classList.add('list_item__done');
 
     todos = todos.map((value) =>
       value.id === item.id ? { ...value, done: true } : value
     );
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
 };
 
-document.body.addEventListener("click", () => {
-  let checkedItems = document.getElementsByClassName("checked");
+document.body.addEventListener('click', () => {
+  let checkedItems = document.getElementsByClassName('checked');
   let arr = [...checkedItems];
 
   arr.forEach((item) => {
-    item.classList.remove("checked");
+    item.classList.remove('checked');
   });
 });
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> 614ab57e03302330f2c1385e0fac24657c2d990c

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <title>GOOD-WEATHER</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div id="preloader" class="preloader active"></div>
+      <search>
+        <form>
+          <input
+            class="searchbar"
+            id="search"
+            type="text"
+            placeholder="enter city, country"
+            name="search"
+          />
+          <input
+            class="button"
+            id="button"
+            type="submit"
+            value="GO"
+            name="go"
+          />
+        </form>
+      </search>
+
+      <div id="panel" class="panel transparent">
+        <h2 class="city" id="city"></h2>
+        <div class="weather" id="weather">
+          <div class="group secondary">
+            <h3 id="dt"></h3>
+            <h3 id="description"></h3>
+          </div>
+          <div class="group secondary">
+            <h3 id="wind"></h3>
+            <h3 id="humidity"></h3>
+          </div>
+          <div class="temperature" id="temperature">
+            <img id="icon" />
+            <h1 class="temp" id="temp">
+              <i id="condition"></i>
+              <span id="num"></span
+              ><span class="fahrenheit active" id="fahrenheit" href="#"
+                >&deg;F</span
+              ><span class="divider secondary">|</span
+              ><span class="celsius" id="celsius" href="#">&deg;C</span>
+            </h1>
+          </div>
+          <div class="forecast" id="forecast"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>
