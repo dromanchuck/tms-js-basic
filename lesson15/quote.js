@@ -5,6 +5,7 @@ import { Paragraph } from "../components/paragraph.js";
 import { QuoteService } from "./services/QuoteService.js";
 
 let quoteContainer = new Container();
+
 let button = document.createElement('button');
 button.innerText = 'Get random quote';
 
@@ -19,12 +20,27 @@ async function showQuoteOfDay() {
     let quoteElem = new Paragraph(result.quote);
 
     quoteContainer.addChild(title,authorElem, quoteElem);
+
+
+async function showQuoteOfDay() {
+  try {
+    let { author, quote } = await QuoteService.getQuote();
+    let title = new Header("Цитата дня");
+    let authorElem = new Paragraph(author);
+    let quoteElem = new Paragraph(quote);
+
+    quoteContainer.addChild(title, authorElem, quoteElem);
+
   } catch (e) {
     console.log(e);
   }
 }
 
+
 button.addEventListener('click', showQuoteOfDay)
 document.body.append(button);
+
+showQuoteOfDay();
+
 
 export { quoteContainer };
