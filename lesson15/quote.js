@@ -5,6 +5,15 @@ import { Paragraph } from "../components/paragraph.js";
 import { QuoteService } from "./services/QuoteService.js";
 
 let quoteContainer = new Container();
+let buttonRefresh = document.createElement('button')
+
+buttonRefresh.innerHTML = 'Refresh';
+
+document.body.append(buttonRefresh)
+
+buttonRefresh.onclick = () =>{
+  showQuoteOfDay();
+}
 
 async function showQuoteOfDay() {
   try {
@@ -19,6 +28,6 @@ async function showQuoteOfDay() {
   }
 }
 
-showQuoteOfDay();
+// showQuoteOfDay();
 
 export { quoteContainer };

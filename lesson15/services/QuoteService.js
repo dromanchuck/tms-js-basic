@@ -1,4 +1,5 @@
 const QUOTE_URL = "https://quotes.rest/qod";
+// const QUOTE_URL = "https://quotes.rest/qoute/random";
 
 export class QuoteService {
   static async getQuote() {
@@ -12,6 +13,11 @@ export class QuoteService {
 
       let [quoteData] = quotes;
       let { quote, author } = quoteData;
+
+      let randomQuote = data[Math.floor(Math.random() * data.length)];
+
+      randomQuote = { quote, author }
+      console.log(randomQuote)
 
       return { quote, author };
     } catch (e) {
