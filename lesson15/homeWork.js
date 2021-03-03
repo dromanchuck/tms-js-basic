@@ -14,9 +14,51 @@
  * Ссылка на API https://quotes.rest/
  */
 
+// Использовал другую API, в условии - платная.
+
 /**
  * Задание 2
  * Написать мини приложение "напоминалка". Оно должно содержать инпут и кнопку.
  * В инпут необходимо ввести время (минут) через сколько должна сработать напоминалка(alert с сообщением)
  * + как только пришло время должен сработать звуковой сигнал (погуглить как работать с звуком в js).
  */
+
+let reminder = document.createElement('div');
+let reminderInput = document.createElement('input');
+let reminderButton = document.createElement('button');
+reminderInput.setAttribute('type', 'number');
+reminderInput.setAttribute('placeholder', 'Enter the number of minutes');
+reminderButton.innerText = 'Set timer';
+reminder.append(reminderInput, reminderButton);
+document.body.append(reminder);
+
+let timerSound = document.createElement('audio');
+timerSound.src = 'alert.mp3';
+
+let end;
+let timer;
+
+reminderInput.onblur = () => {
+  reminderInput.style = 'outline-color: black';
+};
+
+reminderButton.addEventListener('click', () => {
+  if (!reminderInput.value) {
+    reminderInput.style = 'outline-color: red';
+    reminderInput.focus();
+    return;
+  }
+  let endDate = new Date(Date.now() + reminderInput.value * 6e4);
+  end = endDate;
+  let timerID = setInterval(checkTimer, 1000);
+  timer = timerID;
+});
+
+function checkTimer() {
+  let current = Date.now();
+  if (current >= end) {
+    timerSound.play();
+    alert('Time out');
+    clearInterval(timer);
+  }
+}
