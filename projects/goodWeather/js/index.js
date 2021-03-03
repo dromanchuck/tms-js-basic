@@ -9,6 +9,9 @@ let humidity = document.getElementById("humidity");
 let fahrenheit = document.getElementById("fahrenheit");
 let celsius = document.getElementById("celsius");
 let form = document.querySelector("form");
+let panel = document.getElementById("panel");
+let preloader = document.getElementById("preloader");
+let dt = document.getElementById("dt");
 
 let cityText = "Глубокое";
 let units = "imperial";
@@ -34,8 +37,16 @@ celsius.onclick = () => {
 };
 
 form.onsubmit = function (event) {
-  let data = new FormData(form);
-  console.log({ event, data }, data.get("go"));
+  event.preventDefault();
+  let input = event.target[0];
+
+  WeatherService.getWeatherByText(input.value, units)
+    .then((result) => renderWeatherData(result))
+    .catch(() => {
+      input.value = "";
+
+      alert("Не вводи такой ерунды больше никогда!");
+    });
 };
 
 WeatherService.getWeatherByText(cityText).then((result) =>
@@ -45,6 +56,11 @@ WeatherService.getWeatherByText(cityText).then((result) =>
 function renderWeatherData(weatherData) {
   console.log({ weatherData });
 
+  if (weatherData?.name) {
+    panel.classList.remove("transparent");
+    preloader.classList.remove("active");
+  }
+
   temp.innerHTML = weatherData.main.temp;
   city.innerHTML = weatherData.name;
   description.innerHTML = weatherData.weather[0].description;
@@ -52,10 +68,23 @@ function renderWeatherData(weatherData) {
   let windText = `${weatherData.wind.speed} ${
     units === "metric" ? "km/h" : "mph"
   }`;
+
   wind.innerHTML = windText;
 
   let humidityText = `${weatherData.main.humidity}%`;
 
   humidity.innerHTML = humidityText;
   icon.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`;
+
+  showDate();
+
+  WeatherService.getForecast(weatherData.name, units).then((result) =>
+    console.log({ result })
+  );
+}
+
+function showDate() {
+  let date = new Date();
+
+  dt.append(date.toLocaleDateString());
 }
