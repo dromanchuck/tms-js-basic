@@ -10,7 +10,11 @@ let container = document.createElement('div');
 let input = document.createElement('input');
 let ul = document.createElement('ul');
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> 6783e2f910bce3cbdfcfc3f03a8cc1ce5c390452
+>>>>>>> 614ab57e03302330f2c1385e0fac24657c2d990c
 
 function getID() {
   return '_' + Math.random().toString(36).substr(2, 9);
