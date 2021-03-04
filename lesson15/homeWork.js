@@ -20,3 +20,23 @@
  * В инпут необходимо ввести время (минут) через сколько должна сработать напоминалка(alert с сообщением)
  * + как только пришло время должен сработать звуковой сигнал (погуглить как работать с звуком в js).
  */
+
+import { Container } from '../components/container.js';
+import { Input } from '../components/input.js';
+import { Button } from '../components/buttons.js';
+
+let container = new Container();
+let input = new Input('enter time');
+let button = new Button('set timer');
+
+container.addChild(input, button);
+document.body.append(container.getElement());
+
+let audio = new Audio(`./sound.mp3`);
+
+button.onClick(() => {
+  setTimeout(() => {
+    audio.play();
+    alert('alert');
+  }, input.getValue() * 1000);
+});
