@@ -7,6 +7,8 @@
  * Код решения должен быть сразу же после самого задания
  */
 
+const RANDOM_QUOTE_URL = "https://type.fit/api/quotes";
+
 /**
  * Задание 1
  * Дописать цитатник из файла qoute.js. Добавить кнопку и сделать так, чтобы по нажатию на
@@ -20,3 +22,25 @@
  * В инпут необходимо ввести время (минут) через сколько должна сработать напоминалка(alert с сообщением)
  * + как только пришло время должен сработать звуковой сигнал (погуглить как работать с звуком в js).
  */
+
+let input = document.createElement(`input`);
+let button = document.createElement(`button`);
+let message = `Вспомни, что ты должен сделать!`;
+document.body.append(input, button);
+input.placeholder = `Введите количество минут`;
+input.setAttribute(`size`, `40px`);
+
+button.innerText = `Напомнить!`;
+
+function alarm() {
+  alert(message);
+  let audio = new Audio(`https://freesound.org/people/Nandoo1/sounds/110268/`);
+
+  audio.preload = `auto`;
+  audio.src = `https://freesound.org/people/Nandoo1/sounds/110268/`;
+  audio.play();
+}
+
+button.onclick = function () {
+  setTimeout(alarm, Number(input.value) * 1000);
+};
