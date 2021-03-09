@@ -12,6 +12,12 @@ let form = document.querySelector("form");
 let panel = document.getElementById("panel");
 let preloader = document.getElementById("preloader");
 let dt = document.getElementById("dt");
+let forecast = document.getElementById("forecast");
+
+forecast.style = `
+  display: flex;
+  justify-content: space-around;
+`;
 
 let cityText = "Глубокое";
 let units = "imperial";
@@ -54,8 +60,6 @@ WeatherService.getWeatherByText(cityText).then((result) =>
 );
 
 function renderWeatherData(weatherData) {
-  console.log({ weatherData });
-
   if (weatherData?.name) {
     panel.classList.remove("transparent");
     preloader.classList.remove("active");
@@ -78,13 +82,37 @@ function renderWeatherData(weatherData) {
 
   showDate();
 
-  WeatherService.getForecast(weatherData.name, units).then((result) =>
-    console.log({ result })
-  );
+  WeatherService.getForecast(weatherData.name, units).then((result) => {
+    let { list } = result;
+
+    let elemArr = list.map((item) => {
+      return ForecastItem({ maxTemp: item.temp.max, minTemp: item.temp.min });
+    });
+
+    forecast.innerHTML = "";
+    forecast.append(...elemArr);
+  });
 }
 
 function showDate() {
   let date = new Date();
 
-  dt.append(date.toLocaleDateString());
+  dt.innerHTML = date.toLocaleDateString();
+}
+
+function ForecastItem({ maxTemp, minTemp }) {
+  let div = document.createElement("div");
+
+  div.style = `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 33px;
+  `;
+
+  div.innerHTML = `<h1>${maxTemp}</h1>  
+  <h2>${minTemp}</h2>`;
+
+  return div;
 }
