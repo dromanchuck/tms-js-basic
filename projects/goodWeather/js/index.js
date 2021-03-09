@@ -69,9 +69,8 @@ function renderWeatherData(weatherData) {
   city.innerHTML = weatherData.name;
   description.innerHTML = weatherData.weather[0].description;
 
-  let windText = `${weatherData.wind.speed} ${
-    units === "metric" ? "km/h" : "mph"
-  }`;
+  let windText = `${weatherData.wind.speed} ${units === "metric" ? "km/h" : "mph"
+    }`;
 
   wind.innerHTML = windText;
 
@@ -84,9 +83,10 @@ function renderWeatherData(weatherData) {
 
   WeatherService.getForecast(weatherData.name, units).then((result) => {
     let { list } = result;
+    console.log(list)
 
     let elemArr = list.map((item) => {
-      return ForecastItem({ maxTemp: item.temp.max, minTemp: item.temp.min });
+      return ForecastItem({ sunrise: item.sunrise, sunset: item.sunset, date: item.dt, maxTemp: item.temp.max, minTemp: item.temp.min });
     });
 
     forecast.innerHTML = "";
@@ -100,8 +100,12 @@ function showDate() {
   dt.innerHTML = date.toLocaleDateString();
 }
 
-function ForecastItem({ maxTemp, minTemp }) {
+function ForecastItem({ sunrise, sunset, date, maxTemp, minTemp }) {
   let div = document.createElement("div");
+
+  let dateToday = new Date(date * 1000).toLocaleDateString()
+  let sunRises = new Date(sunrise * 1000).toLocaleTimeString()
+  let sunGoesDown = new Date(sunset * 1000).toLocaleTimeString()
 
   div.style = `
     display: flex;
@@ -111,8 +115,13 @@ function ForecastItem({ maxTemp, minTemp }) {
     margin-top: 33px;
   `;
 
-  div.innerHTML = `<h1>${maxTemp}</h1>  
-  <h2>${minTemp}</h2>`;
+  div.innerHTML = `
+  <p>${dateToday}</p>
+  <h3><label>Max</label> ${maxTemp}</h3>  
+  <h4><label>Min</label> ${minTemp}</h4>
+  <p>Sun rises at: ${sunRises}</p>
+  <p>Sun goes down at: ${sunGoesDown}</p>
+  `;
 
   return div;
 }

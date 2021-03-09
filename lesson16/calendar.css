@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100vh;
+    background-color: #12121f;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .calendar {
+    width: 400px;
+    height: 600px;
+    background-color: #222222;
+    border-radius: 20px;
+  }
+  
+  .month {
+    width: 100%;
+    height: 180px;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .month i {
+    font-size: 22px;
+    cursor: pointer;
+  }
+  
+  .month h1 {
+    font-size: 26px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+  }
+  
+  .month p {
+    font-size: 18px;
+  }
+  
+  .weekdays {
+    width: 100%;
+    height: 40px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .weekdays div {
+    font-size: 12px;
+    font-weight: 400;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px 8px;
+  }
+  
+  .days div {
+    font-size: 14px;
+    margin: 2px;
+    width: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .days div:hover:not(.today,.holiday,.next-date,.prev-date) {
+    background-color: #333;
+    border: 1px solid #777;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .prev-date,
+  .next-date {
+    opacity: 0.5;
+  }
+  
+  .today {
+    background-color: green;
+  }
+  .holiday {
+    background-color: red;
+  }
