@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+.days {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(7, 26px);
+  grid-template-rows: 26px;
+  grid-auto-rows: 26px;
+  margin-bottom: 4px;
+  align-items: center;
+  justify-items: center;
+}
+
+.days-item {
+  width: 22px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+}
+
+.days-item_red {
+  color: red;
+}
+
+.calendar {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(7, 26px);
+  grid-template-rows: 26px;
+  grid-auto-rows: 26px;
+  grid-row-gap: 4px;
+  align-items: center;
+  justify-items: center;
+}
+
+.calendar-item {
+  border: 1px solid black;
+  width: 22px;
+  height: 26px;
+  text-align: center;
+  line-height: 22px;
+  padding: 2px;
+}
+
+.calendar-item_red {
+  color: red;
+}
+
+.controls {
+  text-align: center;
+}
+
+.calendar-item_today {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.current-month {
+  margin-top: 10px;
+}
