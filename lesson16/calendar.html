@@ -1,74 +1,41 @@
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
     <title>Calendar</title>
-    <meta charset="utf-8" />
-    <style>
-      #calendar {
-        margin-top: 10px;
-        text-align: center;
-      }
-      .controls {
-        text-align: center;
-      }
-      .day {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        margin-left: 2px;
-        border: 1px solid #000;
-        text-align: center;
-      }
-      .day:first-child {
-        margin-left: 0px;
-      }
-      .day.today {
-        background: #000;
-        color: #fff;
-      }
-      #date {
-        margin-top: 10px;
-      }
-    </style>
   </head>
   <body>
-    <div class="controls">
-      <input type="button" id="prev" value="Предыдущий месяй" />
-      <input type="button" id="next" value="Следующий месяц" />
-      <div id="date">2021 Март</div>
-    </div>
-    <div id="calendar">
-      <div class="day">1</div>
-      <div class="day">2</div>
-      <div class="day">3</div>
-      <div class="day">4</div>
-      <div class="day">5</div>
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day today">9</div>
-      <div class="day">10</div>
-      <div class="day">11</div>
-      <div class="day">12</div>
-      <div class="day">13</div>
-      <div class="day">14</div>
-      <div class="day">15</div>
-      <div class="day">16</div>
-      <div class="day">17</div>
-      <div class="day">18</div>
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-      <div class="day">25</div>
-      <div class="day">26</div>
-      <div class="day">27</div>
-      <div class="day">28</div>
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day">31</div>
+    <div class="container">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">
+            <h1></h1>
+            <p></p>
+          </div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
     </div>
   </body>
+  <script src="./app.js"></script>
 </html>
