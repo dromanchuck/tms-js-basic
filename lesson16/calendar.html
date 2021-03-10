@@ -2,73 +2,62 @@
   <head>
     <title>Calendar</title>
     <meta charset="utf-8" />
-    <style>
-      #calendar {
-        margin-top: 10px;
-        text-align: center;
-      }
-      .controls {
-        text-align: center;
-      }
-      .day {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        margin-left: 2px;
-        border: 1px solid #000;
-        text-align: center;
-      }
-      .day:first-child {
-        margin-left: 0px;
-      }
-      .day.today {
-        background: #000;
-        color: #fff;
-      }
-      #date {
-        margin-top: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="./calendar.css">
   </head>
   <body>
-    <div class="controls">
-      <input type="button" id="prev" value="Предыдущий месяй" />
-      <input type="button" id="next" value="Следующий месяц" />
-      <div id="date">2021 Март</div>
-    </div>
-    <div id="calendar">
-      <div class="day">1</div>
-      <div class="day">2</div>
-      <div class="day">3</div>
-      <div class="day">4</div>
-      <div class="day">5</div>
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day today">9</div>
-      <div class="day">10</div>
-      <div class="day">11</div>
-      <div class="day">12</div>
-      <div class="day">13</div>
-      <div class="day">14</div>
-      <div class="day">15</div>
-      <div class="day">16</div>
-      <div class="day">17</div>
-      <div class="day">18</div>
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-      <div class="day">25</div>
-      <div class="day">26</div>
-      <div class="day">27</div>
-      <div class="day">28</div>
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day">31</div>
-    </div>
+    <div id="month-calendar">
+      <ul class="month">
+          <li class="month-name"></li>
+          <li class="year-name"></li>
+      </ul>
+      <div class="buttons">
+        <button class="prev button">Предыдущий месяц </button>
+        <button class="next button">Следующий месяц</button>  
+      </div>
+      <ul class="weekdays">
+          <li>Пн</li>
+          <li>Вт</li>
+          <li>Ср</li>
+          <li>Чт</li>
+          <li>Пт</li>
+          <li>Сб</li>
+          <li>Вс</li>
+      </ul>
+      <ul class="days">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>10</li>
+          <li>11</li>
+          <li>12</li>
+          <li>13</li>
+          <li>14</li>
+          <li>15</li>
+          <li>16</li>
+          <li>17</li>
+          <li>18</li>
+          <li>19</li>
+          <li>20</li>
+          <li>21</li>
+          <li>22</li>
+          <li>23</li>
+          <li>24</li>
+          <li>25</li>
+          <li>26</li>
+          <li>27</li>
+          <li>28</li>
+          <li>29</li>
+          <li>30</li>
+          <li>31</li>
+      </ul>
+  </div>
+    <script src="./homeWork.js"></script>
+  </div>
   </body>
 </html>

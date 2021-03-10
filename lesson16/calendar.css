@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: sans-serif;
+  }
+  
+  #month-calendar{
+    width: 100%;
+  }
+  
+  .month{
+    margin: 0;
+    padding: 30px 20px 20px;
+    background: #60b459c9;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    list-style: none;
+  }
+  
+  .month li{
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    line-height: 1.4;
+    font-weight: 700;
+  }
+  
+  .month li.year-name{
+    font-size: 20px;
+    font-weight: 400;
+  }
+  
+  .weekdays{
+    margin: 0;
+    padding: 10px 0;
+    background-color: #f1eaea;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .weekdays li{
+    text-align: center;
+    list-style: none;
+  }
+  
+  .days{
+    margin: 0;
+    padding: 10px;
+    background-color: #d5ead369;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 250px;
+    color: black;
+  }
+  
+  .days li{
+    padding: 15px;
+    list-style: none;
+    display: block;
+    flex: 0 0 calc(100% / 7);
+    text-align: center;
+    color: #999;
+    font-size: 15px;
+    line-height: 1;
+  }
+  .days li:hover{
+    background-color: lightgray;
+  }
+  
+  .days li.date-now{
+    color: #000;
+    font-weight: 700;
+    background: lightblue;
+  }
+  
+  .buttons {
+    position: relative;
+  }
+  .button{
+    position: absolute;
+    width: 120px;
+    background-color: #8a8a8a94;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    transition: .2s ease-in;
+  }
+  .button:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transform: translateY(-5px);
+  }
+  .prev{
+    top: -80px;
+    left: 250px;
+  }
+  .next{
+    top: -80px;
+    right: 250px;
+  }
+  
