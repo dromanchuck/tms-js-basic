@@ -1,74 +1,99 @@
 <html lang="ru">
   <head>
+    <script src=""></script>
     <title>Calendar</title>
     <meta charset="utf-8" />
     <style>
-      #calendar {
-        margin-top: 10px;
+      #calendar3 { 
+        width: 100%;
+        font: monospace;
+        line-height: 1.2em;
+        font-size: 15px;
         text-align: center;
       }
-      .controls {
-        text-align: center;
+      #calendar3 thead tr:last-child {
+        font-size: small;
+        color: rgb(85, 85, 85);
       }
-      .day {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        margin-left: 2px;
-        border: 1px solid #000;
-        text-align: center;
+      #calendar3 tbody td {
+        color: rgb(44, 86, 122);
       }
-      .day:first-child {
-        margin-left: 0px;
+      #calendar3 tbody td:nth-child(n+6), #calendar3 .holiday {
+        color: red;
       }
-      .day.today {
-        background: #000;
-        color: #fff;
+      #calendar3 tbody td.today {
+        outline: 3px solid red;
       }
-      #date {
-        margin-top: 10px;
-      }
-    </style>
+      </style>
+      
+      <table id="calendar3">
+        <thead>
+          <tr><td colspan="4"><select>
+      <option value="0">Январь</option>
+      <option value="1">Февраль</option>
+      <option value="2">Март</option>
+      <option value="3">Апрель</option>
+      <option value="4">Май</option>
+      <option value="5">Июнь</option>
+      <option value="6">Июль</option>
+      <option value="7">Август</option>
+      <option value="8">Сентябрь</option>
+      <option value="9">Октябрь</option>
+      <option value="10">Ноябрь</option>
+      <option value="11">Декабрь</option>
+      </select><td colspan="3"><input type="number" value="" min="0" max="9999" size="4">
+          <tr><td>Пн<td>Вт<td>Ср<td>Чт<td>Пт<td>Сб<td>Вс
+        <tbody>
+      </table>
+    <script>
+      function Calendar3(id, year, month) { //календарь честно украден :) 
+        let Dlast = new Date(year,month+1,0).getDate(),
+        D = new Date(year,month,Dlast),
+        DNlast = D.getDay(),
+        DNfirst = new Date(D.getFullYear(),D.getMonth(),1).getDay(),
+        calendar = '<tr>',
+        m = document.querySelector('#'+id+' option[value="' + D.getMonth() + '"]'),
+        g = document.querySelector('#'+id+' input');
+
+        if (DNfirst != 0) {
+          for(var  i = 1; i < DNfirst; i++) calendar += '<td>';
+        }else{
+          for(var  i = 0; i < 6; i++) calendar += '<td>';
+        }
+        for(var  i = 1; i <= Dlast; i++) {
+          if (i == new Date().getDate() && D.getFullYear() == new Date().getFullYear() && D.getMonth() == new Date().getMonth()) {
+            calendar += '<td class="today">' + i;
+        }else{
+          if ( 
+              (i == 1 && D.getMonth() == 0 && ((D.getFullYear() > 1897 && D.getFullYear() < 1930) || D.getFullYear() > 1947)) || 
+              (i == 2 && D.getMonth() == 0 && D.getFullYear() > 1992) || 
+              ((i == 3 || i == 4 || i == 5 || i == 6 || i == 8) && D.getMonth() == 0 && D.getFullYear() > 2004) || 
+              (i == 8 && D.getMonth() == 2 && D.getFullYear() > 1965) 
+            ) {
+            calendar += '<td class="holiday">' + i;
+          }else{
+            calendar += '<td>' + i;
+          }
+        }
+            if (new Date(D.getFullYear(),D.getMonth(),i).getDay() == 0) {
+              calendar += '<tr>';
+            }
+          }
+          for(var  i = DNlast; i < 7; i++) calendar += '<td>&nbsp;';
+          document.querySelector('#'+id+' tbody').innerHTML = calendar;
+          g.value = D.getFullYear();
+          m.selected = true;
+          if (document.querySelectorAll('#'+id+' tbody tr').length < 6) {
+              document.querySelector('#'+id+' tbody').innerHTML += '<tr><td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;';
+          }
+          document.querySelector('#'+id+' option[value="' + new Date().getMonth() + '"]').style.color = 'rgb(220, 0, 0)'; 
+          }
+          Calendar3("calendar3",new Date().getFullYear(),new Date().getMonth());
+          document.querySelector('#calendar3').onchange = function Kalendar3() {
+            Calendar3("calendar3",document.querySelector('#calendar3 input').value,parseFloat(document.querySelector('#calendar3 select').options[document.querySelector('#calendar3 select').selectedIndex].value));
+          }
+    </script>
   </head>
   <body>
-    <div class="controls">
-      <input type="button" id="prev" value="Предыдущий месяй" />
-      <input type="button" id="next" value="Следующий месяц" />
-      <div id="date">2021 Март</div>
-    </div>
-    <div id="calendar">
-      <div class="day">1</div>
-      <div class="day">2</div>
-      <div class="day">3</div>
-      <div class="day">4</div>
-      <div class="day">5</div>
-      <div class="day">6</div>
-      <div class="day">7</div>
-      <div class="day">8</div>
-      <div class="day today">9</div>
-      <div class="day">10</div>
-      <div class="day">11</div>
-      <div class="day">12</div>
-      <div class="day">13</div>
-      <div class="day">14</div>
-      <div class="day">15</div>
-      <div class="day">16</div>
-      <div class="day">17</div>
-      <div class="day">18</div>
-      <div class="day">19</div>
-      <div class="day">20</div>
-      <div class="day">21</div>
-      <div class="day">22</div>
-      <div class="day">23</div>
-      <div class="day">24</div>
-      <div class="day">25</div>
-      <div class="day">26</div>
-      <div class="day">27</div>
-      <div class="day">28</div>
-      <div class="day">29</div>
-      <div class="day">30</div>
-      <div class="day">31</div>
-    </div>
   </body>
 </html>
