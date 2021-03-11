@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.calendarBlock{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    border: 1px solid teal;
+    border-radius: 15px;
+    width: 200px;
+    height: 240px;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 25px);
+    grid-auto-rows: 25px;
+}
+
+#daysOfWeek {
+    display: grid;
+    grid-template-columns: repeat(7, 25px);
+    grid-auto-rows: 20px;
+
+    margin-bottom: 10px;
+    color: #005757;
+}
+
+.weekends {
+    font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-size: 20px;
+  width: 200px;
+  height: 45px;
+  color: white;
+  background-color: teal;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 10px;
+}
+#prev,
+#next {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+#prev:hover,
+#next:hover {
+opacity: 0.6;
+}
+
+#prev:active,
+#next:active {
+opacity: 1;
+}
+
+#date {
+    margin: 0 10px;
+}
+.day {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  
+  border: 1px solid #8cc0c0;
+  text-align: center;
+  color: #114242;
+}
+
+.day:first-child {
+  margin-left: 0px;
+}
+
+.day.today {
+  background: #039999;
+  color: #fff;
+}
+
+#date {
+  margin-top: 10px;
+  width: 150px;
+}
+    
+.publicHoliday {
+  border-radius:50%;
+  background-color: rgb(228, 252, 250);
+  
+}
