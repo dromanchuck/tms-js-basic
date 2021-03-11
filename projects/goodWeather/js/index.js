@@ -42,7 +42,10 @@ form.onsubmit = function (event) {
   let input = event.target[0];
 
   WeatherService.getWeatherByText(input.value, units)
-    .then((result) => renderWeatherData(result))
+    .then((result) => {
+      renderWeatherData(result);
+      cityText = input.value;
+    })
     .catch(() => {
       input.value = '';
 
@@ -50,9 +53,10 @@ form.onsubmit = function (event) {
     });
 };
 
-WeatherService.getWeatherByText(cityText).then((result) =>
-  renderWeatherData(result)
-);
+WeatherService.getWeatherByText(cityText).then((result) => {
+  renderWeatherData(result);
+  console.log(result);
+});
 
 function renderWeatherData(weatherData) {
   if (weatherData?.name) {

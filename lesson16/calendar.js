@@ -6,7 +6,7 @@ const calendarTemplate = document.querySelector('#calendar');
 const currentMonth = new Date().getMonth();
 const currentYear = new Date().getFullYear();
 
-let months = [
+const months = [
   'Январь',
   'Февраль',
   'Март',
@@ -21,7 +21,7 @@ let months = [
   'Декабрь',
 ];
 
-let holidays = [
+const holidays = [
   { month: 0, day: 1 },
   { month: 0, day: 7 },
   { month: 2, day: 8 },
@@ -41,9 +41,8 @@ function showCurrentMonthDays(month, year) {
   let template = document.createElement('div');
   template.classList.add('calendar');
   let firstDay = new Date(year, month).getDay();
-  console.log(firstDay);
   if (firstDay >= 2) {
-    for (let i = 2; i < firstDay; i++) {
+    for (let i = 1; i < firstDay; i++) {
       let div = document.createElement('div');
       template.append(div);
     }
@@ -97,6 +96,7 @@ let cbYear = currentYear;
 prevMonthButton.addEventListener('click', () => {
   let month = cbMonth ? --cbMonth : ((cbMonth = 11), 11);
   let year = cbMonth === 11 ? --cbYear : cbYear;
+  console.log(month, year);
   render(month, year);
 });
 
