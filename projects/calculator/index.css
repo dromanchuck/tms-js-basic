@@ -12,8 +12,7 @@ body {
   background-color: #dfd8d0;
   border: 2px solid #908b85;
   border-radius: 20px;
-  box-shadow: 7px 10px 34px 1px rgba(0, 0, 0, 0.68),
-    inset -1px -6px 12px 0.1px #89847e;
+  box-shadow: 7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #89847e;
 }
 
 #title {
@@ -34,6 +33,7 @@ body {
 #entry {
   margin-right: 10px;
   font-size: 35px;
+  text-align: right;
 }
 
 #buttons {

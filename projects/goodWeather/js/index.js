@@ -2,16 +2,24 @@ import { WeatherService } from "./WeatherService.js";
 
 let temp = document.getElementById("condition");
 let city = document.getElementById("city");
+
 let description = document.getElementById("description");
+
 let icon = document.getElementById("icon");
 let wind = document.getElementById("wind");
+
 let humidity = document.getElementById("humidity");
+
 let fahrenheit = document.getElementById("fahrenheit");
+
 let celsius = document.getElementById("celsius");
 let form = document.querySelector("form");
 let panel = document.getElementById("panel");
+
 let preloader = document.getElementById("preloader");
+
 let dt = document.getElementById("dt");
+
 let forecast = document.getElementById("forecast");
 
 forecast.style = `
@@ -27,9 +35,8 @@ fahrenheit.onclick = () => {
   celsius.classList.remove("active");
 
   units = "imperial";
-  WeatherService.getWeatherByText(cityText, units).then((result) =>
-    renderWeatherData(result)
-  );
+
+  WeatherService.getWeatherByText(cityText, units).then((result) => renderWeatherData(result));
 };
 
 celsius.onclick = () => {
@@ -37,9 +44,8 @@ celsius.onclick = () => {
   fahrenheit.classList.remove("active");
 
   units = "metric";
-  WeatherService.getWeatherByText(cityText, units).then((result) =>
-    renderWeatherData(result)
-  );
+
+  return units;
 };
 
 form.onsubmit = function (event) {
@@ -55,9 +61,7 @@ form.onsubmit = function (event) {
     });
 };
 
-WeatherService.getWeatherByText(cityText).then((result) =>
-  renderWeatherData(result)
-);
+WeatherService.getWeatherByText(cityText).then((result) => renderWeatherData(result));
 
 function renderWeatherData(weatherData) {
   if (weatherData?.name) {
@@ -67,11 +71,10 @@ function renderWeatherData(weatherData) {
 
   temp.innerHTML = weatherData.main.temp;
   city.innerHTML = weatherData.name;
+
   description.innerHTML = weatherData.weather[0].description;
 
-  let windText = `${weatherData.wind.speed} ${
-    units === "metric" ? "km/h" : "mph"
-  }`;
+  let windText = `${weatherData.wind.speed} ${units === "metric" ? "km/h" : "mph"}`;
 
   wind.innerHTML = windText;
 
@@ -86,7 +89,10 @@ function renderWeatherData(weatherData) {
     let { list } = result;
 
     let elemArr = list.map((item) => {
-      return ForecastItem({ maxTemp: item.temp.max, minTemp: item.temp.min });
+      return ForecastItem({
+        maxTemp: item.temp.max,
+        minTemp: item.temp.min,
+      });
     });
 
     forecast.innerHTML = "";
