@@ -1,1 +1,1 @@
-# tms-js-basic
+# TMS-JS-Basic
